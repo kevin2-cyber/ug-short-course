@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                       xmlns:tools="http://schemas.android.com/tools"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="match_parent"
+                                       android:padding="16dp"
+                                       android:gravity="center_horizontal"
+                                       android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat android:layout_width="match_parent"
+                                                  android:layout_height="match_parent"
+                                                  android:padding="16dp"
+                                                  android:gravity="center_horizontal"
+                                                  android:orientation="vertical">
+
+        <!--Title-->
+        <TextView android:layout_width="wrap_content"
+                  android:text="@string/about_us"
+                  android:fontFamily="@font/laila_semibold"
+                  android:textSize="22sp"
+                  android:layout_height="wrap_content"/>
+
+        <!--Image-->
+        <ImageView android:layout_width="match_parent"
+                   android:src="@drawable/logo_app"
+                   android:layout_height="200dp"
+                   android:layout_marginTop="16dp"/>
+
+        <!--Content-->
+        <TextView android:layout_width="match_parent"
+                  tools:text="@tools:sample/lorem/random"
+                  android:layout_height="wrap_content"
+                  android:maxLines="20"
+                  android:id="@+id/church_background_info"
+                  android:fontFamily="@font/laila"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginTop="36dp"
+                  android:fontFamily="@font/laila_medium"
+                  android:text="@string/copyright"
+                  android:layout_height="wrap_content"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.core.widget.NestedScrollView>

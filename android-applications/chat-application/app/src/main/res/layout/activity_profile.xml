@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                     xmlns:tools="http://schemas.android.com/tools"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     android:fitsSystemWindows="true"
+                                                     android:id="@+id/container"
+                                                     tools:context=".view.ProfileActivity">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"
+                                                     android:background="@color/colorAccent"
+                                                     app:elevation="0dp"
+                                                     android:id="@+id/app_bar">
+
+        <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
+                                           android:layout_height="wrap_content"
+                                           android:id="@+id/toolbar"
+                                           app:navigationIcon="@drawable/ic_back"
+                                           app:title="@string/empty_text"
+                                           app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginEnd="@dimen/padding_large"
+                      android:gravity="center"
+                      android:ellipsize="end"
+                      android:maxLines="1"
+                      android:text="@string/empty_text"
+                      android:id="@+id/toolbar_title"
+                      android:textSize="20sp"
+                      android:textColor="@android:color/white"
+                      android:fontFamily="@font/nunito_sans_bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView android:layout_width="128dp" android:layout_height="128dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:src="@drawable/avatar_placeholder"
+                   android:id="@+id/avatar"
+                   android:layout_marginTop="@dimen/padding_large"/>
+
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  android:padding="@dimen/padding_normal"
+                  android:layout_marginTop="@dimen/padding_normal"
+                  app:layout_constraintTop_toBottomOf="@id/avatar"
+                  android:gravity="center"
+                  android:ellipsize="end"
+                  android:maxLines="3"
+                  tools:text="@string/dummy_text"
+                  android:id="@+id/user_status"
+                  android:textSize="16sp"
+                  android:fontFeatureSettings="smcp,onum"
+                  android:textColor="@color/text_secondary_dark"
+                  android:fontFamily="@font/nunito_sans_semibold"/>
+
+        <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                                                           android:layout_height="wrap_content"
+                                                           app:layout_constraintTop_toBottomOf="@id/user_status"
+                                                           app:layout_constraintStart_toStartOf="parent"
+                                                           app:layout_constraintEnd_toEndOf="parent"
+                                                           style="@style/ChatAppTheme.Button"
+                                                           app:icon="@drawable/ic_chat"
+                                                           android:text="@string/add_chat"
+                                                           android:id="@+id/chat_button"
+                                                           app:iconPadding="@dimen/padding_normal"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

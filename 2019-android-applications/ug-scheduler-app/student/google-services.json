@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "226136565389",
+    "firebase_url": "https://ugscheduler.firebaseio.com",
+    "project_id": "ugscheduler",
+    "storage_bucket": "ugscheduler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226136565389:android:472ecc2f77bcbf0f",
+        "android_client_info": {
+          "package_name": "dev.ugscheduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226136565389-vmujqb5aqtuosq8499erqm02k7b617m5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.ugscheduler",
+            "certificate_hash": "81fa8d10b6591dd643702e6af7d404acbc3cd8b2"
+          }
+        },
+        {
+          "client_id": "226136565389-fjovtng02aornvjatjihjdvbnlttvko4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.ugscheduler",
+            "certificate_hash": "67733af4755456aa77ff0e99652896f3d56016c3"
+          }
+        },
+        {
+          "client_id": "226136565389-mgdg0bfkl6h1t7shgdm9hlecis2u600j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx7LP1dpKBBZehAfWYdMcbtrzkwnDT6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226136565389-mgdg0bfkl6h1t7shgdm9hlecis2u600j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226136565389:android:6f0bc6ec76d33cda4764c4",
+        "android_client_info": {
+          "package_name": "dev.ugscheduler.alpha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226136565389-0mh6seao5soi3904h37bkuvqcpvk5jki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.ugscheduler.alpha",
+            "certificate_hash": "81fa8d10b6591dd643702e6af7d404acbc3cd8b2"
+          }
+        },
+        {
+          "client_id": "226136565389-mgdg0bfkl6h1t7shgdm9hlecis2u600j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx7LP1dpKBBZehAfWYdMcbtrzkwnDT6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226136565389-mgdg0bfkl6h1t7shgdm9hlecis2u600j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

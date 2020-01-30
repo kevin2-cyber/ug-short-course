@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                                                       android:layout_height="wrap_content"
+                                                       app:layout_constraintBottom_toBottomOf="parent"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       app:icon="@drawable/ic_edit"
+                                                       android:id="@+id/fab_edit"
+                                                       style="@style/ChatAppTheme.Button"
+                                                       android:text="@string/edit"/>
+
+    <ImageView android:layout_width="96dp" android:layout_height="96dp"
+               app:layout_constraintStart_toStartOf="parent"
+               android:id="@+id/avatar"
+               android:layout_marginTop="@dimen/padding_normal"
+               android:paddingStart="@dimen/padding_normal"
+               android:paddingEnd="@dimen/zero_padding"
+               app:layout_constraintTop_toTopOf="parent"
+               android:src="@drawable/avatar_placeholder"/>
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              tools:text="@string/dummy_name"
+              android:textSize="22sp"
+              android:fontFamily="@font/nunito_sans_bold"
+              android:fontFeatureSettings="smcp"
+              app:layout_constraintStart_toEndOf="@id/avatar"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="@id/avatar"
+              android:layout_marginTop="@dimen/padding_normal"
+              android:maxLines="1"
+              android:textColor="@color/text_primary_dark"
+              android:layout_marginStart="@dimen/padding_normal"
+              android:paddingEnd="@dimen/padding_large"
+              android:ellipsize="end"
+              android:id="@+id/user_name"/>
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              tools:text="@string/dummy_text"
+              android:textSize="14sp"
+              android:fontFamily="@font/nunito_sans_semibold"
+              android:fontFeatureSettings="smcp"
+              app:layout_constraintStart_toEndOf="@id/avatar"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/user_name"
+              android:textColor="@color/text_tertiary_dark"
+              android:maxLines="3"
+              android:paddingEnd="@dimen/padding_large"
+              android:layout_marginStart="@dimen/padding_normal"
+              android:ellipsize="end"
+              android:id="@+id/user_status"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

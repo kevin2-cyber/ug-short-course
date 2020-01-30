@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph.xml"
+    app:startDestination="@id/navigation_home"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@id/navigation_home"
+        android:name="dev.ugscheduler.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_course_details"
+            app:destination="@id/navigation_course_details" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_login"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_logout"
+            app:destination="@id/navigation_logout" />
+    </fragment>
+    <fragment
+        android:id="@id/navigation_about"
+        android:name="dev.ugscheduler.ui.about.AboutFragment"
+        android:label="@string/title_about"
+        tools:layout="@layout/about_fragment" />
+    <fragment
+        android:id="@id/navigation_chat"
+        android:name="dev.ugscheduler.ui.chat.ChatFragment"
+        android:label="@string/title_chat"
+        tools:layout="@layout/chat_fragment" />
+    <fragment
+        android:id="@id/navigation_my_courses"
+        android:name="dev.ugscheduler.ui.course.MyCoursesFragment"
+        android:label="@string/title_my_courses"
+        tools:layout="@layout/fragment_my_courses" />
+    <fragment
+        android:id="@id/navigation_course_details"
+        android:name="dev.ugscheduler.ui.course.CourseDetailsFragment"
+        android:label="@string/title_course_details"
+        tools:layout="@layout/fragment_course_details" >
+        <action
+            android:id="@+id/action_navigation_course_details_to_navigation_facilitator"
+            app:destination="@id/navigation_facilitator" />
+        <action
+            android:id="@+id/action_navigation_course_details_to_navigation_enrol"
+            app:destination="@id/navigation_enrol" />
+    </fragment>
+    <fragment
+        android:id="@id/navigation_map"
+        android:name="dev.ugscheduler.ui.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/map_fragment" />
+    <fragment
+        android:id="@id/navigation_search"
+        android:name="dev.ugscheduler.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@id/navigation_enrol"
+        android:name="dev.ugscheduler.ui.enrol.EnrolFragment"
+        android:label="@string/title_enrol"
+        tools:layout="@layout/fragment_enrol_course" />
+    <fragment
+        android:id="@id/navigation_settings"
+        android:name="dev.ugscheduler.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@id/navigation_sessions"
+        android:name="dev.ugscheduler.ui.sessions.SessionsFragment"
+        android:label="@string/title_sessions"
+        tools:layout="@layout/session_fragment" />
+    <dialog
+        android:id="@id/navigation_login"
+        android:name="dev.ugscheduler.ui.auth.SignInFragment"
+        android:label="@string/sign_in"
+        tools:layout="@layout/sign_in_fragment" />
+    <dialog
+        android:id="@id/navigation_logout"
+        android:name="dev.ugscheduler.ui.auth.SignOutFragment"
+        android:label="@string/sign_out"
+        tools:layout="@layout/sign_out_fragment" />
+    <fragment
+        android:id="@id/navigation_preview"
+        android:name="dev.ugscheduler.ui.media.ImagePreviewFragment"
+        android:label="@string/title_preview"
+        tools:layout="@layout/image_preview_fragment" />
+    <fragment
+        android:id="@id/navigation_news"
+        android:name="dev.ugscheduler.ui.news.NewsFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/news_fragment" />
+    <dialog
+        android:id="@id/navigation_facilitator"
+        android:name="dev.ugscheduler.ui.profile.ProfileFragment"
+        android:label="@string/title_facilitator"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

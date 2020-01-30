@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<resources>
+    <color name="color_primary">@color/cornflower_blue</color>
+    <color name="color_primary_variant">@color/zeber_primary_dark_new</color>
+    <color name="color_secondary">@color/zeber_primary_super_dark</color>
+    <color name="color_secondary_variant">@color/zeber_primary_super_dark</color>
+
+    <color name="color_background">#212121</color>
+    <color name="color_surface">#121212</color>
+    <color name="color_error">#cf6679</color>
+
+    <color name="color_on_primary">#212121</color>
+    <color name="color_on_secondary">#212121</color>
+    <color name="color_on_background">#ffffff</color>
+    <color name="color_on_surface">#ffffff</color>
+    <color name="color_on_error">#212121</color>
+    <color name="color_scrim">#00cfcfcf</color>
+
+    <color name="content_placeholder">#FF9F9D9D</color>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Sample News App</string>
+    <string name="app_desc">This is a sample news reading application which fetches data from newsapi.org</string>
+    <string name="title_activity_news">Sample News</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="cnbc">CNBC</string>
+    <string name="techcrunch">TechCrunch</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="gray_50">#DAE6E5</color>
+    <color name="gray_300">#C1C6C6</color>
+    <color name="page_one">#E57373</color>
+    <color name="page_two">#F06292</color>
+    <color name="page_three">#BA68C8</color>
+    <color name="page_four">#DCE775</color>
+    <color name="page_five">#4DD0E1</color>
+</resources>

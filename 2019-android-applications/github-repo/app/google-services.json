@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "753807035982",
+    "firebase_url": "https://github-api-tutorials.firebaseio.com",
+    "project_id": "github-api-tutorials",
+    "storage_bucket": "github-api-tutorials.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753807035982:android:6af13f2d24230587",
+        "android_client_info": {
+          "package_name": "io.codelabs.githubrepo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753807035982-4o7del54ihknrnp851dipodrlqbd2fd9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.codelabs.githubrepo",
+            "certificate_hash": "cb92d7dcb746fcb9ca8da310e09d08c898b9af31"
+          }
+        },
+        {
+          "client_id": "753807035982-v3d8sbiaoc6812137kvh21egq1sfhmb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.codelabs.githubrepo",
+            "certificate_hash": "67733af4755456aa77ff0e99652896f3d56016c3"
+          }
+        },
+        {
+          "client_id": "753807035982-687in4m2shr6ev66js3r4bca6bir1ibm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA42XydcB-J-DvDpGuFGEI_3MLPbLw7Vuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753807035982-687in4m2shr6ev66js3r4bca6bir1ibm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

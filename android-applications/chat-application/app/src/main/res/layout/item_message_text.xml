@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:padding="@dimen/padding_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       app:layout_constraintTop_toTopOf="parent"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       android:id="@+id/sender_message_container">
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/sender_message_text"
+                  android:gravity="end"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:fontFamily="@font/nunito_sans_semibold"
+                  android:fontFeatureSettings="smcp,onum"
+                  tools:text="This is my number \n0554022344"
+                  android:maxLines="12"
+                  android:textSize="16sp"
+                  android:paddingStart="@dimen/padding_large"
+                  android:textColor="@color/text_primary_dark"
+                  android:ellipsize="end"/>
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/sender_message_timestamp"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/sender_message_text"
+                  android:fontFamily="@font/nunito_sans_italic"
+                  android:fontFeatureSettings="smcp,onum"
+                  tools:text="~30 seconds ago"
+                  android:maxLines="1"
+                  android:textSize="14sp"
+                  android:textColor="@color/text_tertiary_dark"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       app:layout_constraintTop_toBottomOf="@id/sender_message_container"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       android:id="@+id/recipient_message_container">
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/recipient_message_text"
+                  android:gravity="start"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:fontFamily="@font/nunito_sans_semibold"
+                  android:fontFeatureSettings="smcp,onum"
+                  tools:text="Thank you very much at all!"
+                  android:paddingEnd="@dimen/padding_large"
+                  android:maxLines="12"
+                  android:textSize="16sp"
+                  android:textColor="@color/text_primary_dark"
+                  android:maxWidth="300dp"
+                  android:ellipsize="end"/>
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/recipient_message_timestamp"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/recipient_message_text"
+                  android:fontFamily="@font/nunito_sans_italic"
+                  android:fontFeatureSettings="smcp,onum"
+                  tools:text="~30 seconds ago"
+                  android:maxLines="1"
+                  android:textSize="14sp"
+                  android:textColor="@color/text_tertiary_dark"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:foreground="?selectableItemBackgroundBorderless"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/chat_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/chat_avatar"
+        app:layout_constraintTop_toBottomOf="@id/chat_display_name"
+        android:textAppearance="?textAppearanceSubtitle2"
+        android:alpha="0.7"
+        android:layout_marginTop="@dimen/padding_small"
+        android:layout_marginStart="@dimen/padding_normal"
+        tools:text="+321341545456" />
+
+    <TextView
+        android:id="@+id/chat_display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/chat_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="?textAppearanceBody2"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginStart="@dimen/padding_normal"
+        tools:text="@tools:sample/lorem" />
+
+
+    <ImageView
+        android:layout_width="@dimen/large_avatar_size"
+        android:layout_height="@dimen/large_avatar_size"
+        android:src="@drawable/chat_avatar"
+        android:id="@+id/chat_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:paddingStart="@dimen/margin_normal"
+    android:paddingTop="@dimen/spacing_micro"
+    android:paddingEnd="@dimen/margin_normal"
+    android:paddingBottom="@dimen/spacing_micro">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/agenda_icon_width"
+        android:layout_height="@dimen/agenda_icon_width"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_default_avatar_1" />
+
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/agenda_block_padding_vertical"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:textAlignment="viewStart"
+        android:textAppearance="?textAppearanceListItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/course_duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="?alphaMedium"
+        android:paddingBottom="@dimen/agenda_block_padding_vertical"
+        android:textAlignment="viewStart"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textAppearance="?textAppearanceBody2"
+        app:layout_constraintEnd_toEndOf="@id/course_name"
+        app:layout_constraintStart_toStartOf="@id/course_name"
+        app:layout_constraintTop_toBottomOf="@id/course_name"
+        tools:text="8:00 AM - 7:00 PM" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

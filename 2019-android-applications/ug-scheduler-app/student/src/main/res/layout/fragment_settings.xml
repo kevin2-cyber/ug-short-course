@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        style="@style/Widget.IOSched.AppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:navigationContentDescription="@string/title_settings"
+            app:navigationIcon="@drawable/ic_menu"
+            app:title="@string/title_settings" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <dev.ugscheduler.shared.widgets.CustomSwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_normal">
+
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="@dimen/speaker_large_headshot_size"
+                android:layout_height="@dimen/speaker_large_headshot_size"
+                android:src="@drawable/ic_default_avatar_3" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:gravity="center"
+                android:padding="@dimen/spacing_micro"
+                android:textAppearance="?textAppearanceHeadline6"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:alpha="?alphaMedium"
+                android:gravity="center"
+                android:textAppearance="?textAppearanceSubtitle2"
+                tools:text="@tools:sample/lorem" />
+
+            <View
+                android:layout_width="@dimen/nav_drawer_width"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/speaker_large_headshot_size"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/speaker_large_headshot_size"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:background="?android:attr/listDivider" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/speaker_large_headshot_size"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/margin_normal"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:text="General"
+                        android:textStyle="bold" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/prefs_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        app:hideWidget="true"
+                        app:icon="@drawable/twotone_brightness_6_24px"
+                        app:summary="Save power &amp; reduce eye strain"
+                        app:title="Dark Mode" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/margin_normal"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:text="Personal Information"
+                        android:textStyle="bold" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/phone_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_phone_24px"
+                        app:title="Phone Number" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/residence_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_home_24px"
+                        app:title="Residence" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/address_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_map_24px"
+                        app:title="Address" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/dob_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_event_24px"
+                        app:title="Date of Birth" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/org_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_business_center_24px"
+                        app:title="Organisation" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/pos_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_account_circle_24px"
+                        app:title="Position" />
+
+                    <dev.ugscheduler.shared.widgets.PreferenceView
+                        android:id="@+id/edu_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        app:icon="@drawable/twotone_business_24px"
+                        app:title="Educational Background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:alpha="?alphaDisabled"
+                        android:padding="@dimen/margin_large"
+                        android:text="Your profile information is kept private from other users"
+                        android:textAlignment="center"
+                        android:textAppearance="?textAppearanceSubtitle1" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </dev.ugscheduler.shared.widgets.CustomSwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

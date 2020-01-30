@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/fira_mono</item>
+        <item>@font/fira_mono_medium</item>
+        <item>@font/lato</item>
+        <item>@font/ubuntu</item>
+    </array>
+</resources>

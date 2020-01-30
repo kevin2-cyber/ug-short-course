@@ -1,0 +1,5 @@
+include ':shared'
+include ':theming'
+include ':with-server'
+include ':without-server'
+rootProject.name = "UG HackerNews"

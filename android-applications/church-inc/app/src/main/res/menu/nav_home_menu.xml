@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Portfolio">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:title="Background Information"
+                      android:id="@+id/menu_background_info"/>
+                <item android:title="Location"
+                      android:id="@+id/menu_location"/>
+                <item android:title="Current Status"
+                      android:id="@+id/menu_current_status"/>
+            </group>
+        </menu>
+    </item>
+
+
+    <item android:title="Programs &amp; Events">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:title="Meeting Days"
+                      android:id="@+id/menu_meeting_days"/>
+                <item android:title="Events"
+                      android:id="@+id/menu_events"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Study Guide">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:title="Daily Devotions"
+                      android:id="@+id/menu_devotion"/>
+                <item android:title="Bible Studies"
+                      android:id="@+id/menu_bible_studies"/>
+            </group>
+        </menu>
+    </item>
+
+
+</menu>

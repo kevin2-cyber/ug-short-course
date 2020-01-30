@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <!--Logo-->
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="400dp"
+               android:layout_gravity="center"
+               android:src="@drawable/ug_chat_logo"/>
+
+    <Button android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Get started"
+            android:id="@+id/get_started"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_large"
+            style="@style/ChatAppTheme.Button.Other"/>
+
+</FrameLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "212931119394",
+    "firebase_url": "https://ugcloudchat.firebaseio.com",
+    "project_id": "ugcloudchat",
+    "storage_bucket": "ugcloudchat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212931119394:android:1d7491cdf757c281",
+        "android_client_info": {
+          "package_name": "io.codelabs.ugcloudchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212931119394-vio2hf639st86isk29l3lqfth52o5gj6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.codelabs.ugcloudchat",
+            "certificate_hash": "b6c0c216debedfe32b3dd3cdf1f118bcd592ed4f"
+          }
+        },
+        {
+          "client_id": "212931119394-3fflsmmkttm5pdonde1o5jc4j2d7aoe4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNoY5J3R0fYUXjapK9pqs0KLcYZofmJDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212931119394-3fflsmmkttm5pdonde1o5jc4j2d7aoe4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

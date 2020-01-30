@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">E-Voting System</string>
+    <string name="default_notification_channel_id">default_notification_channel_id</string>
+    <string name="title_activity_home">E-Voting System</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_feeds">News Feeds</string>
+    <string name="title_elections">Elections</string>
+    <string name="app_desc">Voting made easy</string>
+</resources>

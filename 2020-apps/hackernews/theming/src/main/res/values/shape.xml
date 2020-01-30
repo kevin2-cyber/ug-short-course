@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: Setup Shapes -->
+<resources>
+
+    <style name="Shape.HackerNews.Small" parent="ShapeAppearance.MaterialComponents.SmallComponent"></style>
+
+    <style name="Shape.HackerNews.Medium" parent="ShapeAppearance.MaterialComponents.MediumComponent"></style>
+
+    <style name="Shape.HackerNews.Large" parent="ShapeAppearance.MaterialComponents.LargeComponent"></style>
+</resources>

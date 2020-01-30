@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Final Meeting</string>
+    <string name="app_desc">This is the last application in this class that will cover working with recyclerview, fetching and de-serializing some data and more</string>
+</resources>

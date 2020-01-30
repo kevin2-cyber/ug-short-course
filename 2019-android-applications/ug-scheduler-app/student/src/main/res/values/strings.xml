@@ -1,0 +1,17 @@
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<resources>
+    <string name="default_app_name">CSSC</string>
+    <string name="long_default_app_name">Computer Science Short Courses</string>
+    <string name="get_started">Get started</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="developer_watermark">Designed and Developed by <b>Quabynah Codelabs LLC</b></string>
+    <string name="welcome_long_text">Discover the possibilities of exploring new areas in Computer Science</string>
+    <string name="enrol_now">Enrol Now</string>
+    <string name="enrol_long_text">Join one of the numerous courses available and get a life-long experience in your area of interest</string>
+    <string name="facilitator">Facilitator</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCx7LP1dpKBBZehAfWYdMcbtrzkwnDT6Vg</string>
+
+</resources>

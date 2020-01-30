@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        style="@style/Widget.IOSched.AppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:fitsSystemWindows="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:navigationContentDescription="@string/title_about"
+            app:navigationIcon="@drawable/ic_menu"
+            app:title="@string/title_about" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_normal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/feed_card_corner_radius"
+                android:text="@string/default_app_name"
+                android:textAppearance="?textAppearanceHeadline6" />
+
+            <TextView
+                android:id="@+id/app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="?alphaMedium"
+                android:padding="@dimen/feed_card_corner_radius"
+                android:textAppearance="?textAppearanceSubtitle2"
+                tools:text="@tools:sample/lorem" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/speaker_large_headshot_size"
+                android:scaleType="centerInside"
+                android:layout_margin="@dimen/margin_normal"
+                android:src="@drawable/preview_window_logo" />
+
+            <View
+                android:layout_width="@dimen/nav_drawer_width"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/speaker_large_headshot_size"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/speaker_large_headshot_size"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="?alphaMedium"
+                android:gravity="center"
+                android:padding="@dimen/margin_normal"
+                android:text="This application would not have been possible without these libraries"
+                android:textAppearance="?textAppearanceBody2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/libs_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_lib" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

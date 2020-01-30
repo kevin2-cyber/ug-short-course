@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Ch@t</string>
+    <string name="default_notification_channel_id">chat_default_channel</string>
+    <string name="welcome_app_name">Welcome to <b>Ch@t</b></string>
+    <string name="empty_text"/>
+    <string name="app_continue">Continue</string>
+    <string name="login">Login</string>
+    <string name="login_prompt">Login to get started</string>
+    <string name="chats">Chats</string>
+    <string name="all_users">All Users</string>
+    <string name="blocked">Blocked</string>
+    <string name="dummy_text">This is my awesome status. i like programming in Kotlin</string>
+    <string name="chat_added">Chat Added</string>
+    <string name="add_chat">Add to chat</string>
+    <string name="dummy_name">Quabynah Bilson</string>
+    <string name="message_hint">Enter message here…</string>
+    <string name="block_chat">Block chat</string>
+    <string name="unblock_chat">UnBlock chat</string>
+    <string name="mark_as_favorite">Mark as favorite</string>
+    <string name="remove_from_fav">Remove from favorites</string>
+    <string name="profile">My Profile</string>
+    <string name="edit">Edit Profile</string>
+</resources>

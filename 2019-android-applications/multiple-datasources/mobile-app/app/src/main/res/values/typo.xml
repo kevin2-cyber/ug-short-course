@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.H5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/google_sans_medium</item>
+    </style>
+
+    <style name="AppTheme.H6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/google_sans_medium</item>
+    </style>
+
+    <style name="AppTheme.B1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+</resources>

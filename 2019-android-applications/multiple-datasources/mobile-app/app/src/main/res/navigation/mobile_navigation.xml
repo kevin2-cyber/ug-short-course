@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_chats">
+
+    <fragment
+        android:id="@id/navigation_chats"
+        android:name="dev.csshortcourse.assignmenttwo.view.ui.chat.ChatFragment"
+        android:label="@string/title_chats"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/chats_to_users"
+            app:destination="@id/navigation_users" />
+    </fragment>
+
+    <fragment
+        android:id="@id/navigation_groups"
+        android:name="dev.csshortcourse.assignmenttwo.view.ui.groups.GroupFragment"
+        android:label="@string/title_groups"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@id/navigation_status"
+        android:name="dev.csshortcourse.assignmenttwo.view.ui.status.StatusFragment"
+        android:label="@string/title_status"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@id/navigation_users"
+        android:name="dev.csshortcourse.assignmenttwo.view.ui.user.UserFragment"
+        android:label="@string/title_users"
+        tools:layout="@layout/fragment_user" />
+</navigation>

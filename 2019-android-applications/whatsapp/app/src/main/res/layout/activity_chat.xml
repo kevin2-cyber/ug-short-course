@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ChatActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_twotone_arrow_back_24px"
+        android:id="@+id/toolbar"
+        app:title="Chat"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toBottomOf="@id/toolbar"
+    android:id="@+id/messages_list"
+    app:layout_constraintBottom_toTopOf="@id/message_container"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        android:id="@+id/message_container"
+        android:paddingStart="@dimen/padding_normal"
+        android:paddingEnd="@dimen/padding_zero"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="Enter your message here..."
+            android:id="@+id/message_input"
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_marginEnd="@dimen/padding_medium"
+            android:inputType="textCapSentences|textMultiLine|textAutoComplete|textAutoCorrect"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:onClick="sendMessage"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

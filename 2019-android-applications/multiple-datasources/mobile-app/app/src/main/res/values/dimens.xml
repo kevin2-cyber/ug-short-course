@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Common dimensions -->
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+
+    <dimen name="bottom_sheet_elevation">8dp</dimen>
+    <dimen name="bottom_sheet_corner_radius">16dp</dimen>
+
+    <!-- Dialogs -->
+    <dimen name="dialog_corner_radius">8dp</dimen>
+    <dimen name="dialogPreferredPadding">24dp</dimen>
+    <dimen name="dialogPreferredPaddingLarge">36dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="avatar_size">56dp</dimen>
+    <dimen name="margin_xlarge">64dp</dimen> <!-- dialogPreferredPadding + 12dp -->
+</resources>

@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Optional, but recommended for full edge-to-edge rendering -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--        <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/is_night_mode</item>-->
+
+        <item name="shapeAppearanceSmallComponent">@style/AppTheme.SmallComponents</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppTheme.MediumComponents</item>
+        <item name="shapeAppearanceLargeComponent">@style/AppTheme.LargeComponents</item>
+        <item name="buttonStyle">@style/AppTheme.Button</item>
+        <item name="textAppearanceHeadline5">@style/AppTheme.H5</item>
+        <item name="textAppearanceHeadline6">@style/AppTheme.H6</item>
+        <item name="textAppearanceBody1">@style/AppTheme.B1</item>
+
+        <item name="materialAlertDialogTheme">@style/AlertDialog.Theme</item>
+        <item name="toolbarStyle">@style/AppTheme.Toolbar</item>
+    </style>
+
+    <style name="AppTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

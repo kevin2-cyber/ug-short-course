@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019.. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<inset
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/margin_normal"
+    android:insetRight="@dimen/margin_normal">
+    <shape android:shape="rectangle">
+        <size android:height="2dp" />
+        <corners android:radius="1dp" />
+        <solid android:color="?colorPrimary" />
+    </shape>
+</inset>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Firebase Test App</string>
+    <string name="channel_name">firebase_test_app</string>
+    <string name="channel_description">This is a test channel</string>
+</resources>

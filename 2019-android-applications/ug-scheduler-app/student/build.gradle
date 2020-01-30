@@ -1,0 +1,127 @@
+/*
+ * Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply from: 'https://raw.githubusercontent.com/passsy/gradle-GitVersioner/master/git-versioner.gradle'
+
+android {
+    signingConfigs {
+        release {
+            storePassword "${password}"
+            keyAlias = "${alias}"
+            keyPassword "${password}"
+            storeFile file('../keystore/keystore.jks')
+        }
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "dev.ugscheduler"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode gitVersion.version
+        versionName gitVersionName
+        archivesBaseName = "ug-scheduler"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resConfigs "en"
+        ndk {
+            // Don't package arm64-v8a or x86_64
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+        signingConfig signingConfigs.release
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.release
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/core_debug.kotlin_module'
+        exclude 'META-INF/core_release.kotlin_module'
+    }
+
+    lintOptions {
+        // If set to true, turns off analysis progress reporting by lint.
+        quiet true
+        // if set to true (default), stops the build if errors are found.
+        abortOnError false
+        // if true, only report errors.
+        ignoreWarnings true
+        // Eliminates UnusedResources false positives for resources used in DataBinding layouts
+        checkGeneratedSources = true
+        // Running lint over the debug variant is enough
+        checkReleaseBuilds false
+        disable 'MissingDefaultResource', "InvalidPackage", "MissingTranslation"
+    }
+
+    // Binding (Data / View)
+    dataBinding.enabled = true
+    viewBinding.enabled = true
+
+    sourceSets {
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    flavorDimensions 'prod'
+    productFlavors {
+        beta {
+            dimension = 'prod'
+            applicationId = 'dev.ugscheduler'
+            versionCode = gitVersion.version
+            versionName = gitVersionName
+            targetSdkVersion 29
+            minSdkVersion 21
+            proguardFiles 'proguard-rules.pro'
+        }
+        alpha {
+            dimension = 'prod'
+            applicationId = 'dev.ugscheduler'
+            applicationIdSuffix = '.alpha'
+            versionCode = gitVersion.version
+            versionName = gitVersionName
+            targetSdkVersion 29
+            minSdkVersion 21
+            proguardFiles 'proguard-rules.pro'
+            manifestPlaceholders = [:]
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':shared')
+}
+
+kapt {
+    useBuildCache = true
+}
+
+androidExtensions {
+    experimental = true
+}
+
+apply plugin: 'com.google.gms.google-services'

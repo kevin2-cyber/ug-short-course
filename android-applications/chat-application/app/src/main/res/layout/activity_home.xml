@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                     xmlns:tools="http://schemas.android.com/tools"
+                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     android:fitsSystemWindows="true"
+                                                     android:id="@+id/container"
+                                                     tools:context=".view.HomeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"
+                                                     android:background="@color/colorAccent"
+                                                     app:elevation="0dp"
+                                                     android:id="@+id/app_bar">
+
+        <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
+                                           android:layout_height="wrap_content"
+                                           android:id="@+id/toolbar"
+                                           app:title="@string/empty_text"
+                                           app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginEnd="@dimen/padding_normal"
+                      android:gravity="center"
+                      android:text="@string/app_name"
+                      android:id="@+id/toolbar_title"
+                      android:textSize="20sp"
+                      android:textColor="@android:color/white"
+                      android:fontFamily="@font/nunito_sans_bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable"
+                app:tabIndicatorHeight="3dp"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabSelectedTextColor="@color/colorAccent"
+                app:tabContentStart="16dp"
+                app:tabTextAppearance="@style/TabTextAppearance.Chat"
+                app:tabIndicatorFullWidth="false"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_stories" type="id"/>
+    <item name="nav_story_details" type="id"/>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@id/navigation_search"
+        android:icon="@drawable/twotone_search_24px"
+        android:orderInCategory="10"
+        android:title="@string/title_search"
+        app:showAsAction="ifRoom" />
+
+    <!-- Use a large orderInCategory to make it the last item if other menu items are inflated into
+         the same toolbar.
+         No title because it flickers when loading the image. Content description is set at runtime.
+    -->
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_default_profile_avatar"
+        android:orderInCategory="99"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle" />
+</menu>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="io.codelabs.githubrepo.BuildConfig" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_large"
+        tools:context="io.codelabs.githubrepo.ui.MainActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/speaker_large_headshot_size"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/mark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:fontFamily="@font/google_sans_medium"
+            android:padding="@dimen/margin_normal"
+            android:text="@string/app_name"
+            android:textAppearance="?textAppearanceHeadline6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="?alphaMedium"
+            android:fontFamily="@font/google_sans"
+            android:text="@{BuildConfig.VERSION_NAME}"
+            android:textAppearance="?textAppearanceBody2"
+            tools:text="@tools:sample/lorem" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="login"
+            android:layout_marginTop="@dimen/snackbar_margin_bottom_fab"
+            android:text="Sign in with GitHub" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

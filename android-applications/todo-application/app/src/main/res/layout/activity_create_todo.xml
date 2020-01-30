@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        android:focusableInTouchMode="true"
+        tools:context=".ui.CreateTodoActivity">
+
+    <!--I added that property so that the edit text view cannot show the keyboard automatically-->
+
+    <!--Toolbar: Shows the title of the application-->
+    <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       app:layout_constraintTop_toTopOf="parent"
+                                       app:navigationIcon="@drawable/ic_close"
+                                       android:id="@+id/toolbar"
+                                       android:elevation="0dp">
+
+        <!--Customized TextView-->
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Create Todo Item"
+                  style="@style/TodoAppTheme.Toolbar"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--Content-->
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_large"
+            android:layout_marginEnd="@dimen/padding_large"
+            android:layout_marginTop="@dimen/padding_extra_large"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:id="@+id/todo_input_container">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/todo_input"
+                android:hint="@string/todo_content_hint"
+                android:inputType="textAutoCorrect|textMultiLine|textAutoComplete|textCapSentences"
+                android:fontFamily="@font/nunito_sans_semibold"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--Save button: Tap to save a new todoItem to the database-->
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_button"
+            android:onClick="saveTodoItem"
+            app:layout_constraintTop_toBottomOf="@id/todo_input_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Save Item"
+            app:icon="@drawable/ic_save"
+            style="@style/TodoAppTheme.Button.Other"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

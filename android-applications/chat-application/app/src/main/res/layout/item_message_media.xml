@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="300dp"
+                                                   android:id="@+id/media_file_container"
+                                                   android:layout_height="80dp">
+
+    <ImageView android:layout_width="100dp"
+               android:layout_height="match_parent"
+               app:layout_constraintStart_toStartOf="parent"
+               tools:src="@drawable/ic_file"
+               android:scaleType="fitCenter"
+               android:background="?attr/colorAccent"
+               android:padding="@dimen/padding_large"
+               android:tint="@color/white"
+               android:id="@+id/message_media_icon"/>
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toEndOf="@id/message_media_icon"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              tools:text="Sam Smith-- Stay with me.mp4"
+              android:maxLines="1"
+              android:ellipsize="end"
+              android:fontFamily="@font/nunito_sans_semibold"
+              android:fontFeatureSettings="smcp,onum"
+              android:padding="@dimen/padding_small"
+              android:textSize="16sp"
+              android:id="@+id/message_media_text"
+    />
+
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toEndOf="@id/message_media_icon"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/message_media_text"
+              tools:text="~12 seonds ago"
+              android:maxLines="1"
+              android:ellipsize="end"
+              android:fontFamily="@font/nunito_sans_semibold"
+              android:fontFeatureSettings="smcp,onum"
+              android:paddingStart="@dimen/padding_small"
+              android:paddingEnd="@dimen/padding_small"
+              android:textSize="14sp"
+              android:id="@+id/message_media_timestamp"
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

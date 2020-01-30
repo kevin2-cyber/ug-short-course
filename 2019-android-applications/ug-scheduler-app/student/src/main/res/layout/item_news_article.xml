@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_normal">
+
+    <TextView
+        android:id="@+id/news_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceHeadline5"
+        tools:text="Discount on all short course registrations" />
+
+    <TextView
+        android:id="@+id/news_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:alpha="?alphaMedium"
+        android:maxLines="5"
+        android:textAppearance="?textAppearanceBody1"
+        tools:maxLines="12"
+        tools:text="@tools:sample/lorem/random" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/author_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_normal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/author_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Written by:"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/author_avatar"
+            android:layout_width="@dimen/agenda_icon_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/author_title"
+            tools:src="@drawable/ic_default_profile_avatar" />
+
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/agenda_block_padding_vertical"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:textAlignment="viewStart"
+            android:textAppearance="?textAppearanceListItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/author_avatar"
+            app:layout_constraintTop_toBottomOf="@id/author_title"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/author_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="?alphaMedium"
+            android:paddingBottom="@dimen/agenda_block_padding_vertical"
+            android:textAlignment="viewStart"
+            android:textAppearance="?textAppearanceBody2"
+            app:layout_constraintEnd_toEndOf="@id/author_name"
+            app:layout_constraintTop_toBottomOf="@id/author_name"
+            tools:text="@tools:sample/lorem" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

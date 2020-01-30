@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">UG Cloud Chat</string>
+    <string name="permission_rationale">UG Cloud Chat requires that you grant permission for it to %s</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<resources>
+    <item name="tag_speaker_id" type="id" />
+    <!-- These ids are used in both the menu (navigation.xml) and the nav graph (home_graph.xml).
+         Each menu item and nav graph fragment represent the same logical item. -->
+    <item name="navigation_home" type="id" />
+    <item name="navigation_enrol" type="id" />
+    <item name="navigation_enrol_session" type="id" />
+    <item name="navigation_course_details" type="id" />
+    <item name="navigation_my_courses" type="id" />
+    <item name="navigation_info" type="id" />
+    <item name="navigation_map" type="id" />
+    <item name="navigation_map_sublevel" type="id" />
+    <item name="navigation_sessions" type="id" />
+    <item name="navigation_settings" type="id" />
+    <item name="navigation_about" type="id" />
+    <item name="navigation_chat" type="id" />
+    <item name="navigation_search" type="id" />
+    <item name="navigation_preview" type="id" />
+    <item name="navigation_facilitator" type="id" />
+    <item name="navigation_news" type="id" />
+    <item name="navigation_logout" type="id" />
+    <item name="navigation_login" type="id" />
+</resources>

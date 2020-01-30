@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="TodoAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:colorBackground">@android:color/white</item>
+    </style>
+
+    <!--Custom Button-->
+    <style name="TodoAppTheme.Button" parent="Widget.MaterialComponents.Button.Icon">
+        <item name="cornerRadius">@dimen/padding_normal</item><!--16dp-->
+        <item name="iconPadding">@dimen/padding_small</item><!--8dp-->
+        <item name="android:layout_marginEnd">@dimen/padding_normal</item><!--16dp-->
+        <item name="android:layout_marginBottom">@dimen/padding_normal</item><!--16dp-->
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:backgroundTint">?attr/colorAccent</item>
+    </style>
+
+    <style name="TodoAppTheme.Button.Other" parent="TodoAppTheme.Button">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!--Custom toolbar-->
+    <style name="TodoAppTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/nunito_sans_semibold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFeatureSettings">smcp,onum</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TodoAppTheme.TextAppearance">
+
+    </style>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/container">
+
+    <!--Toolbar-->
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/toolbar"
+            app:title="Presidential"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:navigationIcon="@drawable/ic_close_dark"/>
+
+    <!--List of Candidates-->
+    <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                               android:layout_height="match_parent"
+                                               android:id="@+id/grid"
+                                               android:scrollbars="vertical"
+                                               android:scrollbarStyle="outsideOverlay"/>
+
+
+</LinearLayout>

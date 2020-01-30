@@ -1,0 +1,7 @@
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<resources>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCx7LP1dpKBBZehAfWYdMcbtrzkwnDT6Vg</string>
+</resources>

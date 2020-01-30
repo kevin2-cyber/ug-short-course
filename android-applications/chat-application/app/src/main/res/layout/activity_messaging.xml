@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                     xmlns:tools="http://schemas.android.com/tools"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     tools:context=".view.MessagingActivity">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"
+                                                     android:background="@color/colorAccent"
+                                                     app:elevation="0dp"
+                                                     android:id="@+id/app_bar">
+
+        <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
+                                           android:layout_height="wrap_content"
+                                           android:id="@+id/toolbar"
+                                           app:title="@string/empty_text"
+                                           app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+
+            <ImageView android:layout_width="@dimen/avatar_size"
+                       android:layout_height="@dimen/avatar_size"
+                       android:id="@+id/avatar"
+                       tools:src="@drawable/avatar_placeholder"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginEnd="@dimen/padding_large"
+                      android:gravity="center"
+                      android:ellipsize="end"
+                      android:maxLines="1"
+                      android:paddingStart="@dimen/padding_normal"
+                      android:text="@string/dummy_name"
+                      android:id="@+id/toolbar_title"
+                      android:textSize="20sp"
+                      android:textColor="@android:color/white"
+                      android:fontFamily="@font/nunito_sans_bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                                   android:layout_height="0dp"
+                                                   android:background="@color/chat_background"
+                                                   app:layout_constraintTop_toTopOf="parent"
+                                                   app:layout_constraintBottom_toTopOf="@id/bottom_bar"
+                                                   android:id="@+id/message_grid"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                           android:layout_height="?attr/actionBarSize"
+                                                           android:id="@+id/bottom_bar"
+                                                           app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageButton android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:src="@drawable/ic_add"
+                         app:layout_constraintTop_toTopOf="parent"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintStart_toStartOf="parent"
+                         android:padding="@dimen/padding_small"
+                         android:id="@+id/add_file_button"
+                         android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <ImageButton android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:src="@drawable/ic_send"
+                         app:layout_constraintTop_toTopOf="parent"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintEnd_toEndOf="parent"
+                         android:padding="@dimen/padding_small"
+                         android:id="@+id/send_message_button"
+                         android:paddingBottom="@dimen/padding_micro"
+                         android:paddingTop="@dimen/padding_micro"
+                         android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <com.google.android.material.textfield.TextInputEditText android:layout_width="0dp"
+                                                                     android:id="@+id/message_view"
+                                                                     app:layout_constraintTop_toTopOf="parent"
+                                                                     app:layout_constraintStart_toEndOf="@id/add_file_button"
+                                                                     app:layout_constraintEnd_toStartOf="@id/send_message_button"
+                                                                     android:layout_height="wrap_content"
+                                                                     android:inputType="textMultiLine|textCapSentences|textAutoCorrect|textAutoComplete"
+                                                                     app:layout_constraintBottom_toBottomOf="parent"
+                                                                     android:hint="@string/message_hint"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

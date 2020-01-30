@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UG News</string>
+    <string name="app_desc">A sample news application that pulls data from newsapi.org</string>
+
+</resources>

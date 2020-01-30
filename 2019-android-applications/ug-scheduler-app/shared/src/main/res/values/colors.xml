@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<resources>
+    <!-- 2019 colors -->
+    <color name="deep_sky_blue">#1a73e8</color> <!-- colorPrimary in Light mode-->
+    <color name="warm_blue">#574ddd</color> <!-- colorPrimaryDark in Light mode-->
+    <color name="carolina_blue">#8ab4f8</color> <!-- colorPrimary in Dark mode-->
+    <color name="cornflower_blue">#669DF6</color> <!-- colorPrimaryDark in Dark mode-->
+
+    <color name="teal">#069f86</color>
+    <color name="bright_light_blue">#27e5fd</color>
+    <color name="sun_yellow">#fcd230</color>
+    <color name="bright_orange">#ff6c00</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="transparent">#0fff</color>
+
+    <color name="color_primary">@color/warm_blue</color>
+    <color name="color_primary_variant">@color/zeber_primary_dark_new</color>
+    <color name="color_secondary">@color/zeber_primary_super_dark</color>
+    <!--    <color name="color_secondary">#ae6e79</color>-->
+    <color name="color_secondary_variant">@color/zeber_primary_super_dark</color>
+
+    <!--	<color name="color_background">#DEDCE0</color>-->
+    <color name="color_background">#ffffff</color>
+    <color name="color_surface">#ffffff</color>
+    <color name="color_error">#CA491C</color>
+
+    <color name="color_on_primary">#ffffff</color>
+    <color name="color_on_secondary">#000000</color>
+    <color name="color_on_background">#000000</color>
+    <color name="color_on_surface">#000000</color>
+    <color name="color_on_error">#ffffff</color>
+    <color name="color_scrim">#99cfcfcf</color>
+    <color name="content_placeholder">#009F9D9D</color>
+
+    <!--    <color name="color_primary_dark">@color/warm_blue</color>-->
+    <!--    <color name="color_on_secondary">@color/cornflower_blue</color>-->
+
+    <color name="color_control_light">#39000000</color> <!-- Same as textColorPrimary disabled -->
+
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#B3FFFFFF</color> <!-- 70% white -->
+    <color name="system_ui_scrim_black">#40000000</color> <!-- 25% black -->
+
+    <!-- We use a dark scrim by default since light status is API 23+ -->
+    <color name="status_bar_scrim">@color/system_ui_scrim_black</color>
+    <!-- We use a dark scrim by default since light nav bar is API 27+ -->
+    <color name="nav_bar_scrim">@color/system_ui_scrim_black</color>
+
+    <!-- Other colors with dark mode alternatives -->
+    <color name="wifi_card_background">#e8f0fe</color>
+    <color name="event_card_header_background">@color/event_card_header_background_light</color>
+    <color name="list_divider">#1f000000</color>>
+
+    <!-- Other colors -->
+    <color name="default_tag_color">#999</color>
+    <color name="light_grey">#e6e6e6</color>
+    <color name="scrim">#33000000</color> <!-- 20% black -->
+
+    <color name="event_card_header_background_light">#f8f9fa</color>
+    <color name="event_card_header_background_dark">#252729</color>
+
+    <integer-array name="swipe_refresh">
+        <item>@color/deep_sky_blue</item>
+        <item>@color/teal</item>
+        <item>@color/bright_light_blue</item>
+        <item>@color/sun_yellow</item>
+        <item>@color/bright_orange</item>
+    </integer-array>
+
+    <!--Scheduler Colors-->
+    <color name="color_one">#010101</color>
+    <color name="color_two">#626263</color>
+    <color name="color_three">#c1bcc4</color>
+    <color name="color_four">#d7d7d8</color>
+    <color name="color_five">#e6e8f5</color>
+
+
+    <!--zeber x-->
+    <color name="zeber_primary">#c0c0c8</color>
+    <color name="zeber_accent">#1fbad6</color>
+    <color name="zeber_primary_dark_old">#09091a</color>
+    <color name="zeber_primary_dark_new">#222233</color>
+    <color name="zeber_primary_super_dark">#161629</color>
+</resources>

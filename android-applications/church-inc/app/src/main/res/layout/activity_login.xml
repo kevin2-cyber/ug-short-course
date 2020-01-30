@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        tools:context=".view.ui.LoginActivity">
+
+
+    <ImageView android:layout_width="match_parent"
+               android:src="@drawable/logo_app"
+               android:scaleType="centerCrop"
+               android:layout_height="180dp"/>
+
+    <TextView android:layout_width="match_parent"
+              android:textAlignment="center"
+              android:padding="8dp"
+              android:layout_marginBottom="64dp"
+              android:text="@string/app_name"
+              android:fontFamily="@font/laila_medium"
+              android:textSize="18sp"
+              android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                                           android:hint="Email Address">
+
+        <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:inputType="textEmailAddress"
+                                                                 android:id="@+id/user_email"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:layout_marginTop="8dp"
+                                                           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                                           android:hint="Password">
+
+        <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:inputType="textPassword"
+                                                                 android:id="@+id/user_password"/>
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:gravity="end|center_vertical"
+                      android:paddingEnd="16dp"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="24dp"
+                      android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                                                               android:layout_height="wrap_content"
+                                                               android:layout_gravity="end"
+                                                               android:layout_marginEnd="24dp"
+                                                               android:onClick="navToRegister"
+                                                               android:id="@+id/create_account_button"
+                                                               style="@style/Widget.MaterialComponents.Button.TextButton"
+                                                               android:text="Create an account"
+                                                               android:textAllCaps="false"/>
+
+            <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                                                               android:layout_height="wrap_content"
+                                                               android:layout_gravity="end"
+                                                               android:id="@+id/login_button"
+                                                               style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                                                               android:onClick="doLogin"
+                                                               android:text="Login"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

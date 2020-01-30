@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "657989885550",
+    "firebase_url": "https://assignment-leslie.firebaseio.com",
+    "project_id": "assignment-leslie",
+    "storage_bucket": "assignment-leslie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657989885550:android:82f64ecb5b7712e21c907f",
+        "android_client_info": {
+          "package_name": "dev.csshortcourse.assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657989885550-mim4menn0c2eq4q98bpj5b9r9lh9qijn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.csshortcourse.assignment",
+            "certificate_hash": "f37e230e097732748d470e8aad0debe41739f63c"
+          }
+        },
+        {
+          "client_id": "657989885550-q5hsqk2hssq3ujj785a12sl8g120aqac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP4x0XLXSuLu4nmqNpIdrsplJz9o25UbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657989885550-q5hsqk2hssq3ujj785a12sl8g120aqac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

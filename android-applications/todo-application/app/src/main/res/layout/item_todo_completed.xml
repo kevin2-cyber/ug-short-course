@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:padding="@dimen/padding_normal">
+
+    <!--Title-->
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              tools:text="@string/dummy_placeholder"
+              android:fontFamily="@font/nunito_sans_semibold"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:textSize="18sp"
+              android:textStyle="italic"
+              android:textColor="@android:color/darker_gray"
+              android:id="@+id/completed_todo_item_title"/>
+
+    <!--Timestamp-->
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              tools:text="December 30, 2019"
+              android:fontFamily="@font/nunito_sans_semibold"
+              app:layout_constraintTop_toBottomOf="@id/completed_todo_item_title"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:textColor="@android:color/darker_gray"
+              android:textSize="14sp"
+              android:textStyle="italic"
+              android:id="@+id/completed_todo_item_timestamp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

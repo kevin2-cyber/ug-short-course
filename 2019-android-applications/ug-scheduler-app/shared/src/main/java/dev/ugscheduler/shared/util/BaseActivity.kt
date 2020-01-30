@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+ */
+
+package dev.ugscheduler.shared.util
+
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+
+open class BaseActivity : AppCompatActivity() {
+    // handle foreground & background tasks
+    private val job = Job()
+    val ioScope = CoroutineScope(Dispatchers.IO)
+    val uiScope = CoroutineScope(Dispatchers.Main + job)
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "242381458501",
+    "firebase_url": "https://scarlett-e3901.firebaseio.com",
+    "project_id": "scarlett-e3901",
+    "storage_bucket": "scarlett-e3901.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242381458501:android:b7469a2799804d1494272c",
+        "android_client_info": {
+          "package_name": "dev.codelabs.scarlett"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242381458501-qbcs6cip32nd1lvbac2i22udpn2i3860.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.codelabs.scarlett",
+            "certificate_hash": "f37e230e097732748d470e8aad0debe41739f63c"
+          }
+        },
+        {
+          "client_id": "242381458501-k38idat4hhom5if2nmklgt8knaargtu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeQzGOX6sb5152lnthx4iJeBfX9M_4vQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242381458501-k38idat4hhom5if2nmklgt8knaargtu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

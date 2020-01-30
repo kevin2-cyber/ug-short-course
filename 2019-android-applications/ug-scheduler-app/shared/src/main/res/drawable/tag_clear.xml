@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/tag_dot_size"
+    android:height="@dimen/tag_dot_size"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <!-- Tinted at runtime -->
+    <path
+        android:pathData="M4,4L20,20M20,4L4,20Z"
+        android:strokeColor="#000"
+        android:strokeWidth="3" />
+</vector>

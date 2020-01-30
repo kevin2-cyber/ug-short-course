@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/nav_stories"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@id/nav_stories"
+        android:name="io.hackernews.shared.ui.fragments.StoriesFragment"
+        android:label="@string/title_stories"
+        tools:layout="@layout/fragment_stories">
+        <action
+            android:id="@+id/action_nav_stories_to_nav_story_details"
+            app:destination="@id/nav_story_details">
+            <argument
+                android:name="story"
+                app:argType="io.hackernews.shared.data.Story" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@id/nav_story_details"
+        android:name="io.hackernews.shared.ui.fragments.DetailsFragment"
+        android:label="@string/title_details"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="story"
+            app:argType="io.hackernews.shared.data.Story" />
+    </fragment>
+</navigation>

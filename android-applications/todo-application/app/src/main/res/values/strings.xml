@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Todo Application</string>
+    <string name="todo_content_hint">Enter your message here…</string>
+    <string name="empty_text"/>
+    <string name="share">Share</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="dummy_placeholder">Some dummy text goes here. Although we can add as much text as we like, we would
+        like to keep it so short for now. And by short I mean… you know!
+    </string>
+    <string name="done">Mark as done</string>
+    <string name="search">Search</string>
+    <string name="filter">Filter</string>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quick Notes</string>
+    <string name="app_desc">Department of Computer Science</string>
+    <string name="welcome_text">Welcome Champ!</string>
+    <string name="welcome_desc">I\'m <b>QuickNotes</b>, what\'s your name?
+    </string>
+    <string name="username_hint">I\'m called…</string>
+
+    <string name="lorem">Lorem ipsum dolor sit amet, ad sit debitis docendi, usu persius fastidii ad. Illud recusabo ut duo, id nonumy soluta cum, quo quis senserit ad. His ferri tractatos dissentiet eu, impetus petentium his ad. Omnis copiosae has in, per in alia omnis.
+
+        Ex nec eius error perfecto, sonet doming vivendum et nam, mazim congue facilisis nam ea. In doctus praesent definitiones ius, ne iuvaret efficiendi cum. Usu brute ullum consequuntur et, in simul fastidii persecuti eum. Eu ullum indoctum mei, aliquid tacimates molestiae ne vix. Ad vis eius assueverit persequeris, ea atqui dolorem.
+        Lorem ipsum dolor sit amet, ad sit debitis docendi, usu persius fastidii ad. Illud recusabo ut duo, id nonumy soluta cum, quo quis senserit ad. His ferri tractatos dissentiet eu, impetus petentium his ad. Omnis copiosae has in, per in alia omnis.
+
+        Ex nec eius error perfecto, sonet doming vivendum et nam, mazim congue facilisis nam ea. In doctus praesent definitiones ius, ne iuvaret efficiendi cum. Usu brute ullum consequuntur et, in simul fastidii persecuti eum. Eu ullum indoctum mei, aliquid tacimates molestiae ne vix. Ad vis eius assueverit persequeris, ea atqui dolorem.Lorem ipsum dolor sit amet, ad sit debitis docendi, usu persius fastidii ad. Illud recusabo ut duo, id nonumy soluta cum, quo quis senserit ad. His ferri tractatos dissentiet eu, impetus petentium his ad. Omnis copiosae has in, per in alia omnis.
+
+        Ex nec eius error perfecto, sonet doming vivendum et nam, mazim congue facilisis nam ea. In doctus praesent definitiones ius, ne iuvaret efficiendi cum. Usu brute ullum consequuntur et, in simul fastidii persecuti eum. Eu ullum indoctum mei, aliquid tacimates molestiae ne vix. Ad vis eius assueverit persequeris, ea atqui dolorem.Lorem ipsum dolor sit amet, ad sit debitis docendi, usu persius fastidii ad. Illud recusabo ut duo, id nonumy soluta cum, quo quis senserit ad. His ferri tractatos dissentiet eu, impetus petentium his ad. Omnis copiosae has in, per in alia omnis.
+
+        Ex nec eius error perfecto, sonet doming vivendum et nam, mazim congue facilisis nam ea. In doctus praesent definitiones ius, ne iuvaret efficiendi cum. Usu brute ullum consequuntur et, in simul fastidii persecuti eum. Eu ullum indoctum mei, aliquid tacimates molestiae ne vix. Ad vis eius assueverit persequeris, ea atqui dolorem</string>
+
+</resources>

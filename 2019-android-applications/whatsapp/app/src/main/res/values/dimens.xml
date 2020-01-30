@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="avatar_size">48dp</dimen>
+    <dimen name="large_avatar_size">56dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_zero">0dp</dimen>
+    <dimen name="message_max_width">250dp</dimen>
+</resources>

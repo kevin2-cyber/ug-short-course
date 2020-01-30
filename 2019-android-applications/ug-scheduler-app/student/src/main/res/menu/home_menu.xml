@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019. Designed & developed by Quabynah Codelabs(c). For the love of Android development.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/nav_first_group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@id/navigation_home"
+            android:contentDescription="@string/title_home"
+            android:icon="@drawable/ic_nav_home"
+            android:title="@string/title_home" />
+
+        <item
+            android:id="@id/navigation_my_courses"
+            android:contentDescription="@string/title_my_courses"
+            android:icon="@drawable/ic_nav_codelabs"
+            android:title="@string/title_my_courses" />
+
+        <item
+            android:id="@id/navigation_chat"
+            android:contentDescription="@string/title_chat"
+            android:icon="@drawable/ic_question_answer"
+            android:title="@string/title_chat" />
+
+        <item
+            android:id="@id/navigation_sessions"
+            android:contentDescription="@string/title_sessions"
+            android:icon="@drawable/ic_nav_schedule"
+            android:title="@string/title_sessions" />
+
+        <item
+            android:id="@id/navigation_news"
+            android:contentDescription="@string/title_news"
+            android:icon="@drawable/twotone_dashboard_24px"
+            android:title="@string/title_news" />
+
+        <item
+            android:id="@id/navigation_map"
+            android:contentDescription="@string/title_map"
+            android:icon="@drawable/ic_nav_map"
+            android:title="@string/title_map" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_second_group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@id/navigation_settings"
+            android:contentDescription="@string/title_settings"
+            android:icon="@drawable/ic_nav_settings"
+            android:title="@string/title_settings" />
+
+        <item
+            android:id="@id/navigation_about"
+            android:contentDescription="@string/title_about"
+            android:icon="@drawable/ic_nav_info"
+            android:title="@string/title_about" />
+
+    </group>
+
+</menu>
