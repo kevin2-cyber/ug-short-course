@@ -10,30 +10,31 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-package learning
-
-
-// String
-// Int
-// Long
-// Double
-// Boolean
-// Float
-// Char
-
+// Do-While
+// While
+// For
+// For Each
 
 fun main() {
-    val name = "Dennis" // String
-    val isOld = true // Boolean
-    val age = 23    // Int
-    val weight = 56.99  // Double
-    val height = 188.454f   // Float
-    val initials = 's'  // Char
 
-    // Nullable
-    var username: String? = null
+    /*for (index in 0..10) {
+        println("My index is $index")
+    }*/
 
-    // Elvis
-    println("This value is => ${username ?: "not found"}")
+    // Array
+    val numbers = arrayOf(1, 2, 3, 5)
 
+    /*for (number in numbers) {
+        println(number)
+    }*/
+
+    // For Each
+//    numbers.forEach { println(it) }
+
+    // Nested loops
+    /*for (x in 0..5) {
+        for (y in 12..15) {
+            println("x => $x & y => $y")
+        }
+    }*/
 }

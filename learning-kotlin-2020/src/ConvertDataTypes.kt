@@ -12,19 +12,43 @@
 
 fun main() {
     // Variables
-    val name = "Shaun Long"
-    val age = 34
-    val weight = "80"
+//    val name = "Shaun Long"
+//    val age = 34
+//    val weight = "80"
+//
+//     Integer to String
+//    println("Integer to String => ${34.toString()}")
+//
+//     String to Integer
+//    println("String to Integer => ${weight.toInt()}")
+//
+//     Integer to Long integer, float or double
+//    println("Integer to Long => ${age.toLong()}")
+//    println("Integer to Float => ${age.toFloat()}")
+//    println("Integer to Double => ${age.toDouble()}")
 
-    // Integer to String
-    println("Integer to String => ${34.toString()}")
+//    print("What is your name? ")
+//    val name: String? = readLine()
+//    print("How old are you? ")
+//    val age: Int = readLine()!!.toInt()
+//    println("You are called $name and you are $age years young!")
 
-    // String to Integer
-    println("String to Integer => ${weight.toInt()}")
+//    val weight: Double = 676.38012938109238129038109381
+//    println("Weight in double => $weight")
+//    println("Weight in integer => ${weight.roundToLong()}")
+//    Math.round(weight)
+//    val height: Float = 676.38012938109238129038109381f
 
-    // Integer to Long integer, float or double
-    println("Integer to Long => ${age.toLong()}")
-    println("Integer to Float => ${age.toFloat()}")
-    println("Integer to Double => ${age.toDouble()}")
+//    println("Max Int => ${Int.MAX_VALUE}")
+//    println("Min Int => ${Int.MIN_VALUE}")
+//    println("Min Double => ${Double.MIN_VALUE}")
+//    println("Max Double => ${Double.MAX_VALUE}")
+//    println("Min Long => ${Long.MIN_VALUE}")
+//    println("Max Long => ${Long.MAX_VALUE}")
+//    println("Max Float => ${Float.MAX_VALUE}")
+//    println("Min Float => ${Float.MIN_VALUE}")
+
+//    println(weight)
+//    println(height)
 }
 

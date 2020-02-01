@@ -10,6 +10,49 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-fun main() {
 
+
+fun main() {
+//    println(getName())
+//    val x = 23
+//    val y = 67
+//    val result = sum(x, y, 45)
+//    println("Result of adding variables $x & $y = $result")
+
+//    createAccount(username = "Dennis", email = "g@h.com")
+//    createAccount(username = "Dennis", email = "g@h.com", password = "3534535")
+
+    // Accept input from user : readLine()
+
+    // Ask user for a username
+    print("What is your full name: ")
+    val username = readLine()
+    val socialName = createAwesomeUsername(username ?: "No Username")
+    println("Your new handle is => $socialName")
+}
+
+//fun getName(): String {
+//aakajskadjakad
+//    return "Anything"
+//}
+
+fun getName(): String = "Anything"
+
+fun sum(num1: Int, num2: Int, num3: Int = 13): Int = num1 + num2 + num3
+
+fun createAccount(username: String?, password: String = "1234", email: String) {
+    println("Your credentials are => $email & $username & $password")
+}
+
+
+fun createAwesomeUsername(email: String): String {
+    val lowercaseFN = email
+        .replace(" ", "")   // replace whitespaces
+        .substring(0, email.indexOf('.'))
+        .substring(0, email.indexOf('@'))
+        .replace("@", "")   // replace @
+        .replace(".", "")   // replace .
+        .toLowerCase()  // Convert result to lowercase
+
+    return "@$lowercaseFN"
 }
