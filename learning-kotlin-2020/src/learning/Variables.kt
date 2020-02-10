@@ -23,6 +23,7 @@ package learning
 
 
 fun main() {
+
     val name = "Dennis" // String
     val isOld = true // Boolean
     val age = 23    // Int
@@ -32,6 +33,8 @@ fun main() {
 
     // Nullable
     var username: String? = null
+
+    username = "Bilson"
 
     // Elvis
     println("This value is => ${username ?: "not found"}")

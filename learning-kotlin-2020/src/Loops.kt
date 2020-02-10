@@ -17,9 +17,9 @@
 
 fun main() {
 
-    /*for (index in 0..10) {
+    for (index in 0..10) {
         println("My index is $index")
-    }*/
+    }
 
     // Array
     val numbers = arrayOf(1, 2, 3, 5)
