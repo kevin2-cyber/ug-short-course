@@ -1,2 +1,2 @@
-include(":readium")
+include(":readium",":theming",":core")
 rootProject.name = "Readium"
