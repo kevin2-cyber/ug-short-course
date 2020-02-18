@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import com.dropbox.android.external.store4.MemoryPolicy
-import com.dropbox.android.external.store4.StoreBuilder
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
 import shortcourse.readium.R
 import shortcourse.readium.core.database.ReadiumDatabase
-import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.util.debugger
 
 /**
@@ -30,14 +28,22 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val db = ReadiumDatabase.getInstance(requireContext())
-        db.postDao()
-            .getAllPosts().observe(viewLifecycleOwner, Observer {
-                debugger("Showing posts -> $it")
-            })
+        lifecycleScope.launchWhenStarted {
+            db.accountDao().getAllAccounts().collect { accounts ->
+                debugger("Accounts found as -> ${accounts.map { it.id }}")
+            }
 
-        StoreBuilder.from<String,Account> { db.accountDao().getAccount(it) }
-            .cachePolicy(memoryPolicy = MemoryPolicy.builder().build())
-            .build()
+            db.postDao().getAllPosts().collect { posts ->
+                debugger("Posts found as -> ${posts.map { it.id }}")
+
+                // Get all comments for post
+                posts.forEach { story ->
+                    db.commentDao().getCommentForPost(story.id).collect { comments ->
+                        debugger("Comments for ${story.id} -> ${comments.size}")
+                    }
+                }
+            }
+        }
     }
 
 }

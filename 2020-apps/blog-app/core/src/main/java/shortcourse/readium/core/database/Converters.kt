@@ -3,6 +3,7 @@ package shortcourse.readium.core.database
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import shortcourse.readium.core.util.Entities
+import shortcourse.readium.core.util.debugger
 
 /**
  * Workaround for list conversion
@@ -32,14 +33,14 @@ class ListTypeConverter {
     }
 
     @TypeConverter
-    fun listToRoleJson(value: List<Entities.Role>?): String {
-        return Gson().toJson(value?.map { it.label })
+    fun listToRoleJson(value: List<Entities.Role>?): String? {
+        return Gson().toJson(value?.map { it.label }) ?: null
     }
 
     @TypeConverter
-    fun jsonToRoleList(value: String): List<Entities.Role>? {
+    fun jsonToRoleList(value: String?): List<Entities.Role>? {
         val objects =
-            Gson().fromJson(value, Array<String>::class.java) as Array<String>
-        return objects.map { Entities.Role.valueOf(it) }.toList()
+            Gson().fromJson(value, Array<String>::class.java) as Array<String>?
+        return objects?.map { Entities.Role.valueOf(it) }?.toList() ?: emptyList()
     }
 }

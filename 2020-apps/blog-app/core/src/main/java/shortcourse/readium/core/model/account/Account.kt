@@ -18,7 +18,7 @@ data class Account(
     var avatar: String? = null,
     val creationTime: Long = System.currentTimeMillis(),
     var lastSeen: Long = System.currentTimeMillis(),
-    var roles: MutableList<Entities.Role> = mutableListOf(Entities.Role.GUEST)
+    var roles: MutableList<String> = mutableListOf(Entities.Role.GUEST.label)
 ) : ReadiumModel {
 
     /**
