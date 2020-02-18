@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Blogly</string>
+    <string name="app_name">Readium</string>
+    <string name="app_desc">Readium</string>
 </resources>

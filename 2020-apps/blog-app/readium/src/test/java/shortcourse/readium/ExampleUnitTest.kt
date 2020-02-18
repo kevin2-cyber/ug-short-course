@@ -1,4 +1,4 @@
-package shortcourse.blogly
+package shortcourse.readium
 
 import org.junit.Test
 

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "85520433977-lco4u1hvg57fuavfh57r814uot3rrhgq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shortcourse.readium",
+            "certificate_hash": "d42dfaef62944cf76b27a02f19c6c1f6d19289f9"
+          }
+        },
+        {
           "client_id": "85520433977-qfqfa6vpp882f0jddso42bsqaat3rcit.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

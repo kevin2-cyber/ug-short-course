@@ -4,8 +4,10 @@ import android.app.Application
 import android.os.StrictMode
 import com.bugsnag.android.Bugsnag
 import com.google.firebase.FirebaseApp
-import shortcourse.blogly.util.debugger
+import shortcourse.readium.BuildConfig
+import shortcourse.readium.util.debugger
 import sqip.InAppPaymentsSdk
+import timber.log.Timber
 
 /**
  * [Readium] is the main entry point of the application
@@ -13,9 +15,12 @@ import sqip.InAppPaymentsSdk
 class Readium : Application() {
 
     override fun onCreate() {
-        enableStrictMode()
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+            enableStrictMode()
+        }
         super.onCreate()
-        
+
         // Enable Bugsnag
         Bugsnag.init(this@Readium)
 
@@ -24,10 +29,8 @@ class Readium : Application() {
             debugger("Application started successfully")
         }
 
-
         // In-App payment
-        InAppPaymentsSdk.squareApplicationId = "sandbox-sq0idb-pgfYgj6x48Ees6YXgf5g9w"
-        // EAAAEBAzLlBTdeAVax2ZhVPbaoa-9fXruM31ipNc7NMgKubbR8OlMmMZZlMdz7it
+        InAppPaymentsSdk.squareApplicationId = BuildConfig.SQUARE_APP_ID
     }
 
 

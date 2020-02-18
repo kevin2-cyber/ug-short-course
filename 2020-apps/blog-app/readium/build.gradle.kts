@@ -9,6 +9,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file(rootProject.file("keystore/readium.jks"))
+            storePassword = "shortcourse_readium"
+            keyAlias = "readium"
+            keyPassword = "shortcourse_readium"
+        }
+    }
     compileSdkVersion(29)
     defaultConfig {
         applicationId = "shortcourse.readium"
@@ -16,14 +24,36 @@ android {
         targetSdkVersion(29)
         versionCode = 1
         versionName = "0.0.1"
+        setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
 
+        // Manifest placeholders
         addManifestPlaceholders(mapOf("bugsnag_key" to "1bd231a720cd45c44ed2ae2bc7ec1c4d"))
+
+        // Set Build Configuration Fields
+        buildConfigField(
+            "String", "READIUM_VERSION", "\"$applicationId-v$versionName($versionCode)\""
+        )
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig = signingConfigs.getByName("release")
     }
 
     buildTypes {
+        named("debug") {
+            buildConfigField(
+                "String",
+                "SQUARE_APP_ID",
+                "\"sandbox-sq0idb-pgfYgj6x48Ees6YXgf5g9w\""
+            )
+        }
         named("release") {
+            buildConfigField(
+                "String",
+                "SQUARE_APP_ID",
+                "\"sq0idp-4CJoUUG1OQU3YYtYtVDKp\""
+            )
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
