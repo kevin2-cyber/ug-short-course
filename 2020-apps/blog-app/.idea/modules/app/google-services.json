@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "85520433977",
+    "firebase_url": "https://the-blogly-app.firebaseio.com",
+    "project_id": "the-blogly-app",
+    "storage_bucket": "the-blogly-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85520433977:android:d6be379a076b56a02e9ee8",
+        "android_client_info": {
+          "package_name": "shortcourse.blogly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85520433977-9du47gddgcmvtusf7ku4lg95vlkbd9nt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shortcourse.blogly",
+            "certificate_hash": "4a3559a4b5f964c565d55e91a2b86f23836ce186"
+          }
+        },
+        {
+          "client_id": "85520433977-0f0spp4jr3tmk9k9uja70vv9nu8dde5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQofc1tkXdfu00NMOysB_vX0egteIOwiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85520433977-0f0spp4jr3tmk9k9uja70vv9nu8dde5q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
