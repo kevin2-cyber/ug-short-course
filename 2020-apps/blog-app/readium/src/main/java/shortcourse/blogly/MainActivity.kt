@@ -1,4 +1,4 @@
-package shortcourse.blogly
+package shortcourse.readium
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

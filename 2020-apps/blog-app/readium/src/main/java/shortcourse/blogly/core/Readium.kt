@@ -1,4 +1,4 @@
-package shortcourse.blogly.core
+package shortcourse.readium.core
 
 import android.app.Application
 import android.os.StrictMode
@@ -15,6 +15,7 @@ class Readium : Application() {
     override fun onCreate() {
         enableStrictMode()
         super.onCreate()
+        
         // Enable Bugsnag
         Bugsnag.init(this@Readium)
 
