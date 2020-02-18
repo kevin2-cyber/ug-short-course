@@ -111,6 +111,9 @@ dependencies {
     // Store
     api("com.dropbox.mobile.store:store4:4.0.0-alpha03")
 
+    // Gson
+    implementation("com.google.code.gson:gson:2.8.6")
+
     // Testing
     testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
