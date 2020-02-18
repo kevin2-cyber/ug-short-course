@@ -1,16 +1,18 @@
 package shortcourse.readium.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.jetbrains.anko.intentFor
 import shortcourse.readium.R
+import shortcourse.readium.core.base.BaseActivity
 import shortcourse.readium.databinding.ActivitySplashBinding
-import shortcourse.readium.util.debugger
 
 /**
  * Welcome screen for application
  */
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
     private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +21,10 @@ class SplashActivity : AppCompatActivity() {
         // Apply data binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
 
-        binding.run {
-            if (!animationView.isAnimating) {
-                debugger("Animation has stopped")
-            }
-            executePendingBindings()
+        uiScope.launch {
+            delay(3500)
+            startActivity(intentFor<MainActivity>())
+            finishAfterTransition()
         }
 
     }

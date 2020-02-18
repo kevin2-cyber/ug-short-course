@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="title_auth" tools:ignore="ExtraTranslation">Authentication</string>
+    <string name="title_account" tools:ignore="ExtraTranslation">Account Setup</string>
+    <string name="title_search" tools:ignore="ExtraTranslation">Search</string>
+    <string name="title_review" tools:ignore="ExtraTranslation">Review Post</string>
+    <string name="title_settings" tools:ignore="ExtraTranslation">Profile</string>
+    <string name="title_compose" tools:ignore="ExtraTranslation">Compose</string>
+    <string name="title_comment" tools:ignore="ExtraTranslation">Comment</string>
+    <string name="title_post" tools:ignore="ExtraTranslation">Blog Post</string>
+    <string name="title_home" tools:ignore="ExtraTranslation">Home</string>
+</resources>

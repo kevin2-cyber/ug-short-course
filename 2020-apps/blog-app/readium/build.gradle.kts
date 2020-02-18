@@ -6,6 +6,7 @@ plugins {
     id("com.bugsnag.android.gradle")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.gms.google-services")
+    id("kotlin-android-extensions")
 }
 
 android {
@@ -88,6 +89,7 @@ dependencies {
 
     // Square payment API
     implementation("com.squareup.sdk.in-app-payments:card-entry:1.3.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // Testing
     testImplementation("junit:junit:4.13")

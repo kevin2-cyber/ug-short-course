@@ -1,4 +1,4 @@
-package shortcourse.readium.util
+package shortcourse.readium.core.util
 
 import timber.log.Timber
 

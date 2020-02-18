@@ -6,7 +6,7 @@
     </style>
 
     <style name="Readium.TextAppearance.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@font/rubik_medium</item>
+        <item name="fontFamily">@font/rubik</item>
     </style>
     <!--Body-->
     <style name="Readium.TextAppearance.Body1" parent="TextAppearance.MaterialComponents.Body1">

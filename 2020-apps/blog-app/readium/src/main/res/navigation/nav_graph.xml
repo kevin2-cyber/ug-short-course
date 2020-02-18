@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@id/nav_auth"
+        android:name="shortcourse.readium.view.fragment.AuthFragment"
+        android:label="@string/title_auth"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_nav_auth_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_auth_to_nav_account"
+            app:destination="@id/nav_account" />
+    </fragment>
+    <fragment
+        android:id="@id/nav_account"
+        android:name="shortcourse.readium.view.fragment.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_nav_account_to_nav_settings"
+            app:destination="@id/nav_settings" />
+    </fragment>
+    <fragment
+        android:id="@id/nav_comment"
+        android:name="shortcourse.readium.view.fragment.CommentFragment"
+        android:label="fragment_comment"
+        tools:layout="@layout/fragment_comment" />
+    <fragment
+        android:id="@id/nav_compose"
+        android:name="shortcourse.readium.view.fragment.ComposeFragment"
+        android:label="@string/title_compose"
+        tools:layout="@layout/fragment_compose" />
+    <fragment
+        android:id="@id/nav_home"
+        android:name="shortcourse.readium.view.fragment.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_nav_auth"
+            app:destination="@id/nav_auth" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_post"
+            app:destination="@id/nav_post" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_compose"
+            app:destination="@id/nav_compose" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_review"
+            app:destination="@id/nav_review" />
+    </fragment>
+    <fragment
+        android:id="@id/nav_settings"
+        android:name="shortcourse.readium.view.fragment.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@id/nav_review"
+        android:name="shortcourse.readium.view.fragment.ReviewFragment"
+        android:label="@string/title_review"
+        tools:layout="@layout/fragment_review" />
+    <fragment
+        android:id="@id/nav_post"
+        android:name="shortcourse.readium.view.fragment.PostFragment"
+        android:label="@string/title_post"
+        tools:layout="@layout/fragment_post" >
+        <action
+            android:id="@+id/action_nav_post_to_nav_compose"
+            app:destination="@id/nav_compose" />
+        <action
+            android:id="@+id/action_nav_post_to_nav_comment"
+            app:destination="@id/nav_comment" />
+    </fragment>
+</navigation>
