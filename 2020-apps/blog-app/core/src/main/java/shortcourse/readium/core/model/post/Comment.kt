@@ -13,15 +13,15 @@ import shortcourse.readium.core.util.Entities
     tableName = Entities.COMMENTS, foreignKeys = [
         ForeignKey(
             entity = Account::class,
-            parentColumns = ["account"],
-            childColumns = ["id"],
+            parentColumns = ["id"],
+            childColumns = ["account"],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
         ),
         ForeignKey(
             entity = Post::class,
-            parentColumns = ["post"],
-            childColumns = ["id"],
+            parentColumns = ["id"],
+            childColumns = ["post"],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
         )

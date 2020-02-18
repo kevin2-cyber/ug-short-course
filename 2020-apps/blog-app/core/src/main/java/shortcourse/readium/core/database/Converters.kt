@@ -4,6 +4,9 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import shortcourse.readium.core.util.Entities
 
+/**
+ * Workaround for list conversion
+ */
 class ListTypeConverter {
 
     @TypeConverter
@@ -14,6 +17,17 @@ class ListTypeConverter {
     @TypeConverter
     fun jsonToList(value: String): List<String>? {
         val objects = Gson().fromJson(value, Array<String>::class.java) as Array<String>
+        return objects.toList()
+    }
+
+    @TypeConverter
+    fun numListToJson(value: List<Int>?): String {
+        return Gson().toJson(value)
+    }
+
+    @TypeConverter
+    fun jsonToNumList(value: String): List<Int>? {
+        val objects = Gson().fromJson(value, Array<Int>::class.java) as Array<Int>
         return objects.toList()
     }
 

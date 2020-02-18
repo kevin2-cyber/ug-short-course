@@ -13,7 +13,7 @@ object Entities {
     }
 }
 
-object Database {
+object DatabaseUtil {
     const val NAME = "readium.db"
     const val VERSION = 1
 }

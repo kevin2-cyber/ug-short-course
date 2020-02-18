@@ -13,8 +13,8 @@ import shortcourse.readium.core.util.Entities
     tableName = Entities.POSTS, foreignKeys = [
         ForeignKey(
             entity = Account::class,
-            parentColumns = ["authorId"],
-            childColumns = ["id"],
+            parentColumns = ["id"],
+            childColumns = ["authorId"],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
         )
@@ -27,6 +27,7 @@ data class Post(
     var title: String,
     var description: String,
     var approved: Boolean = false,
+    var timestamp: Long = System.currentTimeMillis(),
     var comments: MutableList<String> = mutableListOf(),
     var votes: MutableList<String> = mutableListOf(),
     var images: MutableList<String?> = mutableListOf(),

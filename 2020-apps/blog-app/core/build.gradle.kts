@@ -72,7 +72,7 @@ dependencies {
 
     // Glide
     api("com.github.bumptech.glide:glide:4.11.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+    kapt("com.github.bumptech.glide:compiler:4.11.0")
 
     // Firebase
     api("com.google.firebase:firebase-analytics:17.2.2")
@@ -82,7 +82,7 @@ dependencies {
 
     // Room
     api("androidx.room:room-runtime:2.2.3")
-    annotationProcessor("androidx.room:room-compiler:2.2.3")
+    kapt("androidx.room:room-compiler:2.2.3")
     api("androidx.room:room-ktx:2.2.3")
 
     // Timber
@@ -96,7 +96,7 @@ dependencies {
     api("androidx.work:work-runtime-ktx:2.3.1")
 
     // Lifecycle
-    annotationProcessor("androidx.lifecycle:lifecycle-common-java8:2.2.0")
+    kapt("androidx.lifecycle:lifecycle-common-java8:2.2.0")
     api("androidx.lifecycle:lifecycle-extensions:2.2.0")
     api("androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0")
 
