@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#6200EE</color>
+    <color name="primary_variant">#3700B3</color>
+    <color name="secondary">#03DAC5</color>
+    <color name="secondary_variant">#03DAC5</color>
+
+    <color name="companion_white_50">#ffffff</color>
+    <color name="companion_blue_50">#eef0f2</color>
+    <color name="companion_blue_100">#d2dbe0</color>
+    <color name="companion_blue_200">#adbbc4</color>
+    <color name="companion_blue_300">#8ca2ae</color>
+    <color name="companion_blue_600">#424242</color>
+    <color name="companion_blue_700">#4e0d3a</color>
+    <color name="companion_blue_800">#5d1049</color>
+
+    <color name="companion_orange_300">#F8AAA3</color>
+    <color name="companion_orange_400">#e30425</color>
+
+    <color name="companion_white_50_alpha_060">#99ffffff</color>
+    <color name="companion_white_50_alpha_080">#ffe9e9e9</color>
+
+    <color name="companion_blue_50_alpha_060">#99eef0f2</color>
+
+    <color name="companion_black_900_alpha_000">#10000000</color>
+    <color name="companion_black_900_alpha_020">#33000000</color>
+    <color name="companion_black_900_alpha_087">#de000000</color>
+    <color name="companion_black_900_alpha_060">#99000000</color>
+
+    <color name="companion_black_800">#121212</color>
+    <color name="companion_black_900">#242316</color>
+    <color name="companion_red_200">#FF9800</color>
+    <color name="companion_red_400">#FF9800</color>
+
+    <!--Nav bar color protection for behavior differences between Android P and Q. All sdk-->
+    <!--levels should draw fullscreen. P should color the nav bar with a translucent background -->
+    <!--to guard for contrast. Q should have a transparent nav bar as Q will automatically -->
+    <!--handle contrast by either dynamically coloring the nav bar handle (gesture nav) -->
+    <!--or automatically applying a translucent background (3-button mode).-->
+    <color name="nav_bar">@color/companion_black_900_alpha_020</color>
+</resources>

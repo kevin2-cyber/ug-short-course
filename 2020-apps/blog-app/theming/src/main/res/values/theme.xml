@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Readium.DayNight" parent="Readium" />
+
+    <!-- Base application theme. -->
+    <style name="Readium" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--Color-->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_variant</item>
+
+        <item name="android:colorBackground">@color/companion_blue_50</item>
+        <item name="colorSurface">@color/companion_white_50</item>
+        <item name="colorError">@color/companion_red_400</item>
+
+        <item name="colorOnPrimary">@color/companion_white_50</item>
+        <item name="colorOnSecondary">@color/companion_white_50</item>
+        <item name="colorOnBackground">@color/companion_black_900</item>
+        <item name="colorOnSurface">@color/companion_black_900</item>
+        <item name="colorOnError">@color/companion_black_900</item>
+
+        <item name="scrimBackground">@color/companion_white_50_alpha_060</item>
+        <item name="android:statusBarColor">@color/companion_blue_50_alpha_060</item>
+        <item name="android:navigationBarColor">@color/nav_bar</item>
+
+        <!--Alpha-->
+        <item name="emphasisHighAlpha">0.87</item>
+        <item name="emphasisMediumAlpha">0.60</item>
+        <item name="emphasisDisabledAlpha">0.38</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <!--Shape-->
+
+
+        <!--Typography-->
+        <item name="textAppearanceHeadline5">@style/Readium.TextAppearance.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/Readium.TextAppearance.Headline6</item>
+        <item name="textAppearanceBody1">@style/Readium.TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/Readium.TextAppearance.Body2</item>
+        <item name="textAppearanceSubtitle1">@style/Readium.TextAppearance.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/Readium.TextAppearance.Subtitle2</item>
+        <item name="textAppearanceCaption">@style/Readium.TextAppearance.Caption</item>
+        <item name="textAppearanceOverline">@style/Readium.TextAppearance.Overline</item>
+        <item name="textAppearanceButton">@style/Readium.TextAppearance.Button</item>
+
+    </style>
+
+</resources>

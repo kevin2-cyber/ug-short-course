@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Readium.DayNight" parent="Readium.Dark" />
+
+    <style name="Readium.Dark" parent="Readium">
+        <!--Color-->
+        <item name="colorPrimary">@color/companion_blue_200</item>
+        <item name="colorPrimaryVariant">@color/companion_blue_300</item>
+        <item name="colorSecondary">@color/companion_orange_300</item>
+        <item name="colorSecondaryVariant">@color/companion_orange_300</item>
+
+        <item name="android:colorBackground">@color/companion_black_800</item>
+        <item name="colorSurface">@color/companion_black_800</item>
+        <item name="colorError">@color/companion_red_200</item>
+
+        <item name="colorOnPrimary">@color/companion_black_900</item>
+        <item name="colorOnSecondary">@color/companion_black_900</item>
+        <item name="colorOnBackground">@color/companion_white_50</item>
+        <item name="colorOnSurface">@color/companion_white_50</item>
+        <item name="colorOnError">@color/companion_black_900</item>
+
+        <item name="scrimBackground">@color/companion_black_900_alpha_087</item>
+        <item name="android:statusBarColor">@color/companion_black_900_alpha_020</item>
+
+        <item name="elevationOverlayEnabled">true</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+    </style>
+
+</resources>
