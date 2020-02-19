@@ -1,7 +1,9 @@
 package shortcourse.readium.core.model.post
 
+import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 import shortcourse.readium.core.model.ReadiumModel
@@ -33,4 +35,18 @@ data class Post(
     var images: MutableList<String?> = mutableListOf(),
     var reports: MutableList<Int> = mutableListOf(),
     var tags: MutableList<String> = mutableListOf()
-) : ReadiumModel
+) : ReadiumModel {
+
+    @Ignore
+    fun showTags(): String = tags.toString()
+
+    companion object {
+        val POST_DIFF: DiffUtil.ItemCallback<Post> = object : DiffUtil.ItemCallback<Post>() {
+            override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean =
+                oldItem == newItem
+        }
+    }
+}

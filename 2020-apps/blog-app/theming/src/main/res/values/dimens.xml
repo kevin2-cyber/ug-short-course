@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Misc-->
     <dimen name="loader_height">300dp</dimen>
+
+    <!--Spacing-->
+    <dimen name="spacing_small">4dp</dimen>
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_large">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Avatars-->
+    <dimen name="avatar_size">48dp</dimen>
+    <dimen name="large_avatar_size">96dp</dimen>
+    <dimen name="account_avatar_size">128dp</dimen>
 </resources>

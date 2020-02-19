@@ -27,6 +27,7 @@
     <!--Caption-->
     <style name="Readium.TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">@font/rubik_medium</item>
+<!--        <item name="android:textColor">?colorSecondaryVariant</item>-->
     </style>
     <!--Overline-->
     <style name="Readium.TextAppearance.Overline" parent="TextAppearance.MaterialComponents.Overline">

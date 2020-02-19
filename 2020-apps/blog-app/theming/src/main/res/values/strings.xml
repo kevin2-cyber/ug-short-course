@@ -1,3 +1,5 @@
 <resources>
     <string name="theme_lib_name">theming</string>
+    <string name="by">by</string>
+    <string name="edit">Edit</string>
 </resources>

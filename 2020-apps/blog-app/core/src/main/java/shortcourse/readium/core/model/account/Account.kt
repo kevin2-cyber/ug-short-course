@@ -1,7 +1,9 @@
 package shortcourse.readium.core.model.account
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 import shortcourse.readium.core.model.ReadiumModel
 import shortcourse.readium.core.util.Entities
@@ -35,4 +37,8 @@ data class Account(
         // Return trimmed name
         return "@${trimmedFN}_$trimmedLN"
     }
+
+    @IgnoredOnParcel
+    @Ignore
+    val displayName = "--$firstName $lastName"
 }

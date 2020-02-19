@@ -40,6 +40,7 @@
             app:backgroundTint="?colorPrimary"
             app:fabAlignmentMode="center"
             app:fabAnimationMode="scale"
+            app:hideOnScroll="true"
             app:fabCradleMargin="@dimen/spacing_normal"
             app:fabCradleRoundedCornerRadius="@dimen/spacing_large"
             app:menu="@menu/bottom_app_bar_menu" />
