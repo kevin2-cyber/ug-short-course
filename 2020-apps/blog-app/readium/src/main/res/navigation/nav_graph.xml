@@ -22,7 +22,7 @@
         android:id="@id/nav_account"
         android:name="shortcourse.readium.view.fragment.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
+        tools:layout="@layout/fragment_account">
         <action
             android:id="@+id/action_nav_account_to_nav_settings"
             app:destination="@id/nav_settings" />
@@ -54,6 +54,12 @@
         <action
             android:id="@+id/action_nav_home_to_nav_review"
             app:destination="@id/nav_review" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_settings"
+            app:destination="@id/nav_settings" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_search"
+            app:destination="@id/nav_search" />
     </fragment>
     <fragment
         android:id="@id/nav_settings"
@@ -69,7 +75,7 @@
         android:id="@id/nav_post"
         android:name="shortcourse.readium.view.fragment.PostFragment"
         android:label="@string/title_post"
-        tools:layout="@layout/fragment_post" >
+        tools:layout="@layout/fragment_post">
         <action
             android:id="@+id/action_nav_post_to_nav_compose"
             app:destination="@id/nav_compose" />
@@ -77,4 +83,9 @@
             android:id="@+id/action_nav_post_to_nav_comment"
             app:destination="@id/nav_comment" />
     </fragment>
+    <fragment
+        android:id="@id/nav_search"
+        android:name="shortcourse.readium.view.fragment.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

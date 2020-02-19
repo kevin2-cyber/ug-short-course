@@ -7,14 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
+import org.koin.android.ext.android.get
 import shortcourse.readium.R
+import shortcourse.readium.core.base.BaseFragment
 import shortcourse.readium.core.database.ReadiumDatabase
 import shortcourse.readium.core.util.debugger
 
 /**
  * A simple [Fragment] subclass.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,25 +29,22 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val db = ReadiumDatabase.getInstance(requireContext())
+        val db = get<ReadiumDatabase>()
         lifecycleScope.launchWhenStarted {
             db.accountDao().getAllAccounts().collect { accounts ->
                 debugger("Accounts found as -> ${accounts.map { it.id }}")
-            }
-        }
 
-        lifecycleScope.launchWhenCreated {
-            db.postDao().getAllPosts().collect { posts ->
-                debugger("Posts found as -> ${posts.map { it.id }}")
+                db.postDao().getAllPosts().collect { posts ->
+                    debugger("Posts found as -> ${posts.map { it.id }}")
 
-                // Get all comments for post
-                posts.forEach { story ->
-                    db.commentDao().getCommentForPost(story.id).collect { comments ->
-                        debugger("Comments for ${story.id} -> ${comments.size}")
+                    // Get all comments for post
+                    db.commentDao().getCommentForPost(posts.first().id).collect { comments ->
+                        debugger("Comments for ${posts.first().id} -> ${comments.size}")
                     }
                 }
             }
         }
+
     }
 
 }

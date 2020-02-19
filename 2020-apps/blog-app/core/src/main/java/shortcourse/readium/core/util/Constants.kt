@@ -17,3 +17,7 @@ object DatabaseUtil {
     const val NAME = "readium.db"
     const val VERSION = 1
 }
+
+object FirebaseUtil {
+    const val BUCKET = "readium"
+}

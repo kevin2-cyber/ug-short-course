@@ -2,10 +2,9 @@ package shortcourse.readium.core
 
 import android.app.Application
 import android.os.StrictMode
-import com.google.firebase.FirebaseApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import shortcourse.readium.core.util.debugger
+import shortcourse.readium.core.koin.injectables
 import timber.log.Timber
 
 /**
@@ -20,15 +19,10 @@ open class ReadiumCore : Application() {
         }
         super.onCreate()
 
-        // Enable Firebase
-        FirebaseApp.initializeApp(this@ReadiumCore).apply {
-            debugger("Application started successfully")
-        }
-
         // Dependency injection using Koin
         startKoin {
             androidContext(this@ReadiumCore)
-            modules(mutableListOf())
+            modules(injectables)
         }
     }
 
