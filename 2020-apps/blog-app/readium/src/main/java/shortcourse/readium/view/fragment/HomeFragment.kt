@@ -32,7 +32,9 @@ class HomeFragment : Fragment() {
             db.accountDao().getAllAccounts().collect { accounts ->
                 debugger("Accounts found as -> ${accounts.map { it.id }}")
             }
+        }
 
+        lifecycleScope.launchWhenCreated {
             db.postDao().getAllPosts().collect { posts ->
                 debugger("Posts found as -> ${posts.map { it.id }}")
 
