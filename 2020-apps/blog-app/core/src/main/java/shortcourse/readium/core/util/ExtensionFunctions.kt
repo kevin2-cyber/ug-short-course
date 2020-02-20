@@ -33,7 +33,7 @@ fun View.showSnackbar(message: String, persisted: Boolean = false) = Snackbar.ma
                 GlobalScope.launch(Dispatchers.Main) {
                     // Cancel after 10 secs
                     delay(10000)
-                    transientBottomBar?.dismiss()
+                    if (transientBottomBar != null && transientBottomBar.isShown) transientBottomBar.dismiss()
                 }
             }
         }
