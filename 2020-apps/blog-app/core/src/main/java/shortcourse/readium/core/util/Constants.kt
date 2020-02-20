@@ -13,11 +13,26 @@ object Entities {
     }
 }
 
+enum class Datasource(val label: String) {
+    ACCOUNTS("accounts"), POSTS("posts"), COMMENTS("comments")
+}
+
 object DatabaseUtil {
     const val NAME = "readium.db"
-    const val VERSION = 1
+    const val VERSION = 2
 }
 
 object FirebaseUtil {
     const val BUCKET = "readium"
+}
+
+object StorageUtil {
+    const val ACCOUNT_PREFS = "account-prefs"
+    const val ONBOARDING_PREFS = "onboarding-prefs"
+
+    object Keys {
+        const val ID = "account_id"
+        const val ROLES = "account_roles"
+        const val ONBOARDING_STATE = "onboarding_state"
+    }
 }

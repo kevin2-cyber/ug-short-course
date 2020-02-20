@@ -15,11 +15,12 @@ import shortcourse.readium.core.model.post.Post
 import shortcourse.readium.core.util.DatabaseUtil
 import shortcourse.readium.core.util.Entities
 import shortcourse.readium.core.worker.SampleDataWorker
+import java.util.concurrent.Executors
 
 @Database(
-    entities = [Post::class, Account::class, Comment::class],
-    version = DatabaseUtil.VERSION,
-    exportSchema = false
+        entities = [Post::class, Account::class, Comment::class],
+        version = DatabaseUtil.VERSION,
+        exportSchema = false
 )
 @TypeConverters(ListTypeConverter::class)
 abstract class ReadiumDatabase : RoomDatabase() {
@@ -35,25 +36,33 @@ abstract class ReadiumDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): ReadiumDatabase = instance ?: synchronized(this) {
             instance ?: Room.databaseBuilder(
-                context,
-                ReadiumDatabase::class.java,
-                DatabaseUtil.NAME
+                    context,
+                    ReadiumDatabase::class.java,
+                    DatabaseUtil.NAME
             ).addMigrations(MIGRATION_1_2)
-                .fallbackToDestructiveMigrationOnDowngrade()
-                .addCallback(object : Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        super.onCreate(db)
-                        with(WorkManager.getInstance(context)) {
-                            enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
+                    .fallbackToDestructiveMigrationOnDowngrade()
+                    .addCallback(object : Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            with(WorkManager.getInstance(context)) {
+                                enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
+                            }
                         }
-                    }
-                })
-                .build().also { instance = it }
+
+                        override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+                            super.onDestructiveMigration(db)
+                            with(WorkManager.getInstance(context)) {
+                                enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
+                            }
+                        }
+                    })
+                    .setQueryExecutor(Executors.newSingleThreadExecutor())
+                    .build().also { instance = it }
         }
 
         private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("alter table ${Entities.ACCOUNTS} add column username TEXT")
+                database.execSQL("alter table ${Entities.ACCOUNTS} add column pen_name TEXT")
             }
         }
     }

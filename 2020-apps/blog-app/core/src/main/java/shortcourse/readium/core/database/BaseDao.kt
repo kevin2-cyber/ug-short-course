@@ -11,15 +11,12 @@ import androidx.room.Update
 interface BaseDao<M> {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: M)
+    suspend fun insert(item: M)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(item: MutableList<M>)
-
-    @Delete
-    fun delete(item: M)
+    suspend fun insertAll(item: MutableList<M>)
 
     @Update
-    fun update(item: M)
+    suspend fun update(item: M)
 
 }

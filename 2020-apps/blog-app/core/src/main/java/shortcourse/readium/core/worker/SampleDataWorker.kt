@@ -47,9 +47,9 @@ class SampleDataWorker(context: Context, parameters: WorkerParameters) :
                 ).toMutableList()
 
                 // Insert data into database
-                accountDao.insertAll(accounts)
-                postDao.insertAll(posts)
-                commentDao.insertAll(comments)
+                accountDao.insertAll(item = accounts)
+                postDao.insertAll(item = posts)
+                commentDao.insertAll(item = comments)
             } catch (e: Exception) {
                 debugger(e.localizedMessage)
             }

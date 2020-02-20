@@ -3,6 +3,8 @@
     <words>
       <w>blogly</w>
       <w>bugsnag</w>
+      <w>datasource</w>
+      <w>firestore</w>
       <w>gson</w>
       <w>injectables</w>
       <w>readium</w>

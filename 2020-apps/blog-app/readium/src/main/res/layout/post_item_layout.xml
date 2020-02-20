@@ -77,8 +77,10 @@
                 android:layout_height="@dimen/avatar_size"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:src="@drawable/ic_account"
+                app:isCircleCrop="@{true}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/post_tags" />
+                app:layout_constraintTop_toBottomOf="@id/post_tags"
+                app:srcUrl="@{author.avatar}" />
 
             <TextView
                 android:id="@+id/separator"
@@ -103,63 +105,63 @@
                 app:layout_constraintTop_toTopOf="@id/author_avatar"
                 tools:text="@tools:sample/full_names" />
 
-            <androidx.constraintlayout.widget.Guideline
+            <!-- <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="270dp" />
 
-            <TextView
-                android:id="@+id/comments"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:drawableTop="@drawable/ic_comments"
-                android:drawablePadding="@dimen/spacing_normal"
-                android:focusable="true"
-                android:onClick="@{() -> listener.onCommentClick(post)}"
-                app:layout_constraintBottom_toBottomOf="@id/guideline"
-                app:layout_constraintEnd_toStartOf="@+id/votes"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/guideline"
-                tools:text="999 Comments" />
+               <TextView
+                    android:id="@+id/comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_comments"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:focusable="true"
+                    android:onClick="@{() -> listener.onCommentClick(post)}"
+                    app:layout_constraintBottom_toBottomOf="@id/guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/votes"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/guideline"
+                    tools:text="999 Comments" />
 
-            <TextView
-                android:id="@+id/votes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:drawableTop="@drawable/ic_votes"
-                android:drawablePadding="@dimen/spacing_normal"
-                android:focusable="true"
-                android:onClick="@{() -> listener.onVoteClick(post)}"
-                app:layout_constraintBottom_toBottomOf="@id/guideline"
-                app:layout_constraintEnd_toStartOf="@+id/reports"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/comments"
-                app:layout_constraintTop_toTopOf="@id/guideline"
-                tools:text="234 Votes" />
+                <TextView
+                    android:id="@+id/votes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_votes"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:focusable="true"
+                    android:onClick="@{() -> listener.onVoteClick(post)}"
+                    app:layout_constraintBottom_toBottomOf="@id/guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/reports"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/comments"
+                    app:layout_constraintTop_toTopOf="@id/guideline"
+                    tools:text="234 Votes" />
 
-            <TextView
-                android:id="@+id/reports"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:drawableTop="@drawable/ic_reports"
-                android:drawablePadding="@dimen/spacing_normal"
-                android:focusable="true"
-                android:onClick="@{() -> listener.onReportClick(post)}"
-                app:layout_constraintBottom_toBottomOf="@id/guideline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/votes"
-                app:layout_constraintTop_toTopOf="@id/guideline"
-                tools:text="1189 Reports" />
+                <TextView
+                    android:id="@+id/reports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_reports"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:focusable="true"
+                    android:onClick="@{() -> listener.onReportClick(post)}"
+                    app:layout_constraintBottom_toBottomOf="@id/guideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/votes"
+                    app:layout_constraintTop_toTopOf="@id/guideline"
+                    tools:text="1189 Reports" /> -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

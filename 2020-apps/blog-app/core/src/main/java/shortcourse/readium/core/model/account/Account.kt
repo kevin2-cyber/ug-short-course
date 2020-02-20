@@ -1,5 +1,6 @@
 package shortcourse.readium.core.model.account
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
@@ -17,11 +18,16 @@ data class Account(
     var firstName: String,
     var lastName: String,
     var email: String,
+    @ColumnInfo(name = "pen_name")
+    var penName: String?,
     var avatar: String? = null,
     val creationTime: Long = System.currentTimeMillis(),
     var lastSeen: Long = System.currentTimeMillis(),
     var roles: MutableList<String> = mutableListOf(Entities.Role.GUEST.label)
 ) : ReadiumModel {
+
+    @Ignore
+    constructor() : this("", "", "", "", "")
 
     /**
      * Generates a unique id for user based on their first & last names

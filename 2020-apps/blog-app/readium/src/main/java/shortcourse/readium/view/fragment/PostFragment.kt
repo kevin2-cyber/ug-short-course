@@ -30,7 +30,6 @@ class PostFragment : Fragment() {
 
         binding.run {
             post = args.post
-
             executePendingBindings()
         }
 

@@ -8,9 +8,10 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
+import org.koin.android.ext.android.inject
 import shortcourse.readium.R
 import shortcourse.readium.core.base.BaseActivity
-import shortcourse.readium.core.util.debugger
+import shortcourse.readium.core.storage.AccountPrefs
 import shortcourse.readium.databinding.MainActivityBinding
 import shortcourse.readium.view.fragment.CommentFragmentDirections
 import shortcourse.readium.view.fragment.HomeFragmentDirections
@@ -20,6 +21,7 @@ import shortcourse.readium.view.fragment.SettingsFragmentDirections
 class MainActivity : BaseActivity() {
     private lateinit var binding: MainActivityBinding
     private lateinit var controller: NavController
+    private val prefs: AccountPrefs by inject<AccountPrefs>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +37,9 @@ class MainActivity : BaseActivity() {
         }
 
         // Listen for destination change events
-        controller.addOnDestinationChangedListener { _, destination, arguments ->
-            debugger(arguments)
+        controller.addOnDestinationChangedListener { _, destination, _ ->
             setupBottomAppBarForDestination(destination)
         }
-
     }
 
     private fun setupBottomAppBarForDestination(navDestination: NavDestination) {
@@ -57,8 +57,12 @@ class MainActivity : BaseActivity() {
                     fabBottomAppBar.setOnClickListener {
                         val direction: NavDirections = when (navDestination.id) {
                             R.id.nav_post -> PostFragmentDirections.actionNavPostToNavCompose(null)
-                            R.id.nav_settings -> SettingsFragmentDirections.actionNavSettingsToNavCompose(null)
-                            R.id.nav_comment -> CommentFragmentDirections.actionNavCommentToNavCompose(null)
+                            R.id.nav_settings -> SettingsFragmentDirections.actionNavSettingsToNavCompose(
+                                null
+                            )
+                            R.id.nav_comment -> CommentFragmentDirections.actionNavCommentToNavCompose(
+                                null
+                            )
                             else -> HomeFragmentDirections.actionNavHomeToNavCompose(null)
                         }
                         controller.navigate(direction)
