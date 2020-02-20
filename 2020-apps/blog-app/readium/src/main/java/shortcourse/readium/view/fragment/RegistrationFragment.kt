@@ -1,60 +1,100 @@
 package shortcourse.readium.view.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import shortcourse.readium.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import shortcourse.readium.core.util.InputValidator
+import shortcourse.readium.core.util.debugger
+import shortcourse.readium.core.util.resolveText
+import shortcourse.readium.core.util.showSnackbar
+import shortcourse.readium.core.viewmodel.AuthViewModel
+import shortcourse.readium.databinding.FragmentRegistrationBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [RegistrationFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class RegistrationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentRegistrationBinding
+    private val controller by lazy { findNavController() }
+    private val authViewModel by viewModel<AuthViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration, container, false)
+        binding = FragmentRegistrationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegistrationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegistrationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        // Observe login state
+        authViewModel.authState.observe(viewLifecycleOwner, Observer { state ->
+            when (state) {
+                AuthViewModel.AuthenticationState.UNAUTHENTICATED -> {
+                    debugger("User has not been authenticated yet")
+                }
+
+                AuthViewModel.AuthenticationState.AUTHENTICATED -> {
+                    controller.popBackStack(R.id.nav_home, true)
+                }
+
+                AuthViewModel.AuthenticationState.INVALID_AUTHENTICATION -> {
+                    binding.run {
+                        InputValidator.toggleFields(true, authPwd, authEmail)
+                        root.showSnackbar("Authentication failed")
+                    }
+                }
+
+                AuthViewModel.AuthenticationState.AUTHENTICATING -> {
+                    binding.run {
+                        InputValidator.toggleFields(false, authPwd, authEmail)
+                        root.showSnackbar("Signing in...", true)
+                    }
+                }
+
+                else -> {
+                    /*Do nothing*/
                 }
             }
+        })
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    findNavController().popBackStack(R.id.nav_auth, true)
+                }
+            })
+
+        binding.run {
+            navCreateAccount.setOnClickListener {
+                when {
+                    !InputValidator.validateEmail(authEmail) -> root.showSnackbar("Please enter a valid email address")
+                    !InputValidator.validatePassword(authPwd) -> root.showSnackbar("Password is too short")
+                    !InputValidator.validateFields(
+                        authFirstName,
+                        authLastName
+                    ) -> root.showSnackbar("Check your first name & last name")
+                    else -> authViewModel.createAccount(
+                        authEmail.resolveText,
+                        authPwd.resolveText,
+                        authFirstName.resolveText,
+                        authLastName.resolveText
+                    )
+                }
+            }
+        }
+
     }
+
 }

@@ -20,13 +20,11 @@
             android:paddingVertical="@dimen/spacing_large"
             tools:context=".view.fragment.AuthFragment">
 
-            <com.airbnb.lottie.LottieAnimationView
+            <ImageView
                 android:id="@+id/animation_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/loader_height_small"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="false"
-                app:lottie_rawRes="@raw/wheel" />
+                android:src="@drawable/octocat" />
 
             <TextView
                 android:layout_width="wrap_content"

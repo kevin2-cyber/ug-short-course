@@ -60,6 +60,35 @@ class AuthViewModel(
         }
     }
 
+    fun createAccount(
+        email: String,
+        password: String,
+        firstName: String,
+        lastName: String,
+        penName: String = ""
+    ) {
+        _authState.value = AuthenticationState.AUTHENTICATING
+
+        // TODO: 2/20/2020 Perform some action with new user data
+
+        authScope.launch {
+            repository.authenticate(
+                AuthMethod.EMAIL_PASSWORD,
+                AuthRequest.LoginRequest(email, password, true)
+            ) { result, errorMessage ->
+                if (!errorMessage.isNullOrEmpty() || result == null) {
+                    debugger(errorMessage)
+                    // Login failed
+                    _authState.value = AuthenticationState.INVALID_AUTHENTICATION
+                    return@authenticate
+                }
+
+                // Login was successful
+                _authState.value = AuthenticationState.AUTHENTICATED
+            }
+        }
+    }
+
     fun logout() {
         authScope.launch {
             repository.logout()

@@ -12,11 +12,14 @@
         android:label="@string/title_auth"
         tools:layout="@layout/fragment_auth">
         <action
-            android:id="@+id/action_nav_auth_to_nav_home"
-            app:destination="@id/nav_home" />
-        <action
             android:id="@+id/action_nav_auth_to_nav_account"
             app:destination="@id/nav_account" />
+        <action
+            android:id="@+id/action_nav_auth_to_nav_onboarding"
+            app:destination="@id/nav_onboarding" />
+        <action
+            android:id="@+id/action_nav_auth_to_nav_registration"
+            app:destination="@id/nav_registration" />
     </fragment>
     <fragment
         android:id="@id/nav_account"
@@ -69,9 +72,6 @@
         <action
             android:id="@+id/action_nav_home_to_nav_search"
             app:destination="@id/nav_search" />
-        <action
-            android:id="@+id/action_nav_home_to_onboarding_graph"
-            app:destination="@id/onboarding_graph" />
     </fragment>
     <fragment
         android:id="@id/nav_settings"
@@ -110,7 +110,19 @@
         android:name="shortcourse.readium.view.fragment.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
-
-    <include app:graph="@navigation/onboarding_graph" />
+    <fragment
+        android:id="@id/nav_onboarding"
+        android:name="shortcourse.readium.view.fragment.OnboardingFragment"
+        android:label="@string/title_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_nav_onboarding_to_nav_registration"
+            app:destination="@id/nav_registration" />
+    </fragment>
+    <fragment
+        android:id="@id/nav_registration"
+        android:name="shortcourse.readium.view.fragment.RegistrationFragment"
+        android:label="@string/title_registration"
+        tools:layout="@layout/fragment_registration" />
 
 </navigation>

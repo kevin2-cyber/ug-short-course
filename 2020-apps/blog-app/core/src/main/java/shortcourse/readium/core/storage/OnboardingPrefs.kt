@@ -23,6 +23,8 @@ class OnboardingPrefs private constructor(context: Context) {
 
     val currentState: LiveData<Boolean> get() = _liveState
 
+    val shouldShowOnboarding: Boolean get() = !prefs.getBoolean(StorageUtil.Keys.ONBOARDING_STATE, false)
+
     init {
         _liveState.value = prefs.getBoolean(StorageUtil.Keys.ONBOARDING_STATE, false)
     }

@@ -9,4 +9,7 @@
     <string name="register">Create account</string>
     <string name="guest_mode">Continue as guest</string>
     <string name="login_desc">Sign in to get the most out of Readium. You can create a blog &amp; find friends across the world. Happy reading!</string>
+    <string name="register_header">Create a new account to get started</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 </resources>

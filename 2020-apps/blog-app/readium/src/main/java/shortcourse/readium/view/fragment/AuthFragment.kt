@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import shortcourse.readium.R
 import shortcourse.readium.core.base.BaseFragment
+import shortcourse.readium.core.storage.OnboardingPrefs
 import shortcourse.readium.core.util.InputValidator
 import shortcourse.readium.core.util.debugger
 import shortcourse.readium.core.util.resolveText
@@ -46,16 +48,19 @@ class AuthFragment : BaseFragment() {
                 }
 
                 AuthViewModel.AuthenticationState.AUTHENTICATED -> {
-                    with(controller) {
-                        setGraph(R.navigation.nav_graph)
-                        navigate(AuthFragmentDirections.actionNavAuthToNavHome())
-                    }
+                    controller.popBackStack(R.id.nav_home, true)
                 }
                 AuthViewModel.AuthenticationState.INVALID_AUTHENTICATION -> {
-                    binding.root.showSnackbar("Authentication failed")
+                    binding.run {
+                        InputValidator.toggleFields(true, authPwd, authEmail)
+                        root.showSnackbar("Authentication failed")
+                    }
                 }
                 AuthViewModel.AuthenticationState.AUTHENTICATING -> {
-                    binding.root.showSnackbar("Signing in...", true)
+                    binding.run {
+                        InputValidator.toggleFields(false, authPwd, authEmail)
+                        root.showSnackbar("Signing in...", true)
+                    }
                 }
 
                 else -> {
@@ -66,10 +71,13 @@ class AuthFragment : BaseFragment() {
 
         binding.run {
             navCreateAccount.setOnClickListener {
-                with(controller) {
-                    setGraph(R.navigation.registration_graph)
-                    navigate(R.id.nav_registration)
-                }
+                // TODO: 2/20/2020 Move to onboarding if necessary
+                controller.navigate(
+                    if (get<OnboardingPrefs>().shouldShowOnboarding)
+                        AuthFragmentDirections.actionNavAuthToNavOnboarding()
+                    else
+                        AuthFragmentDirections.actionNavAuthToNavRegistration()
+                )
             }
             performLogin.setOnClickListener {
                 if (InputValidator.validateEmail(authEmail)) {

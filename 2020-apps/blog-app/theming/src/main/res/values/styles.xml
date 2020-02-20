@@ -34,6 +34,7 @@
     <style name="Widget.Readium.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="shapeAppearanceOverlay">@style/ShapeOverlay.Readium.BottomAppBar</item>
         <item name="fabCradleRoundedCornerRadius">@dimen/spacing_large</item>
+        <item name="fabCradleMargin">@dimen/spacing_mid</item>
         <item name="android:layout_gravity">bottom|center_horizontal</item>
     </style>
 </resources>

@@ -13,6 +13,7 @@ import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.storage.AccountPrefs
 import shortcourse.readium.core.util.accounts
 import shortcourse.readium.core.util.asAccount
+import shortcourse.readium.core.util.debugger
 import shortcourse.readium.core.util.getAccountById
 
 /**
@@ -64,20 +65,25 @@ class AccountRepositoryImpl(
         when (method) {
             AuthMethod.EMAIL_PASSWORD -> {
                 if (loginRequest is AuthRequest.LoginRequest) {
-                    val user = withContext(Dispatchers.IO) {
-                        if (loginRequest.isNewUser) Tasks.await(
-                            auth.createUserWithEmailAndPassword(
-                                loginRequest.email,
-                                loginRequest.password
-                            )
-                        ).user
-                        else
-                            Tasks.await(
-                                auth.signInWithEmailAndPassword(
+                    val user = try {
+                        withContext(Dispatchers.IO) {
+                            if (loginRequest.isNewUser) Tasks.await(
+                                auth.createUserWithEmailAndPassword(
                                     loginRequest.email,
                                     loginRequest.password
                                 )
                             ).user
+                            else
+                                Tasks.await(
+                                    auth.signInWithEmailAndPassword(
+                                        loginRequest.email,
+                                        loginRequest.password
+                                    )
+                                ).user
+                        }
+                    } catch (e: Exception) {
+                        debugger(e.localizedMessage)
+                        null
                     }
 
                     // Could not sign in user
@@ -92,12 +98,18 @@ class AccountRepositoryImpl(
 
                         // Save data in remote database
                         withContext(Dispatchers.IO) {
-                            Tasks.await(
-                                firestore.accounts.document(user.uid).set(
-                                    account,
-                                    SetOptions.merge()
+                            try {
+                                Tasks.await(
+                                    firestore.accounts.document(user.uid).set(
+                                        account,
+                                        SetOptions.merge()
+                                    )
                                 )
-                            )
+                            } catch (e: Exception) {
+                                debugger(e.localizedMessage)
+                                callback(null, e.localizedMessage)
+                                return@withContext
+                            }
                         }
 
                         // Save in DAO
