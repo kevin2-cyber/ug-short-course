@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -69,9 +70,17 @@ class AuthFragment : BaseFragment() {
             }
         })
 
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    authViewModel.cancelAuthentication()
+                    controller.popBackStack(R.id.nav_home, true)
+                }
+            })
+
         binding.run {
             navCreateAccount.setOnClickListener {
-                // TODO: 2/20/2020 Move to onboarding if necessary
                 controller.navigate(
                     if (get<OnboardingPrefs>().shouldShowOnboarding)
                         AuthFragmentDirections.actionNavAuthToNavOnboarding()

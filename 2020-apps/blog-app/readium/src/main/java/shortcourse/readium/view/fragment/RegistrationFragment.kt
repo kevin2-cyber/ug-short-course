@@ -50,14 +50,26 @@ class RegistrationFragment : Fragment() {
 
                 AuthViewModel.AuthenticationState.INVALID_AUTHENTICATION -> {
                     binding.run {
-                        InputValidator.toggleFields(true, authPwd, authEmail)
+                        InputValidator.toggleFields(
+                            true,
+                            authPwd,
+                            authEmail,
+                            authLastName,
+                            authFirstName
+                        )
                         root.showSnackbar("Authentication failed")
                     }
                 }
 
                 AuthViewModel.AuthenticationState.AUTHENTICATING -> {
                     binding.run {
-                        InputValidator.toggleFields(false, authPwd, authEmail)
+                        InputValidator.toggleFields(
+                            false,
+                            authPwd,
+                            authEmail,
+                            authFirstName,
+                            authLastName
+                        )
                         root.showSnackbar("Signing in...", true)
                     }
                 }
@@ -72,6 +84,7 @@ class RegistrationFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
+                    authViewModel.cancelAuthentication()
                     findNavController().popBackStack(R.id.nav_auth, true)
                 }
             })
