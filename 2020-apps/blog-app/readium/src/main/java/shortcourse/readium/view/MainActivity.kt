@@ -40,8 +40,6 @@ class MainActivity : BaseActivity() {
         controller.addOnDestinationChangedListener { _, destination, _ ->
             setupBottomAppBarForDestination(destination)
         }
-
-        if (!prefs.isLoggedIn) controller.navigate(R.id.nav_auth)
     }
 
     private fun setupBottomAppBarForDestination(navDestination: NavDestination) {
@@ -94,7 +92,12 @@ class MainActivity : BaseActivity() {
         when (item.itemId) {
             R.id.nav_search -> controller.navigate(HomeFragmentDirections.actionNavHomeToNavSearch())
 
-            R.id.nav_settings -> controller.navigate(HomeFragmentDirections.actionNavHomeToNavSettings())
+            R.id.nav_settings -> controller.navigate(
+                if (prefs.isLoggedIn)
+                    HomeFragmentDirections.actionNavHomeToNavSettings()
+                else
+                    HomeFragmentDirections.actionNavHomeToNavAuth()
+            )
         }
         return super.onOptionsItemSelected(item)
     }

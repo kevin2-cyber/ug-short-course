@@ -15,6 +15,7 @@ import java.util.*
 data class Account(
     @PrimaryKey(autoGenerate = false)
     override val id: String,
+    val uid: String? = UUID.randomUUID().toString(),
     var firstName: String,
     var lastName: String,
     var email: String,
@@ -27,24 +28,26 @@ data class Account(
 ) : ReadiumModel {
 
     @Ignore
-    constructor() : this("", "", "", "", "")
-
-    /**
-     * Generates a unique id for user based on their first & last names
-     */
-    fun generateId(): String {
-        val trimmedFN = firstName.toLowerCase(Locale.getDefault())
-            .replace(" ", "")
-            .replace("@", "")
-        val trimmedLN = lastName.toLowerCase(Locale.getDefault())
-            .replace(" ", "")
-            .replace("@", "")
-
-        // Return trimmed name
-        return "@${trimmedFN}_$trimmedLN"
-    }
+    constructor() : this("", "", "", "", "", "")
 
     @IgnoredOnParcel
     @Ignore
     val displayName = "--$firstName $lastName"
+
+    companion object {
+        /**
+         * Generates a unique id for user based on their first & last names
+         */
+        fun generateId(firstName: String?, lastName: String?): String {
+            val trimmedFN = firstName?.toLowerCase(Locale.getDefault())
+                ?.replace(" ", "")
+                ?.replace("@", "")
+            val trimmedLN = lastName?.toLowerCase(Locale.getDefault())
+                ?.replace(" ", "")
+                ?.replace("@", "")
+
+            // Return trimmed name
+            return "@${trimmedFN}_$trimmedLN"
+        }
+    }
 }

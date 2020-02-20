@@ -18,9 +18,9 @@ import shortcourse.readium.core.worker.SampleDataWorker
 import java.util.concurrent.Executors
 
 @Database(
-        entities = [Post::class, Account::class, Comment::class],
-        version = DatabaseUtil.VERSION,
-        exportSchema = false
+    entities = [Post::class, Account::class, Comment::class],
+    version = DatabaseUtil.VERSION,
+    exportSchema = false
 )
 @TypeConverters(ListTypeConverter::class)
 abstract class ReadiumDatabase : RoomDatabase() {
@@ -36,35 +36,43 @@ abstract class ReadiumDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): ReadiumDatabase = instance ?: synchronized(this) {
             instance ?: Room.databaseBuilder(
-                    context,
-                    ReadiumDatabase::class.java,
-                    DatabaseUtil.NAME
-            ).addMigrations(MIGRATION_1_2)
-                    .fallbackToDestructiveMigrationOnDowngrade()
-                    .addCallback(object : Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                            with(WorkManager.getInstance(context)) {
-                                enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
-                            }
+                context,
+                ReadiumDatabase::class.java,
+                DatabaseUtil.NAME
+            ).addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                .fallbackToDestructiveMigrationOnDowngrade()
+                .addCallback(object : Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        with(WorkManager.getInstance(context)) {
+                            enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
                         }
+                    }
 
-                        override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
-                            super.onDestructiveMigration(db)
-                            with(WorkManager.getInstance(context)) {
-                                enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
-                            }
+                    override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+                        super.onDestructiveMigration(db)
+                        with(WorkManager.getInstance(context)) {
+                            enqueue(OneTimeWorkRequestBuilder<SampleDataWorker>().build())
                         }
-                    })
-                    .setQueryExecutor(Executors.newSingleThreadExecutor())
-                    .build().also { instance = it }
+                    }
+                })
+                .setQueryExecutor(Executors.newSingleThreadExecutor())
+                .build().also { instance = it }
         }
 
+        // region MIGRATIONS
         private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("alter table ${Entities.ACCOUNTS} add column pen_name TEXT")
             }
         }
+
+        private val MIGRATION_2_3: Migration = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("alter table ${Entities.ACCOUNTS} add column uid TEXT")
+            }
+        }
+        // endregion MIGRATIONS
     }
 
 }

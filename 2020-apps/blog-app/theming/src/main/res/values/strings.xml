@@ -8,4 +8,5 @@
     <string name="login_now">Login Now</string>
     <string name="register">Create account</string>
     <string name="guest_mode">Continue as guest</string>
+    <string name="login_desc">Sign in to get the most out of Readium. You can create a blog &amp; find friends across the world. Happy reading!</string>
 </resources>

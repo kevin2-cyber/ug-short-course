@@ -41,8 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_large"
-                android:paddingVertical="@dimen/spacing_normal"
-                android:text="@string/login_header"
+                android:paddingBottom="@dimen/spacing_normal"
+                android:text="@string/login_desc"
+                android:textAlignment="center"
                 android:textAppearance="?textAppearanceCaption" />
 
 

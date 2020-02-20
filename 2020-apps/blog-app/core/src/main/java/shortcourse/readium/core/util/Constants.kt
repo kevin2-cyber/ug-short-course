@@ -19,7 +19,7 @@ enum class Datasource(val label: String) {
 
 object DatabaseUtil {
     const val NAME = "readium.db"
-    const val VERSION = 2
+    const val VERSION = 3
 }
 
 object FirebaseUtil {
