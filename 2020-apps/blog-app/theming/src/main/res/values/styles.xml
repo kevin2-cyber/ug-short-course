@@ -1,1 +1,39 @@
-<resources></resources>
+<resources>
+    <!--FAB-->
+    <style name="Widget.Readium.FAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/ShapeOverlay.Readium.FAB</item>
+    </style>
+
+    <!--Button-->
+    <style name="Widget.Readium.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">@dimen/loader_height_small</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeOverlay.Readium.Button</item>
+    </style>
+
+    <style name="Widget.Readium.Button.Other">
+        <item name="backgroundTint">@color/csl_button</item>
+        <item name="android:textColor">@color/csl_button_text</item>
+    </style>
+
+    <style name="Widget.Readium.Button.Outlined">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="backgroundTint">?android:colorBackground</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:outlineProvider">none</item>
+    </style>
+
+    <!--Chip-->
+    <style name="Widget.Readium.Chip" parent="ShapeAppearanceOverlay.MaterialComponents.Chip">
+        <item name="shapeAppearanceOverlay">@style/ShapeOverlay.Readium.Chip</item>
+    </style>
+
+    <!--Bottom App Bar-->
+    <style name="Widget.Readium.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="shapeAppearanceOverlay">@style/ShapeOverlay.Readium.BottomAppBar</item>
+        <item name="fabCradleRoundedCornerRadius">@dimen/spacing_large</item>
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+    </style>
+</resources>

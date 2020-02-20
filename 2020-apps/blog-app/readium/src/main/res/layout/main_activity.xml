@@ -68,9 +68,8 @@
             android:layout_gravity="bottom|center_horizontal"
             app:backgroundTint="?colorPrimary"
             app:fabAlignmentMode="center"
-            app:fabAnimationMode="scale"
-            app:fabCradleMargin="@dimen/spacing_normal"
-            app:fabCradleRoundedCornerRadius="@dimen/spacing_large"
+            app:fabAnimationMode="slide"
+            app:title="@string/app_name"
             app:hideOnScroll="true"
             app:menu="@menu/bottom_app_bar_menu" />
 

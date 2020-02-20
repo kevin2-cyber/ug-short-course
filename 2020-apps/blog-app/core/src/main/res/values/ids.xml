@@ -9,4 +9,6 @@
     <item name="nav_review" type="id" />
     <item name="nav_comment" type="id" />
     <item name="nav_account" type="id" />
+    <item name="nav_registration" type="id" />
+    <item name="nav_onboarding" type="id" />
 </resources>

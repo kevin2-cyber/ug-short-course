@@ -2,4 +2,10 @@
     <string name="theme_lib_name">theming</string>
     <string name="by">by</string>
     <string name="edit">Edit</string>
+    <string name="login_header">Login to get started</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login_now">Login Now</string>
+    <string name="register">Create account</string>
+    <string name="guest_mode">Continue as guest</string>
 </resources>

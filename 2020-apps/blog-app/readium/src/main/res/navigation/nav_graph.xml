@@ -69,6 +69,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_search"
             app:destination="@id/nav_search" />
+        <action
+            android:id="@+id/action_nav_home_to_onboarding_graph"
+            app:destination="@id/onboarding_graph" />
     </fragment>
     <fragment
         android:id="@id/nav_settings"
@@ -107,4 +110,7 @@
         android:name="shortcourse.readium.view.fragment.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
+
+    <include app:graph="@navigation/onboarding_graph" />
+
 </navigation>

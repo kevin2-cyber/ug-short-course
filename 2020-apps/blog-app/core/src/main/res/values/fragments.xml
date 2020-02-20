@@ -9,4 +9,6 @@
     <string name="title_comment" tools:ignore="ExtraTranslation">Comment</string>
     <string name="title_post" tools:ignore="ExtraTranslation">Blog Post</string>
     <string name="title_home" tools:ignore="ExtraTranslation">Home</string>
+    <string name="title_registration" tools:ignore="ExtraTranslation">Registration</string>
+    <string name="title_onboarding" tools:ignore="ExtraTranslation">Onboarding</string>
 </resources>

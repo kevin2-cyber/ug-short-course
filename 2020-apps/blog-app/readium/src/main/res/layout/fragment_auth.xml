@@ -1,15 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.fragment.AuthFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/title_auth"
-        android:textAppearance="?textAppearanceHeadline6" />
+    <data>
 
-</FrameLayout>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/spacing_xlarge"
+            android:paddingVertical="@dimen/spacing_large"
+            tools:context=".view.fragment.AuthFragment">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/loader_height_small"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/wheel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:paddingVertical="@dimen/spacing_normal"
+                android:text="@string/login_header"
+                android:textAppearance="?textAppearanceHeadline5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:paddingVertical="@dimen/spacing_normal"
+                android:text="@string/login_header"
+                android:textAppearance="?textAppearanceCaption" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/auth_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    tools:text="@tools:sample/full_names" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:hint="@string/password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/auth_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionGo"
+                    android:inputType="textPassword"
+                    tools:text="@tools:sample/full_names" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/perform_login"
+                style="@style/Widget.Readium.Button"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:text="@string/login_now" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nav_create_account"
+                style="@style/Widget.Readium.Button.Other"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="@string/register" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nav_use_as_guest"
+            style="@style/Widget.Readium.Button.Outlined"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:drawableStart="@drawable/ic_comments"
+            android:text="@string/guest_mode" />
+
+    </FrameLayout>
+</layout>

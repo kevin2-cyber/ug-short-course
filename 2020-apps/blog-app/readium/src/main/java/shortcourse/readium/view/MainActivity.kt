@@ -21,7 +21,7 @@ import shortcourse.readium.view.fragment.SettingsFragmentDirections
 class MainActivity : BaseActivity() {
     private lateinit var binding: MainActivityBinding
     private lateinit var controller: NavController
-    private val prefs: AccountPrefs by inject<AccountPrefs>()
+    private val prefs: AccountPrefs by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +40,14 @@ class MainActivity : BaseActivity() {
         controller.addOnDestinationChangedListener { _, destination, _ ->
             setupBottomAppBarForDestination(destination)
         }
+
+        if (!prefs.isLoggedIn) controller.navigate(R.id.nav_auth)
     }
 
     private fun setupBottomAppBarForDestination(navDestination: NavDestination) {
         when (navDestination.id) {
-            R.id.nav_account, R.id.nav_search, R.id.nav_auth, R.id.nav_compose -> {
+            R.id.nav_account, R.id.nav_search, R.id.nav_auth,
+            R.id.nav_onboarding, R.id.nav_registration, R.id.nav_compose -> {
                 binding.run {
                     bottomAppBar.performHide()
                     fabBottomAppBar.hide()

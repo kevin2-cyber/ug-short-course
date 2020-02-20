@@ -1,2 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <style name="Shape.Readium.Small" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="Shape.Readium.Medium" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="Shape.Readium.Large" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <!--Bottom Sheet-->
+    <style name="ShapeOverlay.Readium.BottomSheet" parent="ShapeAppearanceOverlay.MaterialComponents.BottomSheet">
+        <item name="cornerSizeTopRight">@dimen/spacing_small</item>
+        <item name="cornerSizeTopLeft">@dimen/spacing_small</item>
+    </style>
+
+    <!--FAB-->
+    <style name="ShapeOverlay.Readium.FAB" parent="ShapeAppearanceOverlay.MaterialComponents.FloatingActionButton">
+        <item name="cornerRadius">@dimen/spacing_small</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <!--Button-->
+    <style name="ShapeOverlay.Readium.Button" parent="Shape.Readium.Small">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerRadius">@dimen/spacing_large</item>
+    </style>
+
+
+    <!--Bottom App Bar-->
+    <style name="ShapeOverlay.Readium.BottomAppBar" parent="">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <!--Chip-->
+    <style name="ShapeOverlay.Readium.Chip" parent="ShapeAppearanceOverlay.MaterialComponents.Chip">
+        <item name="cornerSize">0%</item>
+    </style>
+</resources>
