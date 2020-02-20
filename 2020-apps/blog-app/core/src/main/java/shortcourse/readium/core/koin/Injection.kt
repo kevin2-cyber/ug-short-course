@@ -13,6 +13,8 @@ import shortcourse.readium.core.database.ReadiumDatabase
 import shortcourse.readium.core.datasource.RemoteDatasource
 import shortcourse.readium.core.repository.AccountRepository
 import shortcourse.readium.core.repository.AccountRepositoryImpl
+import shortcourse.readium.core.repository.PostRepository
+import shortcourse.readium.core.repository.PostRepositoryImpl
 import shortcourse.readium.core.storage.AccountPrefs
 import shortcourse.readium.core.storage.OnboardingPrefs
 import shortcourse.readium.core.util.FirebaseUtil
@@ -49,6 +51,7 @@ private val applicationModule: Module = module {
 
     // Repositories
     single { AccountRepositoryImpl(get(), get(), get(), get()) as AccountRepository }
+    single { PostRepositoryImpl(get(), get(), get(), get(), get()) as PostRepository }
 
     // ViewModels
     viewModel { AuthViewModel(get()) }

@@ -22,23 +22,24 @@
     <!--FAB-->
     <style name="ShapeOverlay.Readium.FAB" parent="ShapeAppearanceOverlay.MaterialComponents.FloatingActionButton">
         <item name="cornerRadius">@dimen/spacing_small</item>
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
     </style>
 
     <!--Button-->
     <style name="ShapeOverlay.Readium.Button" parent="Shape.Readium.Small">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
         <item name="cornerRadius">@dimen/spacing_large</item>
     </style>
 
 
     <!--Bottom App Bar-->
     <style name="ShapeOverlay.Readium.BottomAppBar" parent="">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
     </style>
 
     <!--Chip-->
     <style name="ShapeOverlay.Readium.Chip" parent="ShapeAppearanceOverlay.MaterialComponents.Chip">
         <item name="cornerSize">0%</item>
+        <item name="cornerRadius">@dimen/spacing_none</item>
     </style>
 </resources>
