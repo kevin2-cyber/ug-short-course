@@ -4,6 +4,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -23,6 +25,8 @@ import shortcourse.readium.core.viewmodel.AuthViewModel
 /**
  * Injectable module(s)
  */
+@ExperimentalCoroutinesApi
+@FlowPreview
 val injectables: MutableList<Module>
     get() = mutableListOf(databaseModule, firebaseModule, applicationModule)
 
@@ -42,6 +46,8 @@ private val firebaseModule: Module = module {
     single { FirebaseAuth.getInstance() }
 }
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 private val applicationModule: Module = module {
     single { RemoteDatasource(get(), get()) }
 

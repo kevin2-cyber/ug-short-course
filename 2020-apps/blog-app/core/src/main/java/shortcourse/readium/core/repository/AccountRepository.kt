@@ -6,6 +6,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import shortcourse.readium.core.database.AccountDao
@@ -38,6 +40,8 @@ interface AccountRepository : Repository {
     }
 }
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 /**
  * [Repository] for [Account] transactions
  */

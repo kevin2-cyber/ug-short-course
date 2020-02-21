@@ -20,27 +20,27 @@ import shortcourse.readium.core.util.Datasource
 interface PostRepository : Repository {
     suspend fun getAllPosts(): Flow<StoreResponse<MutableList<Post>>>
 
-    suspend fun getPostsForAuthor(authorId: String): Flow<MutableList<Post>>
+    suspend fun getPostsForAuthor(authorId: String): Flow<StoreResponse<MutableList<Post>>>
 
-    suspend fun getPostForAuthor(authorId: String): Flow<Post?>
+    suspend fun getPostForAuthor(authorId: String, postId: String): Flow<StoreResponse<Post?>>
 
-    suspend fun getPostByTags(tags: MutableList<String>): Flow<MutableList<Post>>
+    suspend fun getPostByTags(tags: MutableList<String>): Flow<StoreResponse<MutableList<Post>>>
 
-    suspend fun getCommentsForPost(postId: String): Flow<MutableList<Comment>>
+    suspend fun getCommentsForPost(postId: String): Flow<StoreResponse<MutableList<Comment>>>
 }
 
+@ExperimentalCoroutinesApi
+@FlowPreview
 class PostRepositoryImpl(
-    private val firestore: FirebaseFirestore,
-    private val prefs: AccountPrefs,
-    private val postDao: PostDao,
-    private val commentDao: CommentDao,
-    private val accountDao: AccountDao
+        private val firestore: FirebaseFirestore,
+        private val prefs: AccountPrefs,
+        private val postDao: PostDao,
+        private val commentDao: CommentDao,
+        private val accountDao: AccountDao
 ) : PostRepository {
 
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
-    @ExperimentalCoroutinesApi
-    @FlowPreview
     override suspend fun getAllPosts(): Flow<StoreResponse<MutableList<Post>>> {
         val store = StoreBuilder.from<Datasource, MutableList<Post>> {
             postDao.getAllPosts()
@@ -49,20 +49,38 @@ class PostRepositoryImpl(
         return store.stream(StoreRequest.cached(Datasource.POSTS, true))
     }
 
-    override suspend fun getPostsForAuthor(authorId: String): Flow<MutableList<Post>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+    override suspend fun getPostsForAuthor(authorId: String): Flow<StoreResponse<MutableList<Post>>> {
+        return StoreBuilder.from<String, MutableList<Post>> {
+            postDao.getPostsForAuthor(it)
+        }.scope(ioScope).build().stream(StoreRequest.cached(authorId, true))
     }
 
-    override suspend fun getPostForAuthor(authorId: String): Flow<Post?> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun getPostForAuthor(authorId: String, postId: String):
+            Flow<StoreResponse<Post?>> {
+        return StoreBuilder.from<String, Post> {
+            postDao.getPostForAuthor(it, postId)
+        }.scope(ioScope).build().stream(StoreRequest.cached(authorId, true))
     }
 
-    override suspend fun getPostByTags(tags: MutableList<String>): Flow<MutableList<Post>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    // TODO: 2/21/2020 Get post by tags
+    override suspend fun getPostByTags(tags: MutableList<String>): Flow<StoreResponse<MutableList<Post>>> {
+        return StoreBuilder.from<MutableList<String>, MutableList<Post>> { posts ->
+            postDao.getPostsByTags(posts)/*.apply {
+                map {
+                    it.map { post ->
+                        if (post.tags.containsAll(tags)) post
+                        else null
+                    }
+                }
+            }*/
+        }.scope(ioScope).build().stream(StoreRequest.cached(tags, true))
     }
 
-    override suspend fun getCommentsForPost(postId: String): Flow<MutableList<Comment>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun getCommentsForPost(postId: String): Flow<StoreResponse<MutableList<Comment>>> {
+        return StoreBuilder.from<String, MutableList<Comment>> {
+            commentDao.getCommentForPost(postId)
+        }.scope(ioScope).build().stream(StoreRequest.cached(postId, true))
     }
 
 }
