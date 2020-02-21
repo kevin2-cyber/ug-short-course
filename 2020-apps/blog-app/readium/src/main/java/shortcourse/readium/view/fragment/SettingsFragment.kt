@@ -46,11 +46,13 @@ class SettingsFragment : Fragment() {
             return
         }
 
-        lifecycleScope.launchWhenStarted {
-            accountViewModel.currentUser.observe(viewLifecycleOwner, Observer {
-                debugger("Logged in as -> $it")
-            })
-        }
+        accountViewModel.allUsers.observe(viewLifecycleOwner, Observer {
+            debugger("All users -> ${it.map { acct -> acct.id }}")
+        })
+
+        accountViewModel.currentUser.observe(viewLifecycleOwner, Observer {
+            debugger("Logged in as -> $it")
+        })
 
     }
 

@@ -2,9 +2,12 @@ package shortcourse.readium.core.util
 
 import android.view.View
 import android.widget.EditText
+import com.google.android.gms.tasks.Tasks
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -50,6 +53,15 @@ fun View.showSnackbar(message: String, persisted: Boolean = false) = Snackbar.ma
 val FirebaseFirestore.posts get() = collection(Entities.POSTS)
 
 val FirebaseFirestore.accounts get() = collection(Entities.ACCOUNTS)
+
+fun DocumentSnapshot.delete() = Tasks.await(this.reference.delete())
+
+fun CollectionReference.deleteAll() {
+    val documents = Tasks.await(this.get()).documents
+    documents.forEach { snapshot ->
+        if (snapshot.exists()) Tasks.await(snapshot.reference.delete())
+    }
+}
 
 fun FirebaseUser.asAccount(): Account =
     Account("", uid, displayName ?: "", displayName ?: "", email!!, "")

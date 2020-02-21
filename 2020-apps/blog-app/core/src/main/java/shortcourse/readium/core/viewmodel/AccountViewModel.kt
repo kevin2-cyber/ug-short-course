@@ -14,11 +14,19 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
     private val _currentUser = MutableLiveData<Account>()
     val currentUser: LiveData<Account> get() = _currentUser
 
+    private val _allUsers = MutableLiveData<MutableList<Account>>()
+    val allUsers: LiveData<MutableList<Account>> get() = _allUsers
+
     init {
         viewModelScope.launch {
+            // Get current account
             accountRepository.getCurrentUser().collect {
-                val account = it.dataOrNull()
-                _currentUser.postValue(account)
+                _currentUser.postValue(it.dataOrNull())
+            }
+
+            // Get all accounts
+            accountRepository.getAllAccounts().collect {
+                _allUsers.postValue(it.dataOrNull())
             }
         }
     }

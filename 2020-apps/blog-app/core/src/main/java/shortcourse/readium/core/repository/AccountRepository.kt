@@ -8,15 +8,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import shortcourse.readium.core.database.AccountDao
 import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.storage.AccountPrefs
-import shortcourse.readium.core.util.accounts
-import shortcourse.readium.core.util.asAccount
-import shortcourse.readium.core.util.debugger
-import shortcourse.readium.core.util.getAccountById
+import shortcourse.readium.core.util.*
 
 /**
  * Base account repository
@@ -31,15 +29,13 @@ interface AccountRepository : Repository {
 
     suspend fun logout()
 
-    suspend fun fetchAccounts(): Flow<MutableList<Account>> {
-        TODO("Fetch all accounts")
-    }
-
     suspend fun fetchAccountById(id: String): Flow<Account?> {
         TODO("Fetch account by id")
     }
 
     suspend fun getCurrentUser(): Flow<StoreResponse<Account>>
+
+    suspend fun getAllAccounts(): Flow<StoreResponse<MutableList<Account>>>
 }
 
 @FlowPreview
@@ -174,10 +170,59 @@ class AccountRepositoryImpl(
     }
 
     override suspend fun getCurrentUser(): Flow<StoreResponse<Account>> =
-        StoreBuilder.from<String, Account> {
-            accountDao.getAccount(it)
-        }.scope(ioScope).build().stream(StoreRequest.cached(prefs.authToken!!, true))
+        StoreBuilder.fromNonFlow<String, Account> {
+            val defaultAccount = Account()
+            withContext(Dispatchers.IO) {
+                try {
+                    val account = Tasks.await(firestore.getAccountById(it)).toObject<Account>()
+                    account ?: defaultAccount
+                } catch (ex: Exception) {
+                    defaultAccount
+                }
+            }
+        }.scope(ioScope)
+            .persister(
+                reader = ::readAccount,
+                writer = ::saveAccount,
+                delete = ::deleteAccount,
+                deleteAll = ::deleteAllAccounts
+            )
+            .build().stream(StoreRequest.cached(prefs.authToken!!, true))
 
+    override suspend fun getAllAccounts(): Flow<StoreResponse<MutableList<Account>>> {
+        return StoreBuilder.fromNonFlow<String, MutableList<Account>> {
+            withContext(Dispatchers.IO) {
+                try {
+                    val accounts = Tasks.await(firestore.accounts.get()).toObjects<Account>()
+                    debugger(accounts)
+                    accounts.toMutableList()
+                } catch (ex: Exception) {
+                    mutableListOf<Account>()
+                }
+            }
+        }.scope(ioScope)
+            .persister(
+                reader = ::readAllAccounts,
+                writer = ::saveAllAccounts,
+                deleteAll = ::deleteAllAccounts,
+                delete = ::deleteAccount
+            )
+            .build().stream(StoreRequest.cached(Entities.ACCOUNTS, true))
+    }
+
+    private fun readAccount(id: String): Flow<Account> = accountDao.getAccount(id)
+
+    private fun readAllAccounts(key: String): Flow<MutableList<Account>> =
+        accountDao.getAllAccounts()
+
+    private suspend fun deleteAllAccounts() = accountDao.deleteAll()
+
+    private suspend fun deleteAccount(id: String) = accountDao.delete(id)
+
+    private suspend fun saveAccount(id: String, account: Account) = accountDao.insert(account)
+
+    private suspend fun saveAllAccounts(id: String, accounts: MutableList<Account>) =
+        accountDao.insertAll(accounts)
 }
 
 /**
