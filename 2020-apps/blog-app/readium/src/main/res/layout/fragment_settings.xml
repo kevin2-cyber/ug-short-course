@@ -1,22 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="isFollowing"
+            type="Boolean" />
+
+        <variable
+            name="hasBlog"
+            type="Boolean" />
+
+        <variable
+            name="account"
+            type="shortcourse.readium.core.model.account.Account" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.fragment.SettingsFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/title_settings"
-            android:textAppearance="?textAppearanceHeadline6" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:navigationIcon="@drawable/ic_back" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize"
+            android:fillViewport="true"
+            android:paddingTop="@dimen/spacing_xlarge">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context=".view.fragment.SettingsFragment">
+
+                <ImageView
+                    android:layout_width="@dimen/account_avatar_size"
+                    android:layout_height="@dimen/account_avatar_size"
+                    android:layout_gravity="center"
+                    app:isCircleCrop="@{true}"
+                    app:srcUrl="@{account.avatar}"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_xlarge"
+                    android:text="@{account.displayName}"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    tools:text="@tools:sample/full_names" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@{account.email}"
+                    android:textAppearance="?textAppearanceBody2"
+                    tools:text="user@domain.com" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/follow"
+                    style="@style/Widget.Readium.Button"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@{isFollowing ? @string/follow : @string/following, default=`@string/following`}"
+                    app:icon="@{isFollowing ? @drawable/ic_add_follower : @drawable/ic_remove_follower, default=`@drawable/ic_remove_follower`}" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xlarge">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/followers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_followers"
+                        android:drawablePadding="@dimen/spacing_normal"
+                        android:focusable="true"
+                        android:text="999 Followers"
+                        android:textAppearance="?textAppearanceCaption"
+                        app:layout_constraintBottom_toBottomOf="@id/guideline"
+                        app:layout_constraintEnd_toStartOf="@+id/votes"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/guideline" />
+
+                    <TextView
+                        android:id="@+id/votes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_blogs_read"
+                        android:drawablePadding="@dimen/spacing_normal"
+                        android:focusable="true"
+                        android:text="4,900 blogs"
+                        android:textAppearance="?textAppearanceCaption"
+                        app:layout_constraintBottom_toBottomOf="@id/guideline"
+                        app:layout_constraintEnd_toStartOf="@+id/reports"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/followers"
+                        app:layout_constraintTop_toTopOf="@id/guideline" />
+
+                    <TextView
+                        android:id="@+id/reports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_reports"
+                        android:drawablePadding="@dimen/spacing_normal"
+                        android:focusable="true"
+                        android:text="19 Reports"
+                        android:textAppearance="?textAppearanceCaption"
+                        app:layout_constraintBottom_toBottomOf="@id/guideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/votes"
+                        app:layout_constraintTop_toTopOf="@id/guideline" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/spacing_xlarge"
+                    android:paddingHorizontal="@dimen/spacing_normal"
+                    android:text="@string/more_from_author"
+                    android:textAllCaps="true"
+                    android:textAppearance="?textAppearanceOverline"
+                    android:visibility="@{hasBlog ? View.VISIBLE : View.GONE, default=`gone`}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/author_blogs"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="@{hasBlog ? View.VISIBLE : View.GONE, default=`gone`}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/post_item_other_layout" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
 
     </FrameLayout>
 </layout>

@@ -9,7 +9,9 @@ import kotlinx.coroutines.launch
 import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.repository.AccountRepository
 
-class AccountViewModel(private val accountRepository: AccountRepository) : ViewModel() {
+class AccountViewModel(
+    private val accountRepository: AccountRepository
+) : ViewModel() {
 
     private val _currentUser = MutableLiveData<Account>()
     val currentUser: LiveData<Account> get() = _currentUser

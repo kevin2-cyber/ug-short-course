@@ -32,7 +32,7 @@ data class Account(
 
     @IgnoredOnParcel
     @Ignore
-    val displayName = "--$firstName $lastName"
+    val displayName = "$firstName $lastName"
 
     companion object {
         /**

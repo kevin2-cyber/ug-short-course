@@ -31,7 +31,7 @@
     </style>
     <!--Overline-->
     <style name="Readium.TextAppearance.Overline" parent="TextAppearance.MaterialComponents.Overline">
-        <item name="fontFamily">@font/rubik</item>
+        <item name="fontFamily">@font/rubik_medium</item>
     </style>
     <!--Button-->
     <style name="Readium.TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">

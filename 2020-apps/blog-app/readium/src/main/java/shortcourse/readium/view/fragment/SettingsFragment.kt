@@ -8,13 +8,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.support.v4.toast
+import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import shortcourse.readium.core.model.post.Post
 import shortcourse.readium.core.storage.AccountPrefs
 import shortcourse.readium.core.util.debugger
 import shortcourse.readium.core.viewmodel.AccountViewModel
+import shortcourse.readium.core.viewmodel.PostViewModel
 import shortcourse.readium.databinding.FragmentSettingsBinding
+import shortcourse.readium.view.recyclerview.PostsAdapter
 
 
 /**
@@ -23,6 +29,7 @@ import shortcourse.readium.databinding.FragmentSettingsBinding
 class SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding
     private val accountViewModel by viewModel<AccountViewModel>()
+    private val postViewModel by viewModel<PostViewModel>()
 
     // Account Prefs instance
     private val prefs by inject<AccountPrefs>()
@@ -46,12 +53,46 @@ class SettingsFragment : Fragment() {
             return
         }
 
-        accountViewModel.allUsers.observe(viewLifecycleOwner, Observer {
-            debugger("All users -> ${it.map { acct -> acct.id }}")
+        // Observe current user
+        accountViewModel.currentUser.observe(viewLifecycleOwner, Observer {
+            binding.account = it
+            binding.isFollowing = false
+            if (it != null && it.id.isNotEmpty()) postViewModel.getPostForAuthor(it.id)
+
+            lifecycleScope.launch {
+                delay(3_000)
+                binding.isFollowing = true
+            }
         })
 
-        accountViewModel.currentUser.observe(viewLifecycleOwner, Observer {
-            debugger("Logged in as -> $it")
+        // Observe user's posts
+        val adapter = PostsAdapter(object : PostsAdapter.OnPostItemListener {
+            override fun onClick(item: Post) {
+            }
+
+            override fun onCommentClick(item: Post) {
+            }
+
+            override fun onVoteClick(item: Post) {
+            }
+
+            override fun onReportClick(item: Post) {
+            }
+        }, get())
+        binding.run {
+            profileToolbar.setNavigationOnClickListener { findNavController().popBackStack() }
+            authorBlogs.adapter = adapter
+            follow.setOnClickListener {
+                // FIXME: 2/21/2020 Allow user to follow / unfollow an author
+            }
+        }
+
+        postViewModel.allPosts.observe(viewLifecycleOwner, Observer {
+            binding.hasBlog = it != null && it.isNotEmpty()
+            if (it != null) {
+                debugger(it.map { post -> post.id })
+                adapter.submitList(it)
+            }
         })
 
     }

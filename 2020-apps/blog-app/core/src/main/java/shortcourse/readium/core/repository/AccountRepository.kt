@@ -194,7 +194,6 @@ class AccountRepositoryImpl(
             withContext(Dispatchers.IO) {
                 try {
                     val accounts = Tasks.await(firestore.accounts.get()).toObjects<Account>()
-                    debugger(accounts)
                     accounts.toMutableList()
                 } catch (ex: Exception) {
                     mutableListOf<Account>()
@@ -212,7 +211,7 @@ class AccountRepositoryImpl(
 
     private fun readAccount(id: String): Flow<Account> = accountDao.getAccount(id)
 
-    private fun readAllAccounts(key: String): Flow<MutableList<Account>> =
+    private fun readAllAccounts(unusedKey: String): Flow<MutableList<Account>> =
         accountDao.getAllAccounts()
 
     private suspend fun deleteAllAccounts() = accountDao.deleteAll()
