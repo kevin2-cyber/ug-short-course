@@ -66,14 +66,7 @@ class PostRepositoryImpl(
     // TODO: 2/21/2020 Get post by tags
     override suspend fun getPostByTags(tags: MutableList<String>): Flow<StoreResponse<MutableList<Post>>> {
         return StoreBuilder.from<MutableList<String>, MutableList<Post>> { posts ->
-            postDao.getPostsByTags(posts)/*.apply {
-                map {
-                    it.map { post ->
-                        if (post.tags.containsAll(tags)) post
-                        else null
-                    }
-                }
-            }*/
+            postDao.getPostsByTags(posts)
         }.scope(ioScope).build().stream(StoreRequest.cached(tags, true))
     }
 
