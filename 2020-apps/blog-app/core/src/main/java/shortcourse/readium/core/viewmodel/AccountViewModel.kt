@@ -33,4 +33,12 @@ class AccountViewModel(
         }
     }
 
+    fun getUserById(id: String) = viewModelScope.launch {
+        accountRepository.fetchAccountById(id).collect {
+            _currentUser.value = it
+        }
+    }
+
+    fun updateAccount(account: Account) = viewModelScope.launch { accountRepository.updateAccount(account) }
+
 }

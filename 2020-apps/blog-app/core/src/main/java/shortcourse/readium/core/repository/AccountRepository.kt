@@ -10,7 +10,10 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import shortcourse.readium.core.database.AccountDao
 import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.storage.AccountPrefs
@@ -36,6 +39,8 @@ interface AccountRepository : Repository {
     suspend fun getCurrentUser(): Flow<StoreResponse<Account>>
 
     suspend fun getAllAccounts(): Flow<StoreResponse<MutableList<Account>>>
+
+    suspend fun updateAccount(account: Account)
 }
 
 @FlowPreview
@@ -54,6 +59,15 @@ class AccountRepositoryImpl(
     override suspend fun logout() {
         auth.signOut()
         prefs.logout()
+    }
+
+    override suspend fun updateAccount(account: Account) = withContext(Dispatchers.IO) {
+        try {
+            Tasks.await(firestore.observeAccountById(account.id).set(account, SetOptions.merge()))
+        } catch (ex: Exception) {
+            debugger(ex.localizedMessage)
+        }
+        accountDao.update(account)
     }
 
     /**
@@ -170,16 +184,31 @@ class AccountRepositoryImpl(
     }
 
     override suspend fun getCurrentUser(): Flow<StoreResponse<Account>> =
-        StoreBuilder.fromNonFlow<String, Account> {
-            val defaultAccount = Account()
-            withContext(Dispatchers.IO) {
-                try {
-                    val account = Tasks.await(firestore.getAccountById(it)).toObject<Account>()
-                    account ?: defaultAccount
-                } catch (ex: Exception) {
-                    defaultAccount
-                }
+        StoreBuilder.from<String, Account> {
+            callbackFlow {
+                val subscription =
+                    firestore.observeAccountById(it).addSnapshotListener { snapshot, exception ->
+                        if (exception != null) {
+                            debugger(exception.localizedMessage)
+                            close(exception)
+                            return@addSnapshotListener
+                        }
+
+                        if (snapshot == null) {
+                            debugger("Snapshot does not exist for $it")
+                            close()
+                            return@addSnapshotListener
+                        }
+                        if (snapshot.exists()) {
+                            val account = snapshot.toObject<Account>()
+                            debugger("Account from observer -> $account")
+                            sendBlocking(account ?: Account())
+                        }
+                    }
+
+                awaitClose { subscription.remove() }
             }
+            //accountDao.getAccount(it)
         }.scope(ioScope)
             .persister(
                 reader = ::readAccount,

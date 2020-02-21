@@ -24,7 +24,7 @@ class PostViewHolder(
             post = item
             author = account
             listener = _listener
-            executePendingBindings()
+            // executePendingBindings()
         }
     }
 }

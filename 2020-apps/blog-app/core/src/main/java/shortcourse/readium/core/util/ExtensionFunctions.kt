@@ -71,6 +71,8 @@ fun FirebaseFirestore.getAccounts() = collection(Entities.ACCOUNTS).get()
 
 fun FirebaseFirestore.getAccountById(id: String) = document("${Entities.ACCOUNTS}/$id").get()
 
+fun FirebaseFirestore.observeAccountById(id: String) = document("${Entities.ACCOUNTS}/$id")
+
 fun FirebaseFirestore.getComments(postId: String) =
     collection("${Entities.POSTS}/$postId/${Entities.COMMENTS}").get()
 

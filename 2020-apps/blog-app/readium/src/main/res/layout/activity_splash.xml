@@ -26,19 +26,19 @@
             android:id="@+id/app_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/spacing_large"
+            android:paddingTop="@dimen/spacing_large"
+            android:paddingBottom="@dimen/spacing_normal"
             android:text="@string/app_name"
-            android:textAppearance="?textAppearanceHeadline6" />
+            android:textAppearance="?textAppearanceHeadline5" />
 
         <TextView
             android:id="@+id/app_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/spacing_large"
-            android:paddingVertical="@dimen/spacing_normal"
             android:text="@string/app_desc"
             android:textAlignment="center"
-            android:textAppearance="?textAppearanceHeadline5" />
+            android:textAppearance="?textAppearanceSubtitle1" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

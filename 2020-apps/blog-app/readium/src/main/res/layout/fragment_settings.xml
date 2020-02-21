@@ -69,14 +69,6 @@
                     android:textAppearance="?textAppearanceBody2"
                     tools:text="user@domain.com" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/follow"
-                    style="@style/Widget.Readium.Button"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/spacing_normal"
-                    android:text="@{isFollowing ? @string/follow : @string/following, default=`@string/following`}"
-                    app:icon="@{isFollowing ? @drawable/ic_add_follower : @drawable/ic_remove_follower, default=`@drawable/ic_remove_follower`}" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -140,6 +132,15 @@
                         app:layout_constraintTop_toTopOf="@id/guideline" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/follow"
+                    style="@style/Widget.Readium.Button"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_xlarge"
+                    android:text="@{isFollowing ? @string/follow : @string/following, default=`@string/follow`}"
+                    app:icon="@{isFollowing ? @drawable/ic_add_follower : @drawable/ic_remove_follower, default=`@drawable/ic_add_follower`}" />
+
 
                 <TextView
                     android:layout_width="wrap_content"
