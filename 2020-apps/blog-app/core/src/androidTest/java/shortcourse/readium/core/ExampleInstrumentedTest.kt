@@ -2,9 +2,11 @@ package shortcourse.readium.core
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.runner.RunWith
 import shortcourse.readium.core.database.ReadiumDatabase
@@ -21,7 +23,6 @@ import shortcourse.readium.core.util.debugger
 class ExampleInstrumentedTest {
     private val ir = InstrumentationRegistry.getInstrumentation()
 
-    private val firestore by lazy { FirebaseFirestore.getInstance() }
     private val prefs by lazy { AccountPrefs.getInstance(ir.context) }
 
     private val database by lazy { ReadiumDatabase.getInstance(ir.context) }
@@ -29,13 +30,12 @@ class ExampleInstrumentedTest {
     private val commentDao by lazy { database.commentDao() }
     private val accountDao by lazy { database.accountDao() }
 
-    private val ioScope = CoroutineScope(Dispatchers.IO + Job())
 
     @FlowPreview
     @ExperimentalCoroutinesApi
     private val postRepo by lazy {
         PostRepositoryImpl(
-            firestore,
+            null,
             prefs,
             postDao,
             commentDao,
@@ -47,15 +47,14 @@ class ExampleInstrumentedTest {
     @FlowPreview
     @ExperimentalCoroutinesApi
     @Test
-    fun testPostRepository() {
-        ioScope.launch {
-            postRepo.getAllPosts().collect {
-                val data = it.dataOrNull()
-                debugger(data?.map { post -> post.id })
-            }
+    fun testPostRepository() = runBlocking {
+        postRepo.getAllPosts().collect {
+            val data = it.dataOrNull()
+            debugger(data?.map { post -> post.id })
+            assert(true)
+            return@collect
         }
     }
-
 
 
 }

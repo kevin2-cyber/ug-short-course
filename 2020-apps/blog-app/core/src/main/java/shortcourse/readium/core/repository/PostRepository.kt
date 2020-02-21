@@ -32,7 +32,7 @@ interface PostRepository : Repository {
 @ExperimentalCoroutinesApi
 @FlowPreview
 class PostRepositoryImpl(
-        private val firestore: FirebaseFirestore,
+        private val firestore: FirebaseFirestore?,
         private val prefs: AccountPrefs,
         private val postDao: PostDao,
         private val commentDao: CommentDao,
