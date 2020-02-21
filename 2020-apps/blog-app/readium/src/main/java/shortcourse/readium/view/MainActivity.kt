@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import org.koin.android.ext.android.inject
 import shortcourse.readium.R
 import shortcourse.readium.core.base.BaseActivity
@@ -89,17 +90,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_search -> controller.navigate(HomeFragmentDirections.actionNavHomeToNavSearch())
-
-            R.id.nav_settings -> controller.navigate(
-                if (prefs.isLoggedIn)
-                    HomeFragmentDirections.actionNavHomeToNavSettings()
-                else
-                    HomeFragmentDirections.actionNavHomeToNavAuth()
-            )
-        }
-        return super.onOptionsItemSelected(item)
+        return item.onNavDestinationSelected(controller) || super.onOptionsItemSelected(item)
     }
 
 }

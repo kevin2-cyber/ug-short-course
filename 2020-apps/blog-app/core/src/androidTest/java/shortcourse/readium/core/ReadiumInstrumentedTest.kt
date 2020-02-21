@@ -20,7 +20,7 @@ import shortcourse.readium.core.util.debugger
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class ReadiumInstrumentedTest {
     private val ir = InstrumentationRegistry.getInstrumentation()
 
     private val prefs by lazy { AccountPrefs.getInstance(ir.context) }
@@ -29,7 +29,6 @@ class ExampleInstrumentedTest {
     private val postDao by lazy { database.postDao() }
     private val commentDao by lazy { database.commentDao() }
     private val accountDao by lazy { database.accountDao() }
-
 
     @FlowPreview
     @ExperimentalCoroutinesApi
@@ -48,13 +47,11 @@ class ExampleInstrumentedTest {
     @ExperimentalCoroutinesApi
     @Test
     fun testPostRepository() = runBlocking {
+        assert(true)
         postRepo.getAllPosts().collect {
             val data = it.dataOrNull()
             debugger(data?.map { post -> post.id })
-            assert(true)
-            return@collect
         }
     }
-
 
 }

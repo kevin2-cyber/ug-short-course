@@ -1,15 +1,15 @@
 package shortcourse.readium.core.repository
 
+import com.dropbox.android.external.store4.StoreBuilder
+import com.dropbox.android.external.store4.StoreRequest
+import com.dropbox.android.external.store4.StoreResponse
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.withContext
 import shortcourse.readium.core.database.AccountDao
 import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.storage.AccountPrefs
@@ -38,6 +38,8 @@ interface AccountRepository : Repository {
     suspend fun fetchAccountById(id: String): Flow<Account?> {
         TODO("Fetch account by id")
     }
+
+    suspend fun getCurrentUser(): Flow<StoreResponse<Account>>
 }
 
 @FlowPreview
@@ -51,6 +53,7 @@ class AccountRepositoryImpl(
     private val prefs: AccountPrefs,
     private val accountDao: AccountDao
 ) : AccountRepository {
+    private val ioScope = CoroutineScope(Dispatchers.IO)
 
     override suspend fun logout() {
         auth.signOut()
@@ -169,6 +172,11 @@ class AccountRepositoryImpl(
             }
         }
     }
+
+    override suspend fun getCurrentUser(): Flow<StoreResponse<Account>> =
+        StoreBuilder.from<String, Account> {
+            accountDao.getAccount(it)
+        }.scope(ioScope).build().stream(StoreRequest.cached(prefs.authToken!!, true))
 
 }
 

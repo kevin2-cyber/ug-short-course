@@ -2,6 +2,8 @@ package shortcourse.readium.core
 
 import android.app.Application
 import android.os.StrictMode
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import shortcourse.readium.core.koin.injectables
@@ -12,6 +14,8 @@ import timber.log.Timber
  */
 open class ReadiumCore : Application() {
 
+    @FlowPreview
+    @ExperimentalCoroutinesApi
     override fun onCreate() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())

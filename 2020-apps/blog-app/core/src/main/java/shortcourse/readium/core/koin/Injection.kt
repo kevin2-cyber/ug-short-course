@@ -20,6 +20,7 @@ import shortcourse.readium.core.repository.PostRepositoryImpl
 import shortcourse.readium.core.storage.AccountPrefs
 import shortcourse.readium.core.storage.OnboardingPrefs
 import shortcourse.readium.core.util.FirebaseUtil
+import shortcourse.readium.core.viewmodel.AccountViewModel
 import shortcourse.readium.core.viewmodel.AuthViewModel
 
 /**
@@ -61,4 +62,5 @@ private val applicationModule: Module = module {
 
     // ViewModels
     viewModel { AuthViewModel(get()) }
+    viewModel { AccountViewModel(get()) }
 }

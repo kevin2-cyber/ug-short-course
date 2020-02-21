@@ -81,9 +81,9 @@ dependencies {
     api("com.google.firebase:firebase-storage:19.1.1")
 
     // Room
-    api("androidx.room:room-runtime:2.2.3")
-    kapt("androidx.room:room-compiler:2.2.3")
-    api("androidx.room:room-ktx:2.2.3")
+    api("androidx.room:room-runtime:2.2.4")
+    kapt("androidx.room:room-compiler:2.2.4")
+    api("androidx.room:room-ktx:2.2.4")
 
     // Timber
     api("com.jakewharton.timber:timber:4.7.1")
@@ -93,7 +93,7 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3")
 
     // Work Manager
-    api("androidx.work:work-runtime-ktx:2.3.1")
+    api("androidx.work:work-runtime-ktx:2.3.2")
 
     // Lifecycle
     kapt("androidx.lifecycle:lifecycle-common-java8:2.2.0")
@@ -116,6 +116,7 @@ dependencies {
 
     // Testing
     testImplementation("junit:junit:4.13")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 }
