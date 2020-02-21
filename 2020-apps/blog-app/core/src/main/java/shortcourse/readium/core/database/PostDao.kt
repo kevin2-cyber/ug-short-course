@@ -14,7 +14,7 @@ interface PostDao : BaseDao<Post> {
     @Query("select * from posts where authorId = :authorId order by timestamp desc")
     fun getPostsForAuthor(authorId: String): Flow<MutableList<Post>>
 
-    @Query("select * from posts order by timestamp desc")
+    @Query("select * from posts where tags = :tags order by timestamp desc")
     fun getPostsByTags(tags: MutableList<String>): Flow<MutableList<Post>>
 
     @Query("select * from posts where id = :id order by timestamp desc")
