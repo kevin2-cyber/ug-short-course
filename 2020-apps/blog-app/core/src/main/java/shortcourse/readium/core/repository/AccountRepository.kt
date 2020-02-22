@@ -30,15 +30,15 @@ interface AccountRepository : Repository {
 
     suspend fun logout()
 
-    suspend fun fetchAccountById(id: String): Flow<Account?> {
-        TODO("Fetch account by id")
-    }
+    suspend fun fetchAccountById(id: String): Flow<StoreResponse<Account?>>
 
     suspend fun getCurrentUser(): Flow<StoreResponse<Account>>
 
     suspend fun getAllAccounts(): Flow<StoreResponse<MutableList<Account>>>
 
     suspend fun updateAccount(account: Account)
+
+    val userId: String?
 }
 
 @FlowPreview
@@ -54,10 +54,18 @@ class AccountRepositoryImpl(
 ) : AccountRepository {
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
+    override val userId: String?
+        get() = prefs.authToken
+
     override suspend fun logout() {
         auth.signOut()
         prefs.logout()
     }
+
+    override suspend fun fetchAccountById(id: String): Flow<StoreResponse<Account?>> =
+        StoreBuilder.from<String, Account> {
+            accountDao.getAccount(it)
+        }.scope(ioScope).build().stream(StoreRequest.cached(id, true))
 
     override suspend fun updateAccount(account: Account) = withContext(Dispatchers.IO) {
         try {

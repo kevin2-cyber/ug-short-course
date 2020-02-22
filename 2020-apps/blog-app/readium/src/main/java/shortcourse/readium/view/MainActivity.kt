@@ -45,15 +45,21 @@ class MainActivity : BaseActivity() {
 
     private fun setupBottomAppBarForDestination(navDestination: NavDestination) {
         when (navDestination.id) {
-            R.id.nav_account, R.id.nav_search, R.id.nav_auth,
-            R.id.nav_onboarding, R.id.nav_registration, R.id.nav_compose -> {
+            R.id.nav_account,
+            R.id.nav_search,
+            R.id.nav_auth,
+            R.id.nav_post,
+            R.id.nav_onboarding,
+            R.id.nav_registration,
+            R.id.nav_compose -> {
                 binding.run {
                     bottomAppBar.performHide()
                     fabBottomAppBar.hide()
                 }
             }
 
-            R.id.nav_post, R.id.nav_settings, R.id.nav_comment -> {
+            R.id.nav_settings,
+            R.id.nav_comment -> {
                 binding.run {
                     bottomAppBar.performHide()
                     fabBottomAppBar.setOnClickListener {

@@ -16,43 +16,54 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorOnPrimary"
         android:fitsSystemWindows="true"
         tools:context=".view.fragment.AccountFragment">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/app_bar_height"
-            android:background="?attr/colorOnPrimary"
-            android:elevation="@dimen/z_app_bar"
-            app:elevation="@dimen/z_app_bar"
-            app:liftOnScroll="true">
+            android:layout_height="@dimen/app_bar_height_small"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="?attr/colorOnPrimary"
-                app:expandedTitleGravity="center"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-                app:toolbarId="@id/toolbar">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_large"
+                android:text="@string/title_account"
+                android:textAppearance="?textAppearanceHeadline6"
+                app:layout_constraintStart_toEndOf="@id/dismiss"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"
-                    app:title="@string/title_account" />
+            <ImageButton
+                android:id="@+id/more_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/spacing_large"
+                android:src="@drawable/ic_options"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
+            <ImageButton
+                android:id="@+id/dismiss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/spacing_large"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </com.google.android.material.appbar.AppBarLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            android:layout_marginTop="@dimen/app_bar_height_small">
+
+            <!--TODO: Add some layout here-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

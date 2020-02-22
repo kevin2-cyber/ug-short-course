@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,6 +28,8 @@ class SettingsFragment : Fragment() {
     private val accountViewModel by viewModel<AccountViewModel>()
     private val postViewModel by viewModel<PostViewModel>()
 
+    private val args by navArgs<SettingsFragmentArgs>()
+
     // Account Prefs instance
     private val prefs by inject<AccountPrefs>()
 
@@ -43,11 +46,15 @@ class SettingsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         // Check user login state
-        if (!prefs.isLoggedIn) {
+        if (args.account == null && !prefs.isLoggedIn) {
             // toast("You are not logged in yet")
             findNavController().navigate(SettingsFragmentDirections.actionNavSettingsToNavAuth())
             return
         }
+
+        // Get posts for user
+        val account = args.account
+        if (account != null) accountViewModel.getUserById(account.id)
 
         // Observe current user
         accountViewModel.currentUser.observe(viewLifecycleOwner, Observer {
@@ -55,6 +62,7 @@ class SettingsFragment : Fragment() {
             binding.account = it
             // binding.isFollowing = false // TODO: 2/21/2020 Add following state
             if (it != null && it.id.isNotEmpty()) {
+                binding.follow.isEnabled = accountViewModel.userId != it.id
                 postViewModel.getPostForAuthor(it.id)
             }
         })
@@ -85,13 +93,13 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        /*postViewModel.allPosts.observe(viewLifecycleOwner, Observer {
+        postViewModel.allPosts.observe(viewLifecycleOwner, Observer {
             binding.hasBlog = it != null && it.isNotEmpty()
             if (it != null) {
                 debugger(it.map { post -> post.id })
                 adapter.submitList(it)
             }
-        })*/
+        })
 
     }
 

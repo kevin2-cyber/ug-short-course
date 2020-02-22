@@ -46,7 +46,8 @@ data class Post(
     fun measureReadTime(): String = "10 minutes read"
 
     @Ignore
-    fun getTimestampMeasure(ctx: Context): String = DateFormatter(ctx).getConversationTimestamp(timestamp)
+    fun getTimestampMeasure(ctx: Context): String =
+        DateFormatter(ctx).getMessageTimestamp(timestamp)
 
     companion object {
         val POST_DIFF: DiffUtil.ItemCallback<Post> = object : DiffUtil.ItemCallback<Post>() {
@@ -54,7 +55,7 @@ data class Post(
                 oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean =
-                oldItem == newItem
+                oldItem.id == newItem.id && oldItem.authorId == newItem.authorId
         }
     }
 }

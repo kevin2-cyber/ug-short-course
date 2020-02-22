@@ -13,17 +13,11 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import shortcourse.readium.core.database.ReadiumDatabase
 import shortcourse.readium.core.datasource.RemoteDatasource
-import shortcourse.readium.core.repository.AccountRepository
-import shortcourse.readium.core.repository.AccountRepositoryImpl
-import shortcourse.readium.core.repository.PostRepository
-import shortcourse.readium.core.repository.PostRepositoryImpl
+import shortcourse.readium.core.repository.*
 import shortcourse.readium.core.storage.AccountPrefs
 import shortcourse.readium.core.storage.OnboardingPrefs
 import shortcourse.readium.core.util.FirebaseUtil
-import shortcourse.readium.core.viewmodel.AccountViewModel
-import shortcourse.readium.core.viewmodel.AuthViewModel
-import shortcourse.readium.core.viewmodel.OnboardingViewModel
-import shortcourse.readium.core.viewmodel.PostViewModel
+import shortcourse.readium.core.viewmodel.*
 
 /**
  * Injectable module(s)
@@ -60,6 +54,7 @@ private val applicationModule: Module = module {
 
     // Repositories
     single { AccountRepositoryImpl(get(), get(), get(), get()) as AccountRepository }
+    single { CommentRepositoryImpl(get(), get()) as CommentRepository }
     single { PostRepositoryImpl(get(), get(), get(), get(), get()) as PostRepository }
 
     // ViewModels
@@ -67,4 +62,5 @@ private val applicationModule: Module = module {
     viewModel { PostViewModel(get()) }
     viewModel { AccountViewModel(get()) }
     viewModel { OnboardingViewModel(get()) }
+    viewModel { CommentViewModel(get()) }
 }

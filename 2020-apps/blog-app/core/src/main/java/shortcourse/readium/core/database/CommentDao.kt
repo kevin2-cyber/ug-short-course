@@ -14,4 +14,6 @@ interface CommentDao : BaseDao<Comment> {
     @Query("select * from comments where post = :post")
     fun getCommentForPost(post: String): Flow<MutableList<Comment>>
 
+    @Query("select * from comments where id = :id")
+    fun getCommentById(id: String): Flow<Comment>
 }

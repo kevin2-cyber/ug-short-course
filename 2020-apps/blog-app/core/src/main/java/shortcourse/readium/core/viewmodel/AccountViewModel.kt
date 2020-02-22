@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.repository.AccountRepository
+import shortcourse.readium.core.util.debugger
 
 class AccountViewModel(
     private val accountRepository: AccountRepository
@@ -15,6 +16,8 @@ class AccountViewModel(
 
     private val _currentUser = MutableLiveData<Account>()
     val currentUser: LiveData<Account> get() = _currentUser
+
+    val userId: String? get() = accountRepository.userId
 
     private val _allUsers = MutableLiveData<MutableList<Account>>()
     val allUsers: LiveData<MutableList<Account>> get() = _allUsers
@@ -34,8 +37,10 @@ class AccountViewModel(
     }
 
     fun getUserById(id: String) = viewModelScope.launch {
+        debugger("Searching -> $id")
         accountRepository.fetchAccountById(id).collect {
-            _currentUser.value = it
+            debugger("Found -> ${it.dataOrNull()}")
+            _currentUser.value = it.dataOrNull()
         }
     }
 
