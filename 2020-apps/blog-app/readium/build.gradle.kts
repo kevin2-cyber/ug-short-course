@@ -53,6 +53,7 @@ android {
                 "SQUARE_APP_ID",
                 "\"sq0idp-4CJoUUG1OQU3YYtYtVDKp\""
             )
+            isDebuggable = true
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
