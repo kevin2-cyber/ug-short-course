@@ -27,10 +27,12 @@
 
 -dontwarn io.codelabs.**
 -dontwarn shortcourse.readium.**
-#-dontwarn shortcourse.readium.core.**
-#-dontwarn shortcourse.readium.data.**
-#-dontwarn shortcourse.readium.util.**
-#-dontwarn shortcourse.readium.theming.**
+-dontwarn shortcourse.readium.core.**
+-dontwarn shortcourse.readium.data.**
+-dontwarn shortcourse.readium.util.**
+-dontwarn shortcourse.readium.theming.**
+-keep class shortcourse.readium.** { *; }
+-keep interface shortcourse.readium.** { *; }
 
 
 -keep class androidx.drawerlayout.widget.DrawerLayout { *; }
