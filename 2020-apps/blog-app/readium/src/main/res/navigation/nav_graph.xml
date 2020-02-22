@@ -32,7 +32,9 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_nav_auth"
-            app:destination="@id/auth_navigation" />
+            app:destination="@id/auth_navigation"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_nav_home_to_nav_post"
             app:destination="@id/nav_post" />

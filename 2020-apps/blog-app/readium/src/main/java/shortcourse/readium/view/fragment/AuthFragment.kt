@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -48,6 +48,10 @@ class AuthFragment : BaseFragment() {
         // Observe login state
         authViewModel.authState.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
+                AuthViewModel.AuthenticationState.CANCELLED -> {
+                    debugger("Auth cancelled by user")
+                    // controller.popBackStack(R.id.nav_home, true)
+                }
                 AuthViewModel.AuthenticationState.UNAUTHENTICATED -> {
                     debugger("User has not been authenticated yet")
                 }
@@ -83,15 +87,6 @@ class AuthFragment : BaseFragment() {
             }
         })
 
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    authViewModel.cancelAuthentication()
-                    controller.popBackStack()
-                }
-            })
-
         binding.run {
             navCreateAccount.setOnClickListener {
                 controller.navigate(
@@ -115,5 +110,10 @@ class AuthFragment : BaseFragment() {
             navUseAsGuest.setOnClickListener { controller.popBackStack(R.id.nav_home, false) }
         }
 
+    }
+
+    override fun onDestroyView() {
+        authViewModel.cancelAuthentication()
+        super.onDestroyView()
     }
 }

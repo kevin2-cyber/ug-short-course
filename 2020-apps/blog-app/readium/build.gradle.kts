@@ -75,6 +75,7 @@ android {
     dataBinding.isEnabledForTests = true
     buildFeatures.dataBinding = true
     buildFeatures.viewBinding = true
+    buildToolsVersion = "30.0.0 rc1"
 }
 
 dependencies {

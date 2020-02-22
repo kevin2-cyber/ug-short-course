@@ -20,7 +20,7 @@ class AuthViewModel(
     private val authScope = viewModelScope + job
 
     enum class AuthenticationState {
-        UNAUTHENTICATED, AUTHENTICATED, AUTHENTICATING, INVALID_AUTHENTICATION
+        UNAUTHENTICATED, AUTHENTICATED, AUTHENTICATING, INVALID_AUTHENTICATION, CANCELLED
     }
 
     private val _authState =
@@ -32,7 +32,7 @@ class AuthViewModel(
      * Cancel any ongoing authentication
      */
     fun cancelAuthentication() {
-        _authState.value = AuthenticationState.UNAUTHENTICATED
+        _authState.value = AuthenticationState.CANCELLED
         job.cancel()
     }
 

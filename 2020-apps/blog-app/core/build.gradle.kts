@@ -37,6 +37,7 @@ android {
     dataBinding.isEnabledForTests = true
     buildFeatures.dataBinding = true
     buildFeatures.viewBinding = true
+    buildToolsVersion = "30.0.0 rc1"
 }
 
 dependencies {
@@ -51,7 +52,7 @@ dependencies {
     api("androidx.appcompat:appcompat:1.1.0")
     api("androidx.legacy:legacy-support-v4:1.0.0")
     api("androidx.activity:activity-ktx:1.1.0")
-    api("androidx.fragment:fragment-ktx:1.2.1")
+    api("androidx.fragment:fragment-ktx:1.2.2")
 
     // Constraint Layout
     api("com.android.support.constraint:constraint-layout:2.0.0")
@@ -69,6 +70,9 @@ dependencies {
 
     // Anko
     api("org.jetbrains.anko:anko:0.10.8")
+
+    // Page indicator
+    api("com.pacioianu.david:ink-page-indicator:1.3.0")
 
     // Glide
     api("com.github.bumptech.glide:glide:4.11.0")

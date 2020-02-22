@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/spacing_large"
+        android:paddingVertical="@dimen/spacing_xxxlarge">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/loader_height"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            app:layout_constraintBottom_toTopOf="@id/pager_title"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/pager_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_large"
+            android:textAppearance="?textAppearanceHeadline5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Awesome feature" />
+
+        <TextView
+            android:id="@+id/pager_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_large"
+            android:textAlignment="center"
+            android:textAppearance="?textAppearanceSubtitle1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pager_title"
+            tools:maxLines="3"
+            tools:text="@tools:sample/lorem/random" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/skip_button"
+            style="@style/Widget.Readium.Button.Other"
+            android:layout_marginVertical="@dimen/spacing_xlarge"
+            android:text="@string/start_reading"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pager_desc" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

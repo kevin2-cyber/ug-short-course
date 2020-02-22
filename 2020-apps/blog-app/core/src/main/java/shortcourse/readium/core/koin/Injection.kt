@@ -22,6 +22,7 @@ import shortcourse.readium.core.storage.OnboardingPrefs
 import shortcourse.readium.core.util.FirebaseUtil
 import shortcourse.readium.core.viewmodel.AccountViewModel
 import shortcourse.readium.core.viewmodel.AuthViewModel
+import shortcourse.readium.core.viewmodel.OnboardingViewModel
 import shortcourse.readium.core.viewmodel.PostViewModel
 
 /**
@@ -65,4 +66,5 @@ private val applicationModule: Module = module {
     viewModel { AuthViewModel(get()) }
     viewModel { PostViewModel(get()) }
     viewModel { AccountViewModel(get()) }
+    viewModel { OnboardingViewModel(get()) }
 }

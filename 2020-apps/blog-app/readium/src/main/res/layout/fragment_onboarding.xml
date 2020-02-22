@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
+    <data />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.fragment.OnboardingFragment">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/register"
-            android:text="@string/title_onboarding"
-            android:textAppearance="?textAppearanceHeadline6" />
-
-        <androidx.viewpager2.widget.ViewPager2
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <com.pixelcan.inkpageindicator.InkPageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:ipi_pageIndicatorColor="?attr/colorSecondaryVariant"
+            android:layout_marginBottom="@dimen/spacing_xxlarge"
+            app:ipi_currentPageIndicatorColor="?attr/colorPrimary" />
 
     </FrameLayout>
 </layout>
