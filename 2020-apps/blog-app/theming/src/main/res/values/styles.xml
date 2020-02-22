@@ -37,4 +37,8 @@
         <item name="fabCradleMargin">@dimen/spacing_mid</item>
         <item name="android:layout_gravity">bottom|center_horizontal</item>
     </style>
+
+    <style name="Widget.Readium.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">?textAppearanceHeadline5</item>
+    </style>
 </resources>

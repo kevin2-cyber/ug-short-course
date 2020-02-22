@@ -42,8 +42,10 @@
         <item name="floatingActionButtonStyle">@style/Widget.Readium.FAB</item>
         <item name="bottomAppBarStyle">@style/Widget.Readium.BottomAppBar</item>
         <item name="buttonStyle">@style/Widget.Readium.Button</item>
+        <item name="toolbarStyle">@style/Widget.Readium.Toolbar</item>
 
         <!--Typography-->
+        <item name="textAppearanceHeadline4">@style/Readium.TextAppearance.Headline4</item>
         <item name="textAppearanceHeadline5">@style/Readium.TextAppearance.Headline5</item>
         <item name="textAppearanceHeadline6">@style/Readium.TextAppearance.Headline6</item>
         <item name="textAppearanceBody1">@style/Readium.TextAppearance.Body1</item>

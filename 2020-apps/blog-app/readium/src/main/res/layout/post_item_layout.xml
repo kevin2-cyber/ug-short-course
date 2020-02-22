@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="context"
+            type="android.content.Context" />
+
+        <variable
             name="post"
             type="shortcourse.readium.core.model.post.Post" />
 
@@ -37,27 +41,13 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="3"
+                android:paddingVertical="@dimen/spacing_normal"
                 android:text="@{post.title}"
-                android:textAppearance="?textAppearanceHeadline5"
+                android:textAppearance="?textAppearanceHeadline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@tools:sample/lorem" />
-
-            <TextView
-                android:id="@+id/post_desc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_normal"
-                android:autoLink="all"
-                android:ellipsize="end"
-                android:maxLines="5"
-                android:text="@{post.description}"
-                android:textAppearance="?textAppearanceBody2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/post_title"
-                tools:text="@tools:sample/lorem/random" />
+                app:layout_constraintTop_toBottomOf="@id/author_name"
+                tools:text="@tools:sample/cities" />
 
             <TextView
                 android:id="@+id/post_tags"
@@ -65,103 +55,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:autoLink="all"
-                android:text="@{post.showTags()}"
+                android:text="@{post.getTimestampMeasure(context)}"
                 android:textAppearance="?textAppearanceCaption"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/post_desc"
-                tools:text="#BoysAbr3, #MusicMusic" />
-
-            <ImageView
-                android:id="@+id/author_avatar"
-                android:layout_width="@dimen/avatar_size"
-                android:layout_height="@dimen/avatar_size"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:src="@drawable/ic_account"
-                app:isCircleCrop="@{true}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/post_tags"
-                app:srcUrl="@{author.avatar}" />
+                app:layout_constraintTop_toBottomOf="@id/post_title"
+                tools:text="12 mins read" />
 
             <TextView
-                android:id="@+id/separator"
+                android:id="@+id/post_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/spacing_large"
-                android:text="@string/by"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:autoLink="all"
+                android:text="@{post.measureReadTime()}"
                 android:textAppearance="?textAppearanceCaption"
-                app:layout_constraintBottom_toBottomOf="@id/author_avatar"
-                app:layout_constraintStart_toEndOf="@id/author_avatar"
-                app:layout_constraintTop_toTopOf="@id/author_avatar" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/post_title"
+                tools:text="@tools:sample/date/ddmmyy" />
 
             <TextView
                 android:id="@+id/author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/spacing_large"
                 android:text="@{author.displayName}"
-                android:textAppearance="?textAppearanceSubtitle2"
-                app:layout_constraintBottom_toBottomOf="@id/author_avatar"
-                app:layout_constraintStart_toEndOf="@id/separator"
-                app:layout_constraintTop_toTopOf="@id/author_avatar"
+                android:textAppearance="?textAppearanceOverline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="@tools:sample/full_names" />
-
-            <!-- <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="270dp" />
-
-               <TextView
-                    android:id="@+id/comments"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:drawableTop="@drawable/ic_comments"
-                    android:drawablePadding="@dimen/spacing_normal"
-                    android:focusable="true"
-                    android:onClick="@{() -> listener.onCommentClick(post)}"
-                    app:layout_constraintBottom_toBottomOf="@id/guideline"
-                    app:layout_constraintEnd_toStartOf="@+id/votes"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/guideline"
-                    tools:text="999 Comments" />
-
-                <TextView
-                    android:id="@+id/votes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:drawableTop="@drawable/ic_votes"
-                    android:drawablePadding="@dimen/spacing_normal"
-                    android:focusable="true"
-                    android:onClick="@{() -> listener.onVoteClick(post)}"
-                    app:layout_constraintBottom_toBottomOf="@id/guideline"
-                    app:layout_constraintEnd_toStartOf="@+id/reports"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/comments"
-                    app:layout_constraintTop_toTopOf="@id/guideline"
-                    tools:text="234 Votes" />
-
-                <TextView
-                    android:id="@+id/reports"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:drawableTop="@drawable/ic_reports"
-                    android:drawablePadding="@dimen/spacing_normal"
-                    android:focusable="true"
-                    android:onClick="@{() -> listener.onReportClick(post)}"
-                    app:layout_constraintBottom_toBottomOf="@id/guideline"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/votes"
-                    app:layout_constraintTop_toTopOf="@id/guideline"
-                    tools:text="1189 Reports" /> -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

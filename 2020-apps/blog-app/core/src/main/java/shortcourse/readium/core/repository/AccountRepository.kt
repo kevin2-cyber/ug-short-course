@@ -10,10 +10,8 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.flow
 import shortcourse.readium.core.database.AccountDao
 import shortcourse.readium.core.model.account.Account
 import shortcourse.readium.core.storage.AccountPrefs
@@ -208,7 +206,12 @@ class AccountRepositoryImpl(
 
                 awaitClose { subscription.remove() }
             }*/
-            accountDao.getAccount(it)
+            if (prefs.isLoggedIn)
+                accountDao.getAccount(it)
+            else
+                flow {
+
+                }
         }.scope(ioScope)
             .persister(
                 reader = ::readAccount,
@@ -216,7 +219,7 @@ class AccountRepositoryImpl(
                 delete = ::deleteAccount,
                 deleteAll = ::deleteAllAccounts
             )
-            .build().stream(StoreRequest.cached(prefs.authToken!!, true))
+            .build().stream(StoreRequest.cached(prefs.authToken ?: "", true))
 
     override suspend fun getAllAccounts(): Flow<StoreResponse<MutableList<Account>>> {
         return StoreBuilder.fromNonFlow<String, MutableList<Account>> {

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Headlines-->
+    <style name="Readium.TextAppearance.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/rubik_medium</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="Readium.TextAppearance.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/rubik_medium</item>
     </style>
 
     <style name="Readium.TextAppearance.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@font/rubik</item>
+        <item name="fontFamily">@font/rubik_medium</item>
     </style>
     <!--Body-->
     <style name="Readium.TextAppearance.Body1" parent="TextAppearance.MaterialComponents.Body1">

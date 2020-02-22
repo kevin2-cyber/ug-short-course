@@ -7,6 +7,43 @@
     tools:ignore="UnusedNavigation">
 
     <fragment
+        android:id="@id/nav_auth"
+        android:name="shortcourse.readium.view.fragment.AuthFragment"
+        android:label="@string/title_auth"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_nav_auth_to_nav_onboarding"
+            app:destination="@id/nav_onboarding" />
+        <action
+            android:id="@+id/action_nav_auth_to_nav_registration"
+            app:destination="@id/nav_registration" />
+    </fragment>
+    <fragment
+        android:id="@id/nav_account"
+        android:name="shortcourse.readium.view.fragment.AccountFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@id/nav_registration"
+        android:name="shortcourse.readium.view.fragment.RegistrationFragment"
+        android:label="@string/title_registration"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_nav_registration_to_nav_account"
+            app:destination="@id/nav_account"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@id/nav_onboarding"
+        android:name="shortcourse.readium.view.fragment.OnboardingFragment"
+        android:label="@string/title_onboarding"
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_nav_onboarding_to_nav_registration"
+            app:destination="@id/nav_registration"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
+    <fragment
         android:id="@id/nav_comment"
         android:name="shortcourse.readium.view.fragment.CommentFragment"
         android:label="fragment_comment"
@@ -31,11 +68,6 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_nav_home_to_nav_auth"
-            app:destination="@id/auth_navigation"
-            app:popUpTo="@id/nav_home"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_nav_home_to_nav_post"
             app:destination="@id/nav_post" />
         <action
@@ -50,6 +82,12 @@
         <action
             android:id="@+id/action_nav_home_to_nav_search"
             app:destination="@id/nav_search" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_auth"
+            app:destination="@id/nav_auth" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_account"
+            app:destination="@id/nav_account" />
     </fragment>
     <fragment
         android:id="@id/nav_settings"
@@ -61,9 +99,7 @@
             app:destination="@id/nav_compose" />
         <action
             android:id="@+id/action_nav_settings_to_nav_auth"
-            app:destination="@id/auth_navigation"
-            app:popUpTo="@id/nav_home"
-            app:popUpToInclusive="true" />
+            app:destination="@id/nav_auth" />
     </fragment>
     <fragment
         android:id="@id/nav_review"
@@ -93,46 +129,5 @@
         android:name="shortcourse.readium.view.fragment.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
-    <navigation
-        android:id="@+id/auth_navigation"
-        app:startDestination="@id/nav_auth">
-        <fragment
-            android:id="@id/nav_registration"
-            android:name="shortcourse.readium.view.fragment.RegistrationFragment"
-            android:label="@string/title_registration"
-            tools:layout="@layout/fragment_registration" >
-            <action
-                android:id="@+id/action_nav_registration_to_nav_account"
-                app:destination="@id/nav_account"
-                app:popUpTo="@id/nav_home" />
-        </fragment>
-        <fragment
-            android:id="@id/nav_auth"
-            android:name="shortcourse.readium.view.fragment.AuthFragment"
-            android:label="@string/title_auth"
-            tools:layout="@layout/fragment_auth">
-            <action
-                android:id="@+id/action_nav_auth_to_nav_onboarding"
-                app:destination="@id/nav_onboarding" />
-            <action
-                android:id="@+id/action_nav_auth_to_nav_registration"
-                app:destination="@id/nav_registration" />
-        </fragment>
-        <fragment
-            android:id="@id/nav_onboarding"
-            android:name="shortcourse.readium.view.fragment.OnboardingFragment"
-            android:label="@string/title_onboarding"
-            tools:layout="@layout/fragment_onboarding">
-            <action
-                android:id="@+id/action_nav_onboarding_to_nav_registration"
-                app:destination="@id/nav_registration"
-                app:popUpTo="@id/nav_home" />
-        </fragment>
-        <fragment
-            android:id="@id/nav_account"
-            android:name="shortcourse.readium.view.fragment.AccountFragment"
-            android:label="@string/title_account"
-            tools:layout="@layout/fragment_account" />
-    </navigation>
 
 </navigation>

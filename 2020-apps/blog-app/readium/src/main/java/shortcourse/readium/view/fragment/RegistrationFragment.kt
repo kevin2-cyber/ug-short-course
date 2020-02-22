@@ -45,7 +45,7 @@ class RegistrationFragment : Fragment() {
                 }
 
                 AuthViewModel.AuthenticationState.AUTHENTICATED -> {
-                    controller.popBackStack(R.id.nav_home, true)
+                    controller.navigate(RegistrationFragmentDirections.actionNavRegistrationToNavAccount())
                 }
 
                 AuthViewModel.AuthenticationState.INVALID_AUTHENTICATION -> {

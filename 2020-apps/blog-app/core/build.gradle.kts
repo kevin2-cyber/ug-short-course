@@ -47,6 +47,9 @@ dependencies {
     // Theme
     api(project(":theming"))
 
+    // Date formatter
+    api(project(":date-formatter"))
+
     // Android
     api("androidx.core:core-ktx:1.2.0")
     api("androidx.appcompat:appcompat:1.1.0")

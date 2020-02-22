@@ -1,10 +1,12 @@
 package shortcourse.readium.core.model.post
 
+import android.content.Context
 import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import io.codelabs.dateformatter.DateFormatter
 import kotlinx.android.parcel.Parcelize
 import shortcourse.readium.core.model.ReadiumModel
 import shortcourse.readium.core.model.account.Account
@@ -39,6 +41,12 @@ data class Post(
 
     @Ignore
     fun showTags(): String = tags.toString()
+
+    @Ignore
+    fun measureReadTime(): String = "10 minutes read"
+
+    @Ignore
+    fun getTimestampMeasure(ctx: Context): String = DateFormatter(ctx).getConversationTimestamp(timestamp)
 
     companion object {
         val POST_DIFF: DiffUtil.ItemCallback<Post> = object : DiffUtil.ItemCallback<Post>() {

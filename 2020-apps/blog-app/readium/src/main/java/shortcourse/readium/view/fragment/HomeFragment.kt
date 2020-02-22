@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.dropbox.android.external.store4.ResponseOrigin
-import kotlinx.coroutines.flow.collect
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import shortcourse.readium.core.base.BaseFragment
 import shortcourse.readium.core.model.post.Post
-import shortcourse.readium.core.repository.PostRepository
 import shortcourse.readium.core.util.debugger
+import shortcourse.readium.core.viewmodel.AccountViewModel
+import shortcourse.readium.core.viewmodel.PostViewModel
 import shortcourse.readium.databinding.FragmentHomeBinding
 import shortcourse.readium.view.recyclerview.PostsAdapter
 
@@ -22,6 +23,8 @@ import shortcourse.readium.view.recyclerview.PostsAdapter
  */
 class HomeFragment : BaseFragment(), PostsAdapter.OnPostItemListener {
     private lateinit var binding: FragmentHomeBinding
+    private val postViewModel by viewModel<PostViewModel>()
+    private val accountViewModel by viewModel<AccountViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,18 +46,25 @@ class HomeFragment : BaseFragment(), PostsAdapter.OnPostItemListener {
             executePendingBindings()
         }
 
-        val repo = get<PostRepository>()
-        lifecycleScope.launchWhenStarted {
-            // Get all posts
-            repo.getAllPosts().collect {
-                when (it.origin) {
-                    ResponseOrigin.Cache -> debugger("From cache")
-                    ResponseOrigin.Fetcher -> debugger("From fetcher")
-                    ResponseOrigin.Persister -> debugger("From persister")
+        // Get all posts
+        postViewModel.allPosts.observe(viewLifecycleOwner, Observer { posts ->
+            adapter.submitList(posts)
+        })
+
+        // Check account information
+        accountViewModel.currentUser.observe(viewLifecycleOwner, Observer { accountOwner ->
+            if (accountOwner != null && accountOwner.firstName.isEmpty() && accountOwner.lastName.isEmpty())
+                MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle("Account completion")
+                    setMessage("You need to finish setting up your account")
+                    setPositiveButton("Got It!") { dialog, _ ->
+                        dialog.dismiss()
+                        findNavController().navigate(HomeFragmentDirections.actionNavHomeToNavAccount())
+                    }
+                    setCancelable(false)
+                    show()
                 }
-                adapter.submitList(it.dataOrNull())
-            }
-        }
+        })
 
     }
 

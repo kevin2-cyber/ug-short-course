@@ -14,6 +14,14 @@ class PostViewModel(private val repository: PostRepository) : ViewModel() {
     private val _allPosts = MutableLiveData<MutableList<Post>>()
     val allPosts: LiveData<MutableList<Post>> get() = _allPosts
 
+    init {
+        viewModelScope.launch {
+            repository.getAllPosts().collect {
+                _allPosts.postValue(it.dataOrNull())
+            }
+        }
+    }
+
     fun getPostForAuthor(authorId: String) = viewModelScope.launch {
         repository.getPostsForAuthor(authorId).collect {
             _allPosts.value = it.dataOrNull()
