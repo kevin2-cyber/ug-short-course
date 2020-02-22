@@ -157,6 +157,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:background="@color/companion_blue_50_alpha_060"
                     android:orientation="vertical"
                     android:visibility="@{hasBlog ? View.VISIBLE : View.GONE, default=`gone`}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

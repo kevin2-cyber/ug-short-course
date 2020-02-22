@@ -45,7 +45,6 @@
                 android:paddingVertical="@dimen/spacing_large"
                 app:checkedChip="@id/tag_popular"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:singleLine="true"
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
@@ -83,13 +82,13 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/posts_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="ifContentScrolls"
             android:scrollbars="none"
+            android:background="@color/companion_blue_50_alpha_060"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             tools:itemCount="12"

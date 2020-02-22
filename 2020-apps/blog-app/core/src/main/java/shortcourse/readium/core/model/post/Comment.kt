@@ -1,8 +1,12 @@
 package shortcourse.readium.core.model.post
 
+import android.content.Context
+import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import io.codelabs.dateformatter.DateFormatter
 import kotlinx.android.parcel.Parcelize
 import shortcourse.readium.core.model.ReadiumModel
 import shortcourse.readium.core.model.account.Account
@@ -34,4 +38,21 @@ data class Comment(
     val post: String,
     var message: String,
     var timestamp: Long = System.currentTimeMillis()
-) : ReadiumModel
+) : ReadiumModel {
+
+    @Ignore
+    constructor() : this("", "", "", "")
+
+    @Ignore
+    fun getTime(context: Context): String = DateFormatter(context).getTimestamp(timestamp)
+
+    companion object {
+        val DIFF_UTIL: DiffUtil.ItemCallback<Comment> = object : DiffUtil.ItemCallback<Comment>() {
+            override fun areItemsTheSame(oldItem: Comment, newItem: Comment): Boolean =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Comment, newItem: Comment): Boolean =
+                oldItem.id == newItem.id && oldItem.account == newItem.account
+        }
+    }
+}

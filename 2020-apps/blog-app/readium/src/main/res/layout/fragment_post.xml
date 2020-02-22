@@ -24,33 +24,33 @@
             android:layout_height="@dimen/app_bar_height"
             app:layout_constraintTop_toTopOf="parent">
 
-           <!-- <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:padding="@dimen/spacing_large"
-                android:text="@string/app_name"
-                android:textAppearance="?textAppearanceHeadline6"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />-->
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/spacing_normal"
+                 android:padding="@dimen/spacing_large"
+                 android:text="@string/app_name"
+                 android:textAppearance="?textAppearanceHeadline6"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent" />-->
 
             <!--android:text="@{author.displayName, default=`@string/app_name`}"-->
 
             <androidx.viewpager.widget.ViewPager
+                android:id="@+id/images_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/images_pager"/>
+                android:layout_height="match_parent" />
 
             <com.pixelcan.inkpageindicator.InkPageIndicator
                 android:id="@+id/indicator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:ipi_pageIndicatorColor="?attr/colorSecondaryVariant"
                 android:layout_marginBottom="@dimen/spacing_xlarge"
-                app:ipi_currentPageIndicatorColor="?attr/colorPrimary" />
+                app:ipi_currentPageIndicatorColor="?attr/colorPrimary"
+                app:ipi_pageIndicatorColor="?attr/colorSecondaryVariant"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageButton
                 android:id="@+id/more_options"
@@ -159,6 +159,7 @@
                         android:id="@+id/comments_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/companion_blue_50_alpha_060"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="4"
                         tools:listitem="@layout/comment_item_layout" />
@@ -183,6 +184,7 @@
                         android:id="@+id/related_posts_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/companion_blue_50_alpha_060"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="4"
