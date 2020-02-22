@@ -19,7 +19,7 @@
             android:minHeight="@dimen/app_bar_height_small"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/spacing_large"
-            android:paddingVertical="@dimen/spacing_large">
+            android:paddingVertical="@dimen/spacing_xlarge">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
             android:scrollbars="none"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            tools:itemCount="2"
+            tools:itemCount="12"
             tools:listitem="@layout/post_item_layout" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
