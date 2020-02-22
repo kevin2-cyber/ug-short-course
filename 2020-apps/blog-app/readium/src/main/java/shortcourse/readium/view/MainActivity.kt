@@ -20,7 +20,7 @@ import shortcourse.readium.view.fragment.PostFragmentDirections
 import shortcourse.readium.view.fragment.SettingsFragmentDirections
 
 class MainActivity : BaseActivity() {
-    private lateinit var binding: MainActivityBinding
+    lateinit var binding: MainActivityBinding
     private lateinit var controller: NavController
     private val prefs: AccountPrefs by inject()
 

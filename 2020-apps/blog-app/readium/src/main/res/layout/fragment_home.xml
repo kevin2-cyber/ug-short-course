@@ -11,50 +11,79 @@
         android:orientation="vertical"
         tools:context=".view.fragment.HomeFragment">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/tag_group"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="true"
-            android:paddingHorizontal="@dimen/spacing_normal"
-            android:paddingVertical="@dimen/spacing_large"
-            app:checkedChip="@id/tag_popular"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:singleLine="true"
-            app:singleSelection="true">
+            android:background="?attr/colorOnPrimary"
+            android:gravity="center"
+            android:minHeight="@dimen/app_bar_height_small"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/spacing_large"
+            android:paddingVertical="@dimen/spacing_large">
 
-            <com.google.android.material.chip.Chip
-                android:id="@id/tag_popular"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tag_popular" />
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textAppearance="?textAppearanceHeadline6" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@id/tag_latest"
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tag_latest" />
+                android:layout_gravity="center"
+                android:paddingVertical="@dimen/spacing_small"
+                android:text="@string/app_desc"
+                android:textAppearance="?textAppearanceCaption" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@id/tag_favorites"
-                android:layout_width="wrap_content"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/tag_group"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tag_favorites" />
+                android:nestedScrollingEnabled="true"
+                android:paddingHorizontal="@dimen/spacing_normal"
+                android:paddingVertical="@dimen/spacing_large"
+                app:checkedChip="@id/tag_popular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:singleLine="true"
+                app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
-                android:id="@id/tag_best"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tag_best" />
+                <com.google.android.material.chip.Chip
+                    android:id="@id/tag_popular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_popular" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@id/tag_health_care"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tag_health_care" />
+                <com.google.android.material.chip.Chip
+                    android:id="@id/tag_latest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_latest" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@id/tag_favorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_favorites" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@id/tag_best"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_best" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@id/tag_health_care"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_health_care" />
 
 
-        </com.google.android.material.chip.ChipGroup>
+            </com.google.android.material.chip.ChipGroup>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/posts_list"

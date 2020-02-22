@@ -28,11 +28,12 @@
     <!--Chip-->
     <style name="Widget.Readium.Chip" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="shapeAppearanceOverlay">@style/ShapeOverlay.Readium.Chip</item>
-        <item name="background">@drawable/readium_chip_selector</item>
-        <item name="chipIcon">@drawable/ic_bookmark</item>
+        <item name="chipIcon">@drawable/ic_chip_icon</item>
         <item name="iconGravity">start</item>
         <item name="chipIconEnabled">true</item>
         <item name="chipIconVisible">true</item>
+        <item name="chipStrokeColor">?attr/colorSecondary</item>
+        <item name="chipStrokeWidth">@dimen/stroke_width</item>
     </style>
 
     <!--Bottom App Bar-->

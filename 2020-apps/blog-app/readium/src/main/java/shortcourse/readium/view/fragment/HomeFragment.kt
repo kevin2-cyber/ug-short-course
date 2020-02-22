@@ -18,6 +18,7 @@ import shortcourse.readium.core.util.showSnackbar
 import shortcourse.readium.core.viewmodel.AccountViewModel
 import shortcourse.readium.core.viewmodel.PostViewModel
 import shortcourse.readium.databinding.FragmentHomeBinding
+import shortcourse.readium.view.MainActivity
 import shortcourse.readium.view.recyclerview.PostsAdapter
 
 /**
@@ -71,7 +72,12 @@ class HomeFragment : BaseFragment(), PostsAdapter.OnPostItemListener {
                         /*Load defaults*/
                     }
                 }
-                root.showSnackbar("This option is not available for now")
+
+                // There's a problem when the FAB settles after the snackbar is dismissed
+                // This is a temporal fix to this issue
+                root.showSnackbar("This option is not available for now") {
+                    (requireActivity() as MainActivity).binding.bottomAppBar.performShow()
+                }
             }
             executePendingBindings()
         }

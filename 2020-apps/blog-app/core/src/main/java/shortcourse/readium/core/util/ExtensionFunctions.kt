@@ -23,25 +23,30 @@ val EditText.resolveText get() = text.toString()
 /**
  * Show a simple [Snackbar]
  */
-fun View.showSnackbar(message: String, persisted: Boolean = false) = Snackbar.make(
-    this,
-    message,
-    if (persisted) Snackbar.LENGTH_INDEFINITE else Snackbar.LENGTH_SHORT
-)
-    .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar?>() {
-        override fun onShown(transientBottomBar: Snackbar?) {
-            super.onShown(transientBottomBar)
+fun View.showSnackbar(message: String, persisted: Boolean = false, callback: () -> Unit? = {}) =
+    Snackbar.make(
+        this,
+        message,
+        if (persisted) Snackbar.LENGTH_INDEFINITE else Snackbar.LENGTH_SHORT
+    )
+        .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar?>() {
+            override fun onShown(transientBottomBar: Snackbar?) {
+                super.onShown(transientBottomBar)
 
-            if (persisted) {
-                GlobalScope.launch(Dispatchers.Main) {
-                    // Cancel after 10 secs
-                    delay(10000)
-                    if (transientBottomBar != null && transientBottomBar.isShown) transientBottomBar.dismiss()
+                if (persisted) {
+                    GlobalScope.launch(Dispatchers.Main) {
+                        // Cancel after 10 secs
+                        delay(10000)
+                        if (transientBottomBar != null && transientBottomBar.isShown) transientBottomBar.dismiss()
+                    }
                 }
             }
-        }
-    })
-    .show()
+
+            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                callback()
+            }
+        })
+        .show()
 
 
 /**
