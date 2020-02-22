@@ -34,6 +34,7 @@
         <item name="chipIconVisible">true</item>
         <item name="chipStrokeColor">?attr/colorSecondary</item>
         <item name="chipStrokeWidth">@dimen/stroke_width</item>
+        <item name="chipBackgroundColor">@color/csl_chip</item>
     </style>
 
     <!--Bottom App Bar-->

@@ -3,9 +3,8 @@
     <!--Light only-->
     <color name="l_primary">#090909</color>
     <color name="l_primary_variant">#383D45</color>
-    <color name="l_secondary">#383D45</color>
-    <color name="l_secondary_variant">#5e5e5e</color>
-
+    <color name="l_secondary">#9C27B0</color>
+    <color name="l_secondary_variant">#C77AD5</color>
 
     <!--Base-->
     <color name="primary">#090909</color>
