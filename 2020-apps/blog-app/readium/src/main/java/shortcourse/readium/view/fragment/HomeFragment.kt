@@ -10,9 +10,11 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import shortcourse.readium.R
 import shortcourse.readium.core.base.BaseFragment
 import shortcourse.readium.core.model.post.Post
 import shortcourse.readium.core.util.debugger
+import shortcourse.readium.core.util.showSnackbar
 import shortcourse.readium.core.viewmodel.AccountViewModel
 import shortcourse.readium.core.viewmodel.PostViewModel
 import shortcourse.readium.databinding.FragmentHomeBinding
@@ -43,6 +45,34 @@ class HomeFragment : BaseFragment(), PostsAdapter.OnPostItemListener {
         val adapter = PostsAdapter(this@HomeFragment, get())
         binding.run {
             postsList.adapter = adapter
+            tagGroup.setOnCheckedChangeListener { _, checkedId ->
+                when (checkedId) {
+                    R.id.tag_best -> {
+                        // TODO: 2/22/2020 Load best seller
+                    }
+
+                    R.id.tag_favorites -> {
+                        // TODO: 2/22/2020 Load favorites
+                    }
+
+                    R.id.tag_health_care -> {
+                        // TODO: 2/22/2020 Load health care
+                    }
+
+                    R.id.tag_popular -> {
+                        // TODO: 2/22/2020 Load popular
+                    }
+
+                    R.id.tag_latest -> {
+                        // TODO: 2/22/2020 Load latest
+                    }
+
+                    else -> {
+                        /*Load defaults*/
+                    }
+                }
+                root.showSnackbar("This option is not available for now")
+            }
             executePendingBindings()
         }
 

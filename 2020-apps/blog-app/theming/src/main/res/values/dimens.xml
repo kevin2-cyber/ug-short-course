@@ -23,4 +23,7 @@
     <dimen name="app_bar_height_small">120dp</dimen>
     <dimen name="more_stories_height">120dp</dimen>
     <dimen name="z_app_bar">0dp</dimen>
+    <dimen name="spacing_huge">64dp</dimen>
+    <dimen name="spacing_enormous">128dp</dimen>
+    <dimen name="stroke_width">1dp</dimen>
 </resources>

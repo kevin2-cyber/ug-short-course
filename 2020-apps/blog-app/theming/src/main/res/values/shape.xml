@@ -2,17 +2,17 @@
 <resources>
 
     <style name="Shape.Readium.Small" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
         <item name="cornerRadius">@dimen/spacing_xlarge</item>
     </style>
 
     <style name="Shape.Readium.Medium" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
         <item name="cornerRadius">@dimen/spacing_xlarge</item>
     </style>
 
     <style name="Shape.Readium.Large" parent="ShapeAppearance.MaterialComponents.LargeComponent">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
     </style>
 
     <!--Bottom Sheet-->

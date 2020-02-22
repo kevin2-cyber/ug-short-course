@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import shortcourse.readium.core.util.debugger
+import shortcourse.readium.core.util.showSnackbar
 import shortcourse.readium.core.viewmodel.AccountViewModel
 import shortcourse.readium.core.viewmodel.CommentViewModel
 import shortcourse.readium.core.viewmodel.PostViewModel
@@ -78,6 +79,12 @@ class PostFragment : Fragment() {
             commentsViewModel.getCommentsForPost(args.post!!.id)
             accountViewModel.getUserById(args.post!!.authorId)
             postViewModel.getPostForAuthor(args.post!!.authorId)
+            commentOnPost.setOnClickListener {
+                findNavController().navigate(PostFragmentDirections.actionNavPostToNavComment())
+            }
+            moreOptions.setOnClickListener {
+                root.showSnackbar("This option is currently unavailable")
+            }
         }
 
     }

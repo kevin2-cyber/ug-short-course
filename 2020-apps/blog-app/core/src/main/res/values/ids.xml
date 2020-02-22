@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Navigation-->
     <item name="nav_auth" type="id" />
     <item name="nav_home" type="id" />
     <item name="nav_post" type="id" />
@@ -11,4 +12,12 @@
     <item name="nav_account" type="id" />
     <item name="nav_registration" type="id" />
     <item name="nav_onboarding" type="id" />
+
+    <!--Tags-->
+    <item name="tag_group" type="id" />
+    <item name="tag_latest" type="id" />
+    <item name="tag_popular" type="id" />
+    <item name="tag_favorites" type="id" />
+    <item name="tag_best" type="id" />
+    <item name="tag_health_care" type="id" />
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tag_latest">Latest</string>
+    <string name="tag_popular">Popular</string>
+    <string name="tag_best">BestSeller</string>
+    <string name="tag_favorites">Favorites</string>
+    <string name="tag_health_care">HealthCare</string>
+</resources>
