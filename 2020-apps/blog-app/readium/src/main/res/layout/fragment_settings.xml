@@ -49,7 +49,7 @@
                     android:layout_gravity="center"
                     app:isCircleCrop="@{true}"
                     app:srcUrl="@{account.avatar}"
-                    tools:src="@tools:sample/avatars" />
+                    tools:src="@drawable/ic_avatar" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,9 +138,9 @@
                     style="@style/Widget.Readium.Button"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/spacing_xlarge"
+                    tools:enabled="false"
                     android:text="@{isFollowing ? @string/follow : @string/following, default=`@string/follow`}"
                     app:icon="@{isFollowing ? @drawable/ic_add_follower : @drawable/ic_remove_follower, default=`@drawable/ic_add_follower`}" />
-
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -161,7 +161,7 @@
                     android:visibility="@{hasBlog ? View.VISIBLE : View.GONE, default=`gone`}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="3"
-                    tools:listitem="@layout/post_item_other_layout" />
+                    tools:listitem="@layout/post_item_layout" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

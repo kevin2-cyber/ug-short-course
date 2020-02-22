@@ -18,8 +18,8 @@ fun bindSrcUrl(view: ImageView, src: String?, circleCrop: Boolean = false) {
         .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
         .transition(withCrossFade())
     if (circleCrop) request
-        .error(R.drawable.ic_account)
-        .placeholder(R.drawable.ic_account)
+        .error(R.drawable.ic_avatar)
+        .placeholder(R.drawable.ic_avatar)
         .circleCrop().into(view) else
         request.into(view)
 }

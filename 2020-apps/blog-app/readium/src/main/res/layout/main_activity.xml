@@ -15,7 +15,7 @@
             android:id="@+id/top_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="?colorOnPrimary"
+            android:backgroundTint="?colorOnSurface"
             android:gravity="center_vertical"
             android:visibility="gone"
             app:liftOnScroll="true">

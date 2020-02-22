@@ -44,23 +44,6 @@ class PostFragment : Fragment() {
             return
         }
 
-        // Observe account owner
-        accountViewModel.currentUser.observe(viewLifecycleOwner, Observer { account ->
-            binding.run {
-                author = account
-                executePendingBindings()
-            }
-            if (account != null) {
-                binding.authorAvatar.setOnClickListener {
-                    findNavController().navigate(
-                        PostFragmentDirections.actionNavPostToNavSettings(
-                            account
-                        )
-                    )
-                }
-            }
-        })
-
         // Observe comments
         commentsViewModel.comments.observe(viewLifecycleOwner, Observer { comments ->
             debugger("Comments for blog -> ${comments?.map { it.id }}")
@@ -85,6 +68,21 @@ class PostFragment : Fragment() {
             moreOptions.setOnClickListener {
                 root.showSnackbar("This option is currently unavailable")
             }
+
+            // Observe account owner
+            accountViewModel.currentUser.observe(viewLifecycleOwner, Observer { account ->
+                this@run.author = account
+                if (account != null) {
+                    this@run.authorAvatar.setOnClickListener {
+                        findNavController().navigate(
+                            PostFragmentDirections.actionNavPostToNavSettings(
+                                account
+                            )
+                        )
+                    }
+                }
+            })
+
         }
 
     }

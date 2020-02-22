@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.jetbrains.anko.support.v4.toast
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import shortcourse.readium.R
@@ -75,9 +76,7 @@ class HomeFragment : BaseFragment(), PostsAdapter.OnPostItemListener {
 
                 // There's a problem when the FAB settles after the snackbar is dismissed
                 // This is a temporal fix to this issue
-                root.showSnackbar("This option is not available for now") {
-                    (requireActivity() as MainActivity).binding.bottomAppBar.performShow()
-                }
+                toast("Feature unavailable")
             }
             executePendingBindings()
         }

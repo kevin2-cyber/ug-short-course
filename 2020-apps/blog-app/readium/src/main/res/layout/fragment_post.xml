@@ -17,23 +17,40 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorOnPrimary"
         tools:context=".view.fragment.PostFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/app_bar_height_small"
+            android:layout_height="@dimen/app_bar_height"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+           <!-- <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_normal"
                 android:padding="@dimen/spacing_large"
-                android:text="@{author.displayName, default=`@string/app_name`}"
+                android:text="@string/app_name"
                 android:textAppearance="?textAppearanceHeadline6"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--android:text="@{author.displayName, default=`@string/app_name`}"-->
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/images_pager"/>
+
+            <com.pixelcan.inkpageindicator.InkPageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:ipi_pageIndicatorColor="?attr/colorSecondaryVariant"
+                android:layout_marginBottom="@dimen/spacing_xlarge"
+                app:ipi_currentPageIndicatorColor="?attr/colorPrimary" />
 
             <ImageButton
                 android:id="@+id/more_options"
@@ -52,7 +69,7 @@
             android:id="@+id/scroll_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/app_bar_height_small"
+            android:layout_marginTop="@dimen/app_bar_height"
             android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,7 +114,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/post_title"
                     app:srcUrl="@{author.avatar}"
-                    tools:src="@tools:sample/avatars" />
+                    tools:src="@drawable/ic_avatar" />
 
                 <TextView
                     android:id="@+id/separator"
@@ -116,26 +133,76 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
-                    android:text="@{author.id}"
+                    android:text="@{author.displayName}"
                     android:textAppearance="?textAppearanceOverline"
                     app:layout_constraintBottom_toBottomOf="@id/author_avatar"
                     app:layout_constraintStart_toEndOf="@id/separator"
                     app:layout_constraintTop_toTopOf="@id/author_avatar"
                     tools:text="@tools:sample/full_names" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/comment_on_post"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/comments_container"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/fab_margin"
-                    android:enabled="@{post == null ? false : true, default=`false`}"
-                    android:src="@drawable/ic_comments"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/post_desc">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/spacing_large"
+                        android:text="@string/title_comment"
+                        android:textAppearance="?textAppearanceOverline" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/comments_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/comment_item_layout" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/comments_container">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/spacing_large"
+                        android:text="@string/related_posts"
+                        android:textAppearance="?textAppearanceOverline" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/related_posts_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/post_item_layout" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/comment_on_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:enabled="@{post == null ? false : true, default=`true`}"
+            android:src="@drawable/ic_comments"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

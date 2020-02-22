@@ -80,15 +80,6 @@ class RegistrationFragment : Fragment() {
             }
         })
 
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    authViewModel.cancelAuthentication()
-                    findNavController().popBackStack(R.id.nav_auth, true)
-                }
-            })
-
         binding.run {
             navCreateAccount.setOnClickListener {
                 when {
