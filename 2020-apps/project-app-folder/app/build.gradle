@@ -23,6 +23,7 @@ android {
     }
 
     // ViewBinding
+     buildFeatures.dataBinding = true
      buildFeatures.viewBinding = true
 }
 
