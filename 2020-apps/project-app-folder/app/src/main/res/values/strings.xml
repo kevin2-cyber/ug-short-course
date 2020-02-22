@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Legere</string>
+    <string name="app_desc">&quot;Legere&quot; is a mobile application that helps readers to share &amp; create some blog posts</string>
+    <string name="developer">Quabynah Codelabs © 2020</string>
+    <string name="get_started">Get started</string>
 </resources>
