@@ -57,7 +57,8 @@ class AuthFragment : BaseFragment() {
                 }
 
                 AuthViewModel.AuthenticationState.AUTHENTICATED -> {
-                    controller.popBackStack(R.id.nav_home, true)
+                    debugger("User signed in successfully")
+                    controller.popBackStack()
                 }
                 AuthViewModel.AuthenticationState.INVALID_AUTHENTICATION -> {
                     binding.run {
@@ -89,12 +90,7 @@ class AuthFragment : BaseFragment() {
 
         binding.run {
             navCreateAccount.setOnClickListener {
-                controller.navigate(
-                    if (get<OnboardingPrefs>().shouldShowOnboarding)
-                        AuthFragmentDirections.actionNavAuthToNavOnboarding()
-                    else
-                        AuthFragmentDirections.actionNavAuthToNavRegistration()
-                )
+                controller.navigate(AuthFragmentDirections.actionNavAuthToNavOnboarding())
             }
             performLogin.setOnClickListener {
                 if (InputValidator.validateEmail(authEmail)) {

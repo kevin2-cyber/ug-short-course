@@ -185,7 +185,7 @@ class AccountRepositoryImpl(
 
     override suspend fun getCurrentUser(): Flow<StoreResponse<Account>> =
         StoreBuilder.from<String, Account> {
-            callbackFlow {
+            /*callbackFlow {
                 val subscription =
                     firestore.observeAccountById(it).addSnapshotListener { snapshot, exception ->
                         if (exception != null) {
@@ -207,8 +207,8 @@ class AccountRepositoryImpl(
                     }
 
                 awaitClose { subscription.remove() }
-            }
-            //accountDao.getAccount(it)
+            }*/
+            accountDao.getAccount(it)
         }.scope(ioScope)
             .persister(
                 reader = ::readAccount,

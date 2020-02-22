@@ -93,7 +93,7 @@ class OnboardingFragment : Fragment() {
                     if (pageThree == null)
                         pageThree =
                             OnboardingPageItemLayoutBinding.inflate(inflater, container, false)
-                    pageThree?.animationView?.setAnimation(R.raw.pencil)
+                    pageThree?.animationView?.setAnimation(R.raw.read_meditate)
                     pageThree?.skipButton?.run {
                         visibility = View.VISIBLE
                         setOnClickListener {
