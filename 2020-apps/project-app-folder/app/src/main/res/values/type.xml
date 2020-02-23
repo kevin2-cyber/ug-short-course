@@ -6,6 +6,11 @@
         <item name="android:textColor">?attr/colorPrimaryVariant</item>
     </style>
 
+    <style name="TextAppearance.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/simonetta</item>
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+    </style>
+
     <style name="TextAppearance.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/simonetta</item>
         <item name="android:textColor">?attr/colorPrimaryVariant</item>

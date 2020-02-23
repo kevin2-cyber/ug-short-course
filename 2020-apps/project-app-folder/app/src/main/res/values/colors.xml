@@ -7,7 +7,7 @@
 
     <color name="color_on_primary">#442c2e</color>
     <color name="color_on_secondary">#ffffff</color>
-    <color name="color_on_surface">#ffffff</color>
+    <color name="color_on_surface">#000000</color>
     <color name="color_on_background">?attr/colorSecondary</color>
 
 </resources>

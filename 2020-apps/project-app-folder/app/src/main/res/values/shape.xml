@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Small-->
+    <style name="ShapeAppearance.Small" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerRadius">@dimen/spacing_normal</item>
+    </style>
+
+    <!--Medium-->
+    <style name="ShapeAppearance.Medium" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerRadius">@dimen/spacing_normal</item>
+    </style>
+
+    <!--Large-->
+    <style name="ShapeAppearance.Large" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerRadius">@dimen/spacing_large</item>
+    </style>
+
+
+</resources>

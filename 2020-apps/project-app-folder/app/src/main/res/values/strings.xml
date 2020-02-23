@@ -3,4 +3,8 @@
     <string name="app_desc">&quot;Legere&quot; is a mobile application that helps readers to share &amp; create some blog posts</string>
     <string name="developer">Quabynah Codelabs © 2020</string>
     <string name="get_started">Get started</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email address</string>
+    <string name="sign_in_to_get_started">Sign in to get started</string>
 </resources>
