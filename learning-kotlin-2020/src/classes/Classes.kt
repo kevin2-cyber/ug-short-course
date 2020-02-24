@@ -31,7 +31,6 @@ fun main() {
     }
     println(prince.doSomething())
     println(stella.onUserPaid())
-
 }
 
 private fun uid() = UUID.randomUUID().toString()
@@ -81,7 +80,6 @@ abstract class HumanBeing
 
 data class User constructor(val id: String, override var name: String, override val email: String) : Person,
     OnPaidListener, HumanBeing() {
-
 
     override fun onUserPaid() {
         println("Hooray! You have been paid some alawa!!!")
