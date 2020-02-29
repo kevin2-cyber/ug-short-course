@@ -19,9 +19,9 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
             }
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -33,6 +33,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
@@ -70,11 +72,26 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
+    // Work Manager
+    def work_version = "2.3.2"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    // Google
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+
     // Testing
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
     testImplementation "androidx.room:room-testing:$room_version"
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+
+    // Guava -> resolving gradle issue
+    // Duplicate class com.google.common.util.concurrent.ListenableFuture found in modules
+    // jetified-guava-26.0-android.jar (com.google.guava:guava:26.0-android) and
+    // jetified-listenablefuture-1.0.jar (com.google.guava:listenablefuture:1.0)
+    implementation 'com.google.guava:guava:27.0.1-android'
 
 }
