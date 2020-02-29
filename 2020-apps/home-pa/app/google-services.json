@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "85520433977",
+    "firebase_url": "https://the-blogly-app.firebaseio.com",
+    "project_id": "the-blogly-app",
+    "storage_bucket": "the-blogly-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85520433977:android:8bb318dbbb4868f42e9ee8",
+        "android_client_info": {
+          "package_name": "shortcourse.homepa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85520433977-kvb0lcep777rirdgtrre0a095gr26dn0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shortcourse.homepa",
+            "certificate_hash": "4a3559a4b5f964c565d55e91a2b86f23836ce186"
+          }
+        },
+        {
+          "client_id": "85520433977-0f0spp4jr3tmk9k9uja70vv9nu8dde5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQofc1tkXdfu00NMOysB_vX0egteIOwiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85520433977-0f0spp4jr3tmk9k9uja70vv9nu8dde5q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85520433977:android:0a6072992400a9082e9ee8",
+        "android_client_info": {
+          "package_name": "shortcourse.readium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85520433977-lco4u1hvg57fuavfh57r814uot3rrhgq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shortcourse.readium",
+            "certificate_hash": "d42dfaef62944cf76b27a02f19c6c1f6d19289f9"
+          }
+        },
+        {
+          "client_id": "85520433977-qfqfa6vpp882f0jddso42bsqaat3rcit.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shortcourse.readium",
+            "certificate_hash": "4a3559a4b5f964c565d55e91a2b86f23836ce186"
+          }
+        },
+        {
+          "client_id": "85520433977-0f0spp4jr3tmk9k9uja70vv9nu8dde5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQofc1tkXdfu00NMOysB_vX0egteIOwiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85520433977-0f0spp4jr3tmk9k9uja70vv9nu8dde5q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
