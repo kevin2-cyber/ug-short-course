@@ -13,14 +13,14 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/spacing_large"
-        tools:context=".LoginActivity">
+        tools:context=".view.LoginActivity">
 
         <!--Logo-->
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/logo_width"
             android:layout_height="@dimen/logo_height"
             android:layout_marginVertical="@dimen/spacing_large"
-            android:src="@drawable/logo_dark" />
+            android:src="@drawable/logo" />
 
         <!--Logo description-->
         <TextView

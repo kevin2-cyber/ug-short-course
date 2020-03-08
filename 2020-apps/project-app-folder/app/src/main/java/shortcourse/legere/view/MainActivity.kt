@@ -1,9 +1,10 @@
-package shortcourse.legere
+package shortcourse.legere.view
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import shortcourse.legere.R
 import shortcourse.legere.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_main
+        )
 
         // Old way
         // findViewById<MaterialButton>(R.id.get_started)
@@ -27,4 +31,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }

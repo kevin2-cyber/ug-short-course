@@ -21,6 +21,6 @@
     </style>
 
     <style name="TextAppearance.Body2" parent="TextAppearance.MaterialComponents.Body2">
-        <item name="fontFamily">@font/rubik_medium</item>
+        <item name="fontFamily">@font/rubik</item>
     </style>
 </resources>

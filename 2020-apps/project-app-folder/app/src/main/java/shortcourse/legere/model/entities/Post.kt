@@ -1,8 +1,14 @@
-package com.gabby.model.entities
+package shortcourse.legere.model.entities
 
-import com.gabby.model.BaseModel
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+/**
+ * [Post] data model
+ */
+@Entity(tableName = "posts")
 data class Post(
+    @PrimaryKey
     override val id: String,
     override val timestamp: Long,
     val authorId: String,
@@ -14,4 +20,4 @@ data class Post(
     var votes: Int,
     var reports: Int,
     var approved: Boolean
-) : BaseModel
+) : BaseEntity
