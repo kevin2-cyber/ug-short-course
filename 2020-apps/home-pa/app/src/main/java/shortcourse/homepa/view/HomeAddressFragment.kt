@@ -34,7 +34,7 @@ class HomeAddressFragment : Fragment() {
                 R.raw.map_style
             )
         )
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 19.0f))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16.0f))
     }
 
     override fun onCreateView(

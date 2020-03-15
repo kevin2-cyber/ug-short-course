@@ -3,12 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/nav_home_address"
+    app:startDestination="@id/nav_welcome"
     tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/nav_home_address"
+        android:id="@id/nav_home"
         android:name="shortcourse.homepa.view.HomeAddressFragment"
         android:label="fragment_home_address"
         tools:layout="@layout/fragment_home_address" />
+    <fragment
+        android:id="@id/nav_welcome"
+        android:name="shortcourse.homepa.view.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@id/nav_account_setup"
+        android:name="shortcourse.homepa.view.AccountSetupFragment"
+        android:label="fragment_account_setup"
+        tools:layout="@layout/fragment_account_setup" />
+    <fragment
+        android:id="@id/nav_create_home"
+        android:name="shortcourse.homepa.view.CreateHomeFragment"
+        android:label="fragment_create_home"
+        tools:layout="@layout/fragment_create_home" />
+    <fragment
+        android:id="@id/nav_login"
+        android:name="shortcourse.homepa.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@id/nav_recover_password"
+        android:name="shortcourse.homepa.view.RecoverPasswordFragment"
+        android:label="fragment_recover_password"
+        tools:layout="@layout/fragment_recover_password" />
+    <fragment
+        android:id="@id/nav_register"
+        android:name="shortcourse.homepa.view.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

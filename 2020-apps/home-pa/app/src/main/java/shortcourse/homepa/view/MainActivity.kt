@@ -1,10 +1,11 @@
-package shortcourse.homepa
+package shortcourse.homepa.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.android.inject
+import shortcourse.homepa.R
 
 
 class MainActivity : AppCompatActivity() {
