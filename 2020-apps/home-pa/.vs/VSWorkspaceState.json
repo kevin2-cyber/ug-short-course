@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\src",
+    "\\app\\src\\main",
+    "\\app\\src\\main\\java",
+    "\\app\\src\\main\\java\\shortcourse",
+    "\\app\\src\\main\\java\\shortcourse\\homepa",
+    "\\app\\src\\main\\java\\shortcourse\\homepa\\view"
+  ],
+  "SelectedNode": "\\app\\src\\main\\java\\shortcourse\\homepa\\view\\LoginFragment.kt",
+  "PreviewInSolutionExplorer": false
+}
