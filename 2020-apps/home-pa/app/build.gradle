@@ -34,7 +34,8 @@ android {
         }
     }
 
-
+    // Enables view binding
+    buildFeatures.viewBinding = true
 }
 
 dependencies {

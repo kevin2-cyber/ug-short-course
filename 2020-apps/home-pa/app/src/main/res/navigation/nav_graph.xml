@@ -10,17 +10,32 @@
         android:id="@id/nav_home"
         android:name="shortcourse.homepa.view.HomeAddressFragment"
         android:label="fragment_home_address"
-        tools:layout="@layout/fragment_home_address" />
+        tools:layout="@layout/fragment_home_address" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_create_home"
+            app:destination="@id/nav_create_home" />
+    </fragment>
     <fragment
         android:id="@id/nav_welcome"
         android:name="shortcourse.homepa.view.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_nav_welcome_to_nav_login"
+            app:destination="@id/nav_login" />
+        <action
+            android:id="@+id/action_nav_welcome_to_nav_register"
+            app:destination="@id/nav_register" />
+    </fragment>
     <fragment
         android:id="@id/nav_account_setup"
         android:name="shortcourse.homepa.view.AccountSetupFragment"
         android:label="fragment_account_setup"
-        tools:layout="@layout/fragment_account_setup" />
+        tools:layout="@layout/fragment_account_setup" >
+        <action
+            android:id="@+id/action_nav_account_setup_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@id/nav_create_home"
         android:name="shortcourse.homepa.view.CreateHomeFragment"
@@ -30,7 +45,14 @@
         android:id="@id/nav_login"
         android:name="shortcourse.homepa.view.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_recover_password"
+            app:destination="@id/nav_recover_password" />
+    </fragment>
     <fragment
         android:id="@id/nav_recover_password"
         android:name="shortcourse.homepa.view.RecoverPasswordFragment"
@@ -40,5 +62,9 @@
         android:id="@id/nav_register"
         android:name="shortcourse.homepa.view.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_nav_register_to_nav_account_setup"
+            app:destination="@id/nav_account_setup" />
+    </fragment>
 </navigation>
