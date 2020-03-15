@@ -1,8 +1,12 @@
 package com.gabby.model.entities
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.gabby.model.BaseModel
 
+@Entity
 data class User(
+        @PrimaryKey
     override val id: String,
     val email: String,
     var role: String,

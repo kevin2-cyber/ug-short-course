@@ -1,4 +1,9 @@
 package com.gabby.model.dao
 
-interface PostDao {
+import androidx.room.Dao
+import com.gabby.model.entities.Post
+
+@Dao
+interface PostDao : BaseDao<Post> {
+
 }
