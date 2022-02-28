@@ -53,21 +53,21 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Material Components
-    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'com.google.android.material:material:1.5.0-alpha01'
 
     // Easy permissions
     implementation 'pub.devrel:easypermissions:3.0.0'
 
     // Lifecycle
-    def lifecycle_version = "2.0.0"
+    def lifecycle_version = '2.2.0'
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
@@ -78,21 +78,21 @@ dependencies {
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     // Room
-    def room_version = "2.1.0"
+    def room_version = '2.3.0'
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
     // WorkManager
-    def work_version = "2.1.0"
+    def work_version = '2.5.0'
     implementation "androidx.work:work-runtime-ktx:$work_version"
 
     // Firebase SDK
-    implementation 'com.google.firebase:firebase-core:17.0.1'
-    implementation 'com.google.firebase:firebase-auth:18.1.0'
-    implementation 'com.google.firebase:firebase-firestore:20.2.0'
+    implementation 'com.google.firebase:firebase-core:19.0.0'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-firestore:23.0.2'
 
     // Paging library
-    def paging_version = "2.1.0"
+    def paging_version = '3.0.0'
     implementation "androidx.paging:paging-runtime:$paging_version"
 
     // Image loading & caching library (Glide)
